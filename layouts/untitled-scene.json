@@ -43,6 +43,22 @@
       "numberProperties": [],
       "stringProperties": [],
       "initialVariables": []
+    },
+    {
+      "angle": 0,
+      "customSize": false,
+      "height": 0,
+      "keepRatio": true,
+      "layer": "",
+      "name": "tommy_text",
+      "persistentUuid": "8c66b5f5-a6f7-4808-b13e-faa99cd2825b",
+      "width": 0,
+      "x": 106,
+      "y": 269,
+      "zOrder": 2,
+      "numberProperties": [],
+      "stringProperties": [],
+      "initialVariables": []
     }
   ],
   "objects": [
@@ -89,6 +105,50 @@
         "lineHeight": 0,
         "color": "0;0;0"
       }
+    },
+    {
+      "assetStoreId": "",
+      "bold": false,
+      "italic": false,
+      "name": "tommy_text",
+      "persistentUuid": "aba13adf-3f97-41aa-9fc4-eadad75f02a6",
+      "smoothed": true,
+      "type": "TextObject::Text",
+      "underlined": false,
+      "variables": [],
+      "effects": [],
+      "behaviors": [],
+      "string": "hi group 3, my name is tommy and i love colbie caillat! where are the asteroids?",
+      "font": "",
+      "textAlignment": "left",
+      "characterSize": 30,
+      "color": {
+        "b": 0,
+        "g": 0,
+        "r": 255
+      },
+      "content": {
+        "bold": false,
+        "isOutlineEnabled": false,
+        "isShadowEnabled": false,
+        "italic": false,
+        "outlineColor": "255;255;255",
+        "outlineThickness": 2,
+        "shadowAngle": 90,
+        "shadowBlurRadius": 2,
+        "shadowColor": "0;0;0",
+        "shadowDistance": 4,
+        "shadowOpacity": 127,
+        "smoothed": true,
+        "underlined": false,
+        "text": "hi group 3, my name is tommy and i love colbie caillat! where are the asteroids?",
+        "font": "",
+        "textAlignment": "left",
+        "verticalTextAlignment": "top",
+        "characterSize": 30,
+        "lineHeight": 0,
+        "color": "255;0;0"
+      }
     }
   ],
   "objectsFolderStructure": {
@@ -96,6 +156,9 @@
     "children": [
       {
         "objectName": "hello_team"
+      },
+      {
+        "objectName": "tommy_text"
       }
     ]
   },
@@ -112,6 +175,16 @@
             "hello_team",
             "*",
             "1.01"
+          ]
+        },
+        {
+          "type": {
+            "value": "Rotate"
+          },
+          "parameters": [
+            "tommy_text",
+            "45",
+            ""
           ]
         }
       ]
