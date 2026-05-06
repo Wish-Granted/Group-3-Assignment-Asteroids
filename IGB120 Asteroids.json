@@ -102,30 +102,6 @@
         "userAdded": false
       },
       {
-        "file": "larg_asteroid_5.png",
-        "kind": "image",
-        "metadata": "",
-        "name": "larg_asteroid_5.png",
-        "smoothed": true,
-        "userAdded": false
-      },
-      {
-        "file": "larg_asteroid_6.png",
-        "kind": "image",
-        "metadata": "",
-        "name": "larg_asteroid_6.png",
-        "smoothed": true,
-        "userAdded": false
-      },
-      {
-        "file": "larg_asteroid_7.png",
-        "kind": "image",
-        "metadata": "",
-        "name": "larg_asteroid_7.png",
-        "smoothed": true,
-        "userAdded": false
-      },
-      {
         "file": "ship_bullet.png",
         "kind": "image",
         "metadata": "",
@@ -179,54 +155,6 @@
           "identifier": "https://asset-resources.gdevelop.io/public-resources/Menu buttons/ab812c7d15ad3474b6e55761235713b68f34374f3f064d1b8685ed46720df2f8_ArchitectsDaughter.ttf",
           "name": "ArchitectsDaughter.ttf"
         }
-      },
-      {
-        "file": "medium_asteroid_5.png",
-        "kind": "image",
-        "metadata": "",
-        "name": "medium_asteroid_5.png",
-        "smoothed": true,
-        "userAdded": false
-      },
-      {
-        "file": "../../University/Games and Interactive Environments/IGB120/Asteroids Assets/Asteroids/medium_asteroid_2.png",
-        "kind": "image",
-        "metadata": "",
-        "name": "..\\..\\University\\Games and Interactive Environments\\IGB120\\Asteroids Assets\\Asteroids\\medium_asteroid_2.png",
-        "smoothed": true,
-        "userAdded": false
-      },
-      {
-        "file": "medium_asteroid_6.png",
-        "kind": "image",
-        "metadata": "",
-        "name": "medium_asteroid_6.png",
-        "smoothed": true,
-        "userAdded": false
-      },
-      {
-        "file": "small_asteroid_5.png",
-        "kind": "image",
-        "metadata": "",
-        "name": "small_asteroid_5.png",
-        "smoothed": true,
-        "userAdded": false
-      },
-      {
-        "file": "small_asteroid_6.png",
-        "kind": "image",
-        "metadata": "",
-        "name": "small_asteroid_6.png",
-        "smoothed": true,
-        "userAdded": false
-      },
-      {
-        "file": "../../University/Games and Interactive Environments/IGB120/Asteroids Assets/Asteroids/small_asteroid_3.png",
-        "kind": "image",
-        "metadata": "",
-        "name": "..\\..\\University\\Games and Interactive Environments\\IGB120\\Asteroids Assets\\Asteroids\\small_asteroid_3.png",
-        "smoothed": true,
-        "userAdded": false
       },
       {
         "file": "Explosion.ogg",
@@ -337,6 +265,78 @@
         "kind": "image",
         "metadata": "",
         "name": "gold_asteroidt.png",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "file": "medium_asteroid_5.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "medium_asteroid_5.png",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "file": "medium_asteroid_6.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "medium_asteroid_6.png",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "file": "medium_asteroid_7.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "medium_asteroid_7.png",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "file": "small_asteroid_4.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "small_asteroid_4.png",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "file": "small_asteroid_5.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "small_asteroid_5.png",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "file": "small_asteroid_6.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "small_asteroid_6.png",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "file": "larg_asteroid_4.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "larg_asteroid_4.png",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "file": "larg_asteroid_5.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "larg_asteroid_5.png",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "file": "larg_asteroid_6.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "larg_asteroid_6.png",
         "smoothed": true,
         "userAdded": false
       }
@@ -451,6 +451,11 @@
       "name": "DeathCooldown",
       "type": "number",
       "value": 0
+    },
+    {
+      "name": "Bounds",
+      "type": "number",
+      "value": 100
     }
   ],
   "layouts": [
@@ -723,6 +728,11 @@
               "name": "speed",
               "type": "number",
               "value": 4
+            },
+            {
+              "name": "weight",
+              "type": "number",
+              "value": 1
             }
           ],
           "effects": [],
@@ -738,7 +748,7 @@
                   "sprites": [
                     {
                       "hasCustomCollisionMask": true,
-                      "image": "larg_asteroid_5.png",
+                      "image": "larg_asteroid_4.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
@@ -786,7 +796,7 @@
                   "sprites": [
                     {
                       "hasCustomCollisionMask": true,
-                      "image": "larg_asteroid_6.png",
+                      "image": "larg_asteroid_5.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
@@ -834,7 +844,7 @@
                   "sprites": [
                     {
                       "hasCustomCollisionMask": true,
-                      "image": "larg_asteroid_7.png",
+                      "image": "larg_asteroid_6.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
@@ -1038,6 +1048,7 @@
           "updateIfNotVisible": false,
           "variables": [
             {
+              "folded": true,
               "name": "direction",
               "type": "structure",
               "children": [
@@ -1052,6 +1063,11 @@
                   "value": 0.8
                 }
               ]
+            },
+            {
+              "name": "weight",
+              "type": "number",
+              "value": 0.5
             },
             {
               "name": "speed",
@@ -1088,20 +1104,20 @@
                       "customCollisionMask": [
                         [
                           {
-                            "x": 5,
-                            "y": 2
+                            "x": 6,
+                            "y": 5
                           },
                           {
-                            "x": 61,
-                            "y": 2
+                            "x": 58,
+                            "y": 5
                           },
                           {
-                            "x": 61,
-                            "y": 59
+                            "x": 58,
+                            "y": 61
                           },
                           {
-                            "x": 5,
-                            "y": 59
+                            "x": 6,
+                            "y": 61
                           }
                         ]
                       ]
@@ -1112,54 +1128,6 @@
             },
             {
               "name": "2",
-              "useMultipleDirections": false,
-              "directions": [
-                {
-                  "looping": false,
-                  "timeBetweenFrames": 0.08,
-                  "sprites": [
-                    {
-                      "hasCustomCollisionMask": true,
-                      "image": "..\\..\\University\\Games and Interactive Environments\\IGB120\\Asteroids Assets\\Asteroids\\medium_asteroid_2.png",
-                      "points": [],
-                      "originPoint": {
-                        "name": "origine",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "centerPoint": {
-                        "automatic": true,
-                        "name": "centre",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "customCollisionMask": [
-                        [
-                          {
-                            "x": 5,
-                            "y": 2
-                          },
-                          {
-                            "x": 61,
-                            "y": 2
-                          },
-                          {
-                            "x": 61,
-                            "y": 59
-                          },
-                          {
-                            "x": 5,
-                            "y": 59
-                          }
-                        ]
-                      ]
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "name": "3",
               "useMultipleDirections": false,
               "directions": [
                 {
@@ -1184,20 +1152,68 @@
                       "customCollisionMask": [
                         [
                           {
-                            "x": 5,
-                            "y": 2
+                            "x": 6,
+                            "y": 5
                           },
                           {
-                            "x": 61,
-                            "y": 2
+                            "x": 58,
+                            "y": 5
                           },
                           {
-                            "x": 61,
-                            "y": 59
+                            "x": 58,
+                            "y": 61
                           },
                           {
-                            "x": 5,
-                            "y": 59
+                            "x": 6,
+                            "y": 61
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "3",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "medium_asteroid_7.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 6,
+                            "y": 5
+                          },
+                          {
+                            "x": 58,
+                            "y": 5
+                          },
+                          {
+                            "x": 58,
+                            "y": 61
+                          },
+                          {
+                            "x": 6,
+                            "y": 61
                           }
                         ]
                       ]
@@ -1215,7 +1231,13 @@
           "persistentUuid": "eb7451cf-426d-4e7f-8f1f-f8e02d7a8c20",
           "type": "Sprite",
           "updateIfNotVisible": false,
-          "variables": [],
+          "variables": [
+            {
+              "name": "weight",
+              "type": "number",
+              "value": 0.25
+            }
+          ],
           "effects": [],
           "behaviors": [],
           "animations": [
@@ -1229,7 +1251,7 @@
                   "sprites": [
                     {
                       "hasCustomCollisionMask": true,
-                      "image": "small_asteroid_5.png",
+                      "image": "small_asteroid_4.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
@@ -1277,7 +1299,7 @@
                   "sprites": [
                     {
                       "hasCustomCollisionMask": true,
-                      "image": "..\\..\\University\\Games and Interactive Environments\\IGB120\\Asteroids Assets\\Asteroids\\small_asteroid_3.png",
+                      "image": "small_asteroid_5.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
@@ -1643,7 +1665,13 @@
           "persistentUuid": "6ac9dd1e-ef89-48d4-aac0-3d730635772d",
           "type": "Sprite",
           "updateIfNotVisible": false,
-          "variables": [],
+          "variables": [
+            {
+              "name": "weight",
+              "type": "number",
+              "value": 1
+            }
+          ],
           "effects": [],
           "behaviors": [],
           "animations": [
@@ -1909,7 +1937,18 @@
           "persistentUuid": "482721ca-3095-4e18-984c-e1c2b91245a5",
           "type": "Sprite",
           "updateIfNotVisible": false,
-          "variables": [],
+          "variables": [
+            {
+              "name": "weight",
+              "type": "number",
+              "value": 1
+            },
+            {
+              "name": "value",
+              "type": "number",
+              "value": 40
+            }
+          ],
           "effects": [],
           "behaviors": [],
           "animations": [
@@ -2037,7 +2076,18 @@
           "persistentUuid": "569872c1-3507-4ad9-ad6c-7a80282a0513",
           "type": "Sprite",
           "updateIfNotVisible": false,
-          "variables": [],
+          "variables": [
+            {
+              "name": "weight",
+              "type": "number",
+              "value": 1
+            },
+            {
+              "name": "value",
+              "type": "number",
+              "value": 100
+            }
+          ],
           "effects": [],
           "behaviors": [],
           "animations": [
@@ -2153,6 +2203,7 @@
       },
       "events": [
         {
+          "folded": true,
           "type": "BuiltinCommonInstructions::Standard",
           "conditions": [
             {
@@ -3214,16 +3265,6 @@
                 "",
                 "",
                 "0.8"
-              ]
-            },
-            {
-              "type": {
-                "value": "SetNumberVariable"
-              },
-              "parameters": [
-                "Credits",
-                "+",
-                "40"
               ]
             },
             {
@@ -4471,65 +4512,18 @@
           ]
         },
         {
+          "folded": true,
           "type": "BuiltinCommonInstructions::Standard",
-          "conditions": [
-            {
-              "type": {
-                "value": "BuiltinCommonInstructions::Or"
-              },
-              "parameters": [],
-              "subInstructions": [
-                {
-                  "type": {
-                    "value": "PosX"
-                  },
-                  "parameters": [
-                    "SmallAsteroid",
-                    ">",
-                    "1100"
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "PosX"
-                  },
-                  "parameters": [
-                    "SmallAsteroid",
-                    "<",
-                    "-100"
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "PosY"
-                  },
-                  "parameters": [
-                    "SmallAsteroid",
-                    ">",
-                    "650"
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "PosY"
-                  },
-                  "parameters": [
-                    "SmallAsteroid",
-                    "<",
-                    "-100"
-                  ]
-                }
-              ]
-            }
-          ],
+          "conditions": [],
           "actions": [
             {
               "type": {
-                "value": "Delete"
+                "value": "SetNumberVariable"
               },
               "parameters": [
-                "SmallAsteroid",
-                ""
+                "AsteroidCount",
+                "-",
+                "Bounds::AsteroidOutOfBounds(SmallAsteroid, Bounds, 0.25)"
               ]
             },
             {
@@ -4539,71 +4533,7 @@
               "parameters": [
                 "AsteroidCount",
                 "-",
-                "0.25"
-              ]
-            }
-          ]
-        },
-        {
-          "type": "BuiltinCommonInstructions::Standard",
-          "conditions": [
-            {
-              "type": {
-                "value": "BuiltinCommonInstructions::Or"
-              },
-              "parameters": [],
-              "subInstructions": [
-                {
-                  "type": {
-                    "value": "PosX"
-                  },
-                  "parameters": [
-                    "MediumAsteroid",
-                    ">",
-                    "1100"
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "PosX"
-                  },
-                  "parameters": [
-                    "MediumAsteroid",
-                    "<",
-                    "-100"
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "PosY"
-                  },
-                  "parameters": [
-                    "MediumAsteroid",
-                    ">",
-                    "650"
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "PosY"
-                  },
-                  "parameters": [
-                    "MediumAsteroid",
-                    "<",
-                    "-100"
-                  ]
-                }
-              ]
-            }
-          ],
-          "actions": [
-            {
-              "type": {
-                "value": "Delete"
-              },
-              "parameters": [
-                "MediumAsteroid",
-                ""
+                "Bounds::AsteroidOutOfBounds(MediumAsteroid, Bounds, 0.5)"
               ]
             },
             {
@@ -4613,71 +4543,7 @@
               "parameters": [
                 "AsteroidCount",
                 "-",
-                "0.5"
-              ]
-            }
-          ]
-        },
-        {
-          "type": "BuiltinCommonInstructions::Standard",
-          "conditions": [
-            {
-              "type": {
-                "value": "BuiltinCommonInstructions::Or"
-              },
-              "parameters": [],
-              "subInstructions": [
-                {
-                  "type": {
-                    "value": "PosX"
-                  },
-                  "parameters": [
-                    "LargeAsteroid",
-                    ">",
-                    "1100"
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "PosX"
-                  },
-                  "parameters": [
-                    "LargeAsteroid",
-                    "<",
-                    "-100"
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "PosY"
-                  },
-                  "parameters": [
-                    "LargeAsteroid",
-                    ">",
-                    "650"
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "PosY"
-                  },
-                  "parameters": [
-                    "LargeAsteroid",
-                    "<",
-                    "-100"
-                  ]
-                }
-              ]
-            }
-          ],
-          "actions": [
-            {
-              "type": {
-                "value": "Delete"
-              },
-              "parameters": [
-                "LargeAsteroid",
-                ""
+                "Bounds::AsteroidOutOfBounds(LargeAsteroid, Bounds, 1)"
               ]
             },
             {
@@ -4687,71 +4553,7 @@
               "parameters": [
                 "AsteroidCount",
                 "-",
-                "1"
-              ]
-            }
-          ]
-        },
-        {
-          "type": "BuiltinCommonInstructions::Standard",
-          "conditions": [
-            {
-              "type": {
-                "value": "BuiltinCommonInstructions::Or"
-              },
-              "parameters": [],
-              "subInstructions": [
-                {
-                  "type": {
-                    "value": "PosX"
-                  },
-                  "parameters": [
-                    "LargeGaseous",
-                    ">",
-                    "1100"
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "PosX"
-                  },
-                  "parameters": [
-                    "LargeGaseous",
-                    "<",
-                    "-100"
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "PosY"
-                  },
-                  "parameters": [
-                    "LargeGaseous",
-                    ">",
-                    "650"
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "PosY"
-                  },
-                  "parameters": [
-                    "LargeGaseous",
-                    "<",
-                    "-100"
-                  ]
-                }
-              ]
-            }
-          ],
-          "actions": [
-            {
-              "type": {
-                "value": "Delete"
-              },
-              "parameters": [
-                "LargeGaseous",
-                ""
+                "Bounds::AsteroidOutOfBounds(LargeGaseous, Bounds, 1)"
               ]
             },
             {
@@ -4761,71 +4563,7 @@
               "parameters": [
                 "AsteroidCount",
                 "-",
-                "1"
-              ]
-            }
-          ]
-        },
-        {
-          "type": "BuiltinCommonInstructions::Standard",
-          "conditions": [
-            {
-              "type": {
-                "value": "BuiltinCommonInstructions::Or"
-              },
-              "parameters": [],
-              "subInstructions": [
-                {
-                  "type": {
-                    "value": "PosX"
-                  },
-                  "parameters": [
-                    "LargeExplosive",
-                    ">",
-                    "1100"
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "PosX"
-                  },
-                  "parameters": [
-                    "LargeExplosive",
-                    "<",
-                    "-100"
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "PosY"
-                  },
-                  "parameters": [
-                    "LargeExplosive",
-                    ">",
-                    "650"
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "PosY"
-                  },
-                  "parameters": [
-                    "LargeExplosive",
-                    "<",
-                    "-100"
-                  ]
-                }
-              ]
-            }
-          ],
-          "actions": [
-            {
-              "type": {
-                "value": "Delete"
-              },
-              "parameters": [
-                "LargeExplosive",
-                ""
+                "Bounds::AsteroidOutOfBounds(LargeExplosive, Bounds, 1)"
               ]
             },
             {
@@ -4835,82 +4573,15 @@
               "parameters": [
                 "AsteroidCount",
                 "-",
-                "1"
-              ]
-            }
-          ]
-        },
-        {
-          "type": "BuiltinCommonInstructions::Standard",
-          "conditions": [
-            {
-              "type": {
-                "value": "BuiltinCommonInstructions::Or"
-              },
-              "parameters": [],
-              "subInstructions": [
-                {
-                  "type": {
-                    "value": "PosX"
-                  },
-                  "parameters": [
-                    "Gold",
-                    ">",
-                    "1100"
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "PosX"
-                  },
-                  "parameters": [
-                    "Gold",
-                    "<",
-                    "-100"
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "PosY"
-                  },
-                  "parameters": [
-                    "Gold",
-                    ">",
-                    "650"
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "PosY"
-                  },
-                  "parameters": [
-                    "Gold",
-                    "<",
-                    "-100"
-                  ]
-                }
+                "Bounds::AsteroidOutOfBounds(Gold, Bounds, 1)"
               ]
             }
           ],
-          "actions": [
+          "events": [
             {
-              "type": {
-                "value": "Delete"
-              },
-              "parameters": [
-                "Gold",
-                ""
-              ]
-            },
-            {
-              "type": {
-                "value": "SetNumberVariable"
-              },
-              "parameters": [
-                "AsteroidCount",
-                "-",
-                "1"
-              ]
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [],
+              "actions": []
             }
           ]
         },
@@ -8121,6 +7792,155 @@
   ],
   "externalEvents": [],
   "eventsFunctionsExtensions": [
+    {
+      "author": "",
+      "category": "",
+      "dimension": "",
+      "extensionNamespace": "",
+      "fullName": "GameBoundsControls",
+      "gdevelopVersion": "",
+      "helpPath": "",
+      "iconUrl": "",
+      "name": "Bounds",
+      "previewIconUrl": "",
+      "shortDescription": "",
+      "version": "",
+      "description": "Originally automatically extracted from events of the project",
+      "tags": [],
+      "authorIds": [],
+      "dependencies": [],
+      "globalVariables": [],
+      "sceneVariables": [],
+      "eventsFunctions": [
+        {
+          "description": "Destroys out of bound asteroids",
+          "fullName": "Asteroid Out Of Bounds",
+          "functionType": "Expression",
+          "name": "AsteroidOutOfBounds",
+          "sentence": "If _PARAM1_ is out of bounds by _PARAM2_ delete _PARAM1_ and decrement _PARAM3_ by __PARAM4_",
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "BuiltinCommonInstructions::Or"
+                  },
+                  "parameters": [],
+                  "subInstructions": [
+                    {
+                      "type": {
+                        "value": "PosX"
+                      },
+                      "parameters": [
+                        "Gold",
+                        ">",
+                        "960 + GameBounds"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "PosX"
+                      },
+                      "parameters": [
+                        "Gold",
+                        "<",
+                        "-GameBounds"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "PosY"
+                      },
+                      "parameters": [
+                        "Gold",
+                        ">",
+                        "540 + GameBounds"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "PosY"
+                      },
+                      "parameters": [
+                        "Gold",
+                        "<",
+                        "-GameBounds"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Delete"
+                  },
+                  "parameters": [
+                    "Gold",
+                    ""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetReturnNumber"
+                  },
+                  "parameters": [
+                    "Weight"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Else",
+              "conditions": [],
+              "actions": [
+                {
+                  "type": {
+                    "value": "SetReturnNumber"
+                  },
+                  "parameters": [
+                    "0"
+                  ]
+                }
+              ]
+            }
+          ],
+          "expressionType": {
+            "type": "expression"
+          },
+          "parameters": [
+            {
+              "description": "",
+              "name": "Gold",
+              "supplementaryInformation": "Sprite",
+              "type": "objectList"
+            },
+            {
+              "description": "",
+              "name": "GameBounds",
+              "type": "expression"
+            },
+            {
+              "description": "",
+              "name": "Weight",
+              "type": "expression"
+            }
+          ],
+          "objectGroups": []
+        }
+      ],
+      "eventsFunctionsFolderStructure": {
+        "folderName": "__ROOT",
+        "children": [
+          {
+            "functionName": "AsteroidOutOfBounds"
+          }
+        ]
+      },
+      "eventsBasedBehaviors": [],
+      "eventsBasedObjects": []
+    },
     {
       "author": "",
       "category": "User interface",
