@@ -339,6 +339,14 @@
         "name": "gold_asteroidt.png",
         "smoothed": true,
         "userAdded": false
+      },
+      {
+        "file": "medium_asteroid_2.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "medium_asteroid_2.png",
+        "smoothed": true,
+        "userAdded": false
       }
     ]
   },
@@ -1120,7 +1128,7 @@
                   "sprites": [
                     {
                       "hasCustomCollisionMask": true,
-                      "image": "..\\..\\University\\Games and Interactive Environments\\IGB120\\Asteroids Assets\\Asteroids\\medium_asteroid_2.png",
+                      "image": "medium_asteroid_2.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
