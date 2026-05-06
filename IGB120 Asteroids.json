@@ -3036,7 +3036,7 @@
                 "value": "Delete"
               },
               "parameters": [
-                "LargeGaseous",
+                "Gas",
                 ""
               ]
             },
@@ -3045,8 +3045,18 @@
                 "value": "Delete"
               },
               "parameters": [
-                "Gas",
+                "LargeGaseous",
                 ""
+              ]
+            },
+            {
+              "type": {
+                "value": "SetNumberVariable"
+              },
+              "parameters": [
+                "Credits",
+                "+",
+                "40"
               ]
             },
             {
@@ -3068,16 +3078,6 @@
                 "",
                 "",
                 "0.8"
-              ]
-            },
-            {
-              "type": {
-                "value": "SetNumberVariable"
-              },
-              "parameters": [
-                "Credits",
-                "+",
-                "40"
               ]
             }
           ],
