@@ -451,11 +451,6 @@
       "name": "DeathCooldown",
       "type": "number",
       "value": 0
-    },
-    {
-      "name": "Bounds",
-      "type": "number",
-      "value": 150
     }
   ],
   "layouts": [
@@ -728,11 +723,6 @@
               "name": "speed",
               "type": "number",
               "value": 4
-            },
-            {
-              "name": "weight",
-              "type": "number",
-              "value": 1
             }
           ],
           "effects": [],
@@ -1048,7 +1038,6 @@
           "updateIfNotVisible": false,
           "variables": [
             {
-              "folded": true,
               "name": "direction",
               "type": "structure",
               "children": [
@@ -1063,11 +1052,6 @@
                   "value": 0.8
                 }
               ]
-            },
-            {
-              "name": "weight",
-              "type": "number",
-              "value": 0.5
             },
             {
               "name": "speed",
@@ -1231,13 +1215,7 @@
           "persistentUuid": "eb7451cf-426d-4e7f-8f1f-f8e02d7a8c20",
           "type": "Sprite",
           "updateIfNotVisible": false,
-          "variables": [
-            {
-              "name": "weight",
-              "type": "number",
-              "value": 0.25
-            }
-          ],
+          "variables": [],
           "effects": [],
           "behaviors": [],
           "animations": [
@@ -1665,13 +1643,7 @@
           "persistentUuid": "6ac9dd1e-ef89-48d4-aac0-3d730635772d",
           "type": "Sprite",
           "updateIfNotVisible": false,
-          "variables": [
-            {
-              "name": "weight",
-              "type": "number",
-              "value": 1
-            }
-          ],
+          "variables": [],
           "effects": [],
           "behaviors": [],
           "animations": [
@@ -1937,13 +1909,7 @@
           "persistentUuid": "482721ca-3095-4e18-984c-e1c2b91245a5",
           "type": "Sprite",
           "updateIfNotVisible": false,
-          "variables": [
-            {
-              "name": "weight",
-              "type": "number",
-              "value": 1
-            }
-          ],
+          "variables": [],
           "effects": [],
           "behaviors": [],
           "animations": [
@@ -2071,13 +2037,7 @@
           "persistentUuid": "569872c1-3507-4ad9-ad6c-7a80282a0513",
           "type": "Sprite",
           "updateIfNotVisible": false,
-          "variables": [
-            {
-              "name": "weight",
-              "type": "number",
-              "value": 1
-            }
-          ],
+          "variables": [],
           "effects": [],
           "behaviors": [],
           "animations": [
@@ -2193,7 +2153,6 @@
       },
       "events": [
         {
-          "folded": true,
           "type": "BuiltinCommonInstructions::Standard",
           "conditions": [
             {
@@ -4513,66 +4472,444 @@
         },
         {
           "type": "BuiltinCommonInstructions::Standard",
-          "conditions": [],
+          "conditions": [
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::Or"
+              },
+              "parameters": [],
+              "subInstructions": [
+                {
+                  "type": {
+                    "value": "PosX"
+                  },
+                  "parameters": [
+                    "SmallAsteroid",
+                    ">",
+                    "1100"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "PosX"
+                  },
+                  "parameters": [
+                    "SmallAsteroid",
+                    "<",
+                    "-100"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "PosY"
+                  },
+                  "parameters": [
+                    "SmallAsteroid",
+                    ">",
+                    "650"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "PosY"
+                  },
+                  "parameters": [
+                    "SmallAsteroid",
+                    "<",
+                    "-100"
+                  ]
+                }
+              ]
+            }
+          ],
           "actions": [
             {
               "type": {
-                "value": "Bounds::AsteroidOutOfBounds"
+                "value": "Delete"
               },
               "parameters": [
-                "",
-                "Gold",
+                "SmallAsteroid",
                 ""
               ]
             },
             {
               "type": {
-                "value": "Bounds::AsteroidOutOfBounds"
+                "value": "SetNumberVariable"
               },
               "parameters": [
-                "",
-                "LargeExplosive",
-                ""
+                "AsteroidCount",
+                "-",
+                "0.25"
               ]
-            },
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
             {
               "type": {
-                "value": "Bounds::AsteroidOutOfBounds"
+                "value": "BuiltinCommonInstructions::Or"
               },
-              "parameters": [
-                "",
-                "LargeGaseous",
-                ""
+              "parameters": [],
+              "subInstructions": [
+                {
+                  "type": {
+                    "value": "PosX"
+                  },
+                  "parameters": [
+                    "MediumAsteroid",
+                    ">",
+                    "1100"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "PosX"
+                  },
+                  "parameters": [
+                    "MediumAsteroid",
+                    "<",
+                    "-100"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "PosY"
+                  },
+                  "parameters": [
+                    "MediumAsteroid",
+                    ">",
+                    "650"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "PosY"
+                  },
+                  "parameters": [
+                    "MediumAsteroid",
+                    "<",
+                    "-100"
+                  ]
+                }
               ]
-            },
+            }
+          ],
+          "actions": [
             {
               "type": {
-                "value": "Bounds::AsteroidOutOfBounds"
+                "value": "Delete"
               },
               "parameters": [
-                "",
-                "LargeAsteroid",
-                ""
-              ]
-            },
-            {
-              "type": {
-                "value": "Bounds::AsteroidOutOfBounds"
-              },
-              "parameters": [
-                "",
                 "MediumAsteroid",
                 ""
               ]
             },
             {
               "type": {
-                "value": "Bounds::AsteroidOutOfBounds"
+                "value": "SetNumberVariable"
               },
               "parameters": [
-                "",
-                "SmallAsteroid",
+                "AsteroidCount",
+                "-",
+                "0.5"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::Or"
+              },
+              "parameters": [],
+              "subInstructions": [
+                {
+                  "type": {
+                    "value": "PosX"
+                  },
+                  "parameters": [
+                    "LargeAsteroid",
+                    ">",
+                    "1100"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "PosX"
+                  },
+                  "parameters": [
+                    "LargeAsteroid",
+                    "<",
+                    "-100"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "PosY"
+                  },
+                  "parameters": [
+                    "LargeAsteroid",
+                    ">",
+                    "650"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "PosY"
+                  },
+                  "parameters": [
+                    "LargeAsteroid",
+                    "<",
+                    "-100"
+                  ]
+                }
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "Delete"
+              },
+              "parameters": [
+                "LargeAsteroid",
                 ""
+              ]
+            },
+            {
+              "type": {
+                "value": "SetNumberVariable"
+              },
+              "parameters": [
+                "AsteroidCount",
+                "-",
+                "1"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::Or"
+              },
+              "parameters": [],
+              "subInstructions": [
+                {
+                  "type": {
+                    "value": "PosX"
+                  },
+                  "parameters": [
+                    "LargeGaseous",
+                    ">",
+                    "1100"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "PosX"
+                  },
+                  "parameters": [
+                    "LargeGaseous",
+                    "<",
+                    "-100"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "PosY"
+                  },
+                  "parameters": [
+                    "LargeGaseous",
+                    ">",
+                    "650"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "PosY"
+                  },
+                  "parameters": [
+                    "LargeGaseous",
+                    "<",
+                    "-100"
+                  ]
+                }
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "Delete"
+              },
+              "parameters": [
+                "LargeGaseous",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "SetNumberVariable"
+              },
+              "parameters": [
+                "AsteroidCount",
+                "-",
+                "1"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::Or"
+              },
+              "parameters": [],
+              "subInstructions": [
+                {
+                  "type": {
+                    "value": "PosX"
+                  },
+                  "parameters": [
+                    "LargeExplosive",
+                    ">",
+                    "1100"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "PosX"
+                  },
+                  "parameters": [
+                    "LargeExplosive",
+                    "<",
+                    "-100"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "PosY"
+                  },
+                  "parameters": [
+                    "LargeExplosive",
+                    ">",
+                    "650"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "PosY"
+                  },
+                  "parameters": [
+                    "LargeExplosive",
+                    "<",
+                    "-100"
+                  ]
+                }
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "Delete"
+              },
+              "parameters": [
+                "LargeExplosive",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "SetNumberVariable"
+              },
+              "parameters": [
+                "AsteroidCount",
+                "-",
+                "1"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::Or"
+              },
+              "parameters": [],
+              "subInstructions": [
+                {
+                  "type": {
+                    "value": "PosX"
+                  },
+                  "parameters": [
+                    "Gold",
+                    ">",
+                    "1100"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "PosX"
+                  },
+                  "parameters": [
+                    "Gold",
+                    "<",
+                    "-100"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "PosY"
+                  },
+                  "parameters": [
+                    "Gold",
+                    ">",
+                    "650"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "PosY"
+                  },
+                  "parameters": [
+                    "Gold",
+                    "<",
+                    "-100"
+                  ]
+                }
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "Delete"
+              },
+              "parameters": [
+                "Gold",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "SetNumberVariable"
+              },
+              "parameters": [
+                "AsteroidCount",
+                "-",
+                "1"
               ]
             }
           ]
@@ -7784,130 +8121,6 @@
   ],
   "externalEvents": [],
   "eventsFunctionsExtensions": [
-    {
-      "author": "",
-      "category": "",
-      "dimension": "",
-      "extensionNamespace": "",
-      "fullName": "Bounds",
-      "gdevelopVersion": "",
-      "helpPath": "",
-      "iconUrl": "",
-      "name": "Bounds",
-      "previewIconUrl": "",
-      "shortDescription": "",
-      "version": "",
-      "description": "Originally automatically extracted from events of the project",
-      "tags": [],
-      "authorIds": [],
-      "dependencies": [],
-      "globalVariables": [],
-      "sceneVariables": [],
-      "eventsFunctions": [
-        {
-          "description": "Destroys out of bound asteroids",
-          "fullName": "Asteroid Out Of Bounds",
-          "functionType": "Action",
-          "name": "AsteroidOutOfBounds",
-          "sentence": "If _PARAM1_ is out of bounds delete _PARAM1_",
-          "events": [
-            {
-              "type": "BuiltinCommonInstructions::Standard",
-              "conditions": [
-                {
-                  "type": {
-                    "value": "BuiltinCommonInstructions::Or"
-                  },
-                  "parameters": [],
-                  "subInstructions": [
-                    {
-                      "type": {
-                        "value": "PosX"
-                      },
-                      "parameters": [
-                        "Gold",
-                        ">",
-                        "960 + Bounds"
-                      ]
-                    },
-                    {
-                      "type": {
-                        "value": "PosX"
-                      },
-                      "parameters": [
-                        "Gold",
-                        "<",
-                        "-Bounds"
-                      ]
-                    },
-                    {
-                      "type": {
-                        "value": "PosY"
-                      },
-                      "parameters": [
-                        "Gold",
-                        ">",
-                        "540 + Bounds"
-                      ]
-                    },
-                    {
-                      "type": {
-                        "value": "PosY"
-                      },
-                      "parameters": [
-                        "Gold",
-                        "<",
-                        "-Bounds"
-                      ]
-                    }
-                  ]
-                }
-              ],
-              "actions": [
-                {
-                  "type": {
-                    "value": "Delete"
-                  },
-                  "parameters": [
-                    "Gold",
-                    ""
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "SetNumberVariable"
-                  },
-                  "parameters": [
-                    "AsteroidCount",
-                    "-",
-                    "Gold.weight"
-                  ]
-                }
-              ]
-            }
-          ],
-          "parameters": [
-            {
-              "description": "",
-              "name": "Gold",
-              "supplementaryInformation": "Sprite",
-              "type": "objectList"
-            }
-          ],
-          "objectGroups": []
-        }
-      ],
-      "eventsFunctionsFolderStructure": {
-        "folderName": "__ROOT",
-        "children": [
-          {
-            "functionName": "AsteroidOutOfBounds"
-          }
-        ]
-      },
-      "eventsBasedBehaviors": [],
-      "eventsBasedObjects": []
-    },
     {
       "author": "",
       "category": "User interface",
