@@ -1,7 +1,7 @@
 {
   "firstLayout": "",
   "gdVersion": {
-    "build": 266,
+    "build": 268,
     "major": 5,
     "minor": 6,
     "revision": 0
@@ -18,6 +18,7 @@
     "scaleMode": "linear",
     "sizeOnStartupMode": "adaptWidth",
     "templateSlug": "",
+    "useDeprecatedZeroAsDefaultStringVariable": true,
     "version": "1.0.0",
     "name": "IGB120 Asteroids",
     "description": "",
@@ -339,6 +340,54 @@
         "name": "larg_asteroid_6.png",
         "smoothed": true,
         "userAdded": false
+      },
+      {
+        "file": "x2.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "x2.png",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "file": "x5.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "x5.png",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "file": "assets/ship_x2.png",
+        "kind": "image",
+        "metadata": "{\"extension\":\".png\"}",
+        "name": "ship_x2",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "file": "assets/ship_x3.png",
+        "kind": "image",
+        "metadata": "{\"extension\":\".png\"}",
+        "name": "ship_x3",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "file": "ship_x2.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "ship_x2.png",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "file": "ship_x5.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "ship_x5.png",
+        "smoothed": true,
+        "userAdded": false
       }
     ]
   },
@@ -492,6 +541,26 @@
           "name": "Dead",
           "type": "boolean",
           "value": false
+        },
+        {
+          "name": "TimeToMultiplier",
+          "type": "number",
+          "value": 15
+        },
+        {
+          "name": "MultiplierRNG",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "MultiplierActiveTime",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "MultiplyScore",
+          "type": "number",
+          "value": 1
         }
       ],
       "instances": [
@@ -516,7 +585,7 @@
           "customSize": false,
           "height": 0,
           "keepRatio": true,
-          "layer": "",
+          "layer": "UI",
           "name": "CreditsText",
           "persistentUuid": "ed99db89-49cb-4b02-bc65-72e02b480b3f",
           "width": 0,
@@ -532,7 +601,7 @@
           "customSize": false,
           "height": 0,
           "keepRatio": true,
-          "layer": "",
+          "layer": "UI",
           "name": "HealthText",
           "persistentUuid": "eb8b9ab7-dc6e-425e-9ee0-1d05329cf38c",
           "width": 0,
@@ -548,7 +617,7 @@
           "customSize": false,
           "height": 0,
           "keepRatio": true,
-          "layer": "",
+          "layer": "UI",
           "name": "TimeText",
           "persistentUuid": "601d295e-146e-4f96-85f6-ebf1b63ab05a",
           "width": 0,
@@ -564,7 +633,7 @@
           "customSize": false,
           "height": 0,
           "keepRatio": true,
-          "layer": "",
+          "layer": "UI",
           "name": "SolText",
           "persistentUuid": "88039545-cd02-48b9-b17c-c8c448ee2014",
           "width": 0,
@@ -587,6 +656,38 @@
           "x": 319,
           "y": 262,
           "zOrder": 8,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "keepRatio": true,
+          "layer": "UI",
+          "name": "InstructionsText",
+          "persistentUuid": "871707a1-e031-4732-a906-ff093340a560",
+          "width": 0,
+          "x": 20,
+          "y": 485,
+          "zOrder": 9,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "keepRatio": true,
+          "layer": "UI",
+          "name": "MultiplierText",
+          "persistentUuid": "62d8ca93-5096-4d21-90cf-da643a9f0e0b",
+          "width": 0,
+          "x": 20,
+          "y": 460,
+          "zOrder": 10,
           "numberProperties": [],
           "stringProperties": [],
           "initialVariables": []
@@ -650,13 +751,182 @@
           ],
           "animations": [
             {
-              "name": "",
+              "name": "Normal",
               "useMultipleDirections": false,
               "directions": [
                 {
                   "looping": false,
                   "timeBetweenFrames": 0.08,
                   "sprites": [
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "ship.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 0,
+                            "y": 0
+                          },
+                          {
+                            "x": 32,
+                            "y": 0
+                          },
+                          {
+                            "x": 32,
+                            "y": 32
+                          },
+                          {
+                            "x": 0,
+                            "y": 32
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "x2",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": true,
+                  "metadata": "{\"pskl\":{}}",
+                  "timeBetweenFrames": 0.2,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "ship_x2.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 0,
+                            "y": 0
+                          },
+                          {
+                            "x": 32,
+                            "y": 0
+                          },
+                          {
+                            "x": 32,
+                            "y": 32
+                          },
+                          {
+                            "x": 0,
+                            "y": 32
+                          }
+                        ]
+                      ]
+                    },
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "ship.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 0,
+                            "y": 0
+                          },
+                          {
+                            "x": 32,
+                            "y": 0
+                          },
+                          {
+                            "x": 32,
+                            "y": 32
+                          },
+                          {
+                            "x": 0,
+                            "y": 32
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "x5",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": true,
+                  "timeBetweenFrames": 0.1,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "ship_x5.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 0,
+                            "y": 0
+                          },
+                          {
+                            "x": 32,
+                            "y": 0
+                          },
+                          {
+                            "x": 32,
+                            "y": 32
+                          },
+                          {
+                            "x": 0,
+                            "y": 32
+                          }
+                        ]
+                      ]
+                    },
                     {
                       "hasCustomCollisionMask": true,
                       "image": "ship.png",
@@ -2140,6 +2410,205 @@
               ]
             }
           ]
+        },
+        {
+          "assetStoreId": "",
+          "bold": false,
+          "italic": false,
+          "name": "InstructionsText",
+          "persistentUuid": "405f0d2c-c7e2-4ada-9d2b-438c8e0a8be0",
+          "smoothed": true,
+          "type": "TextObject::Text",
+          "underlined": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "string": "Use the arrow keys to move and turn. Press space to shoot!",
+          "font": "",
+          "textAlignment": "left",
+          "characterSize": 32,
+          "color": {
+            "b": 255,
+            "g": 255,
+            "r": 255
+          },
+          "content": {
+            "bold": false,
+            "isOutlineEnabled": false,
+            "isShadowEnabled": false,
+            "italic": false,
+            "outlineColor": "255;255;255",
+            "outlineThickness": 2,
+            "shadowAngle": 90,
+            "shadowBlurRadius": 2,
+            "shadowColor": "0;0;0",
+            "shadowDistance": 4,
+            "shadowOpacity": 127,
+            "smoothed": true,
+            "underlined": false,
+            "text": "Use the arrow keys to move and turn. Press space to shoot!",
+            "font": "",
+            "textAlignment": "left",
+            "verticalTextAlignment": "top",
+            "characterSize": 32,
+            "lineHeight": 0,
+            "color": "255;255;255"
+          }
+        },
+        {
+          "adaptCollisionMaskAutomatically": true,
+          "assetStoreId": "",
+          "name": "Multiplier",
+          "persistentUuid": "6c7d634d-5fc0-48bd-aa3e-62dc47e57141",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "animations": [
+            {
+              "name": "x2",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "metadata": "{\"pskl\":{}}",
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "x2.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 4,
+                        "y": 4
+                      },
+                      "centerPoint": {
+                        "automatic": false,
+                        "name": "centre",
+                        "x": 20,
+                        "y": 20
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 4,
+                            "y": 4
+                          },
+                          {
+                            "x": 36,
+                            "y": 4
+                          },
+                          {
+                            "x": 36,
+                            "y": 36
+                          },
+                          {
+                            "x": 4,
+                            "y": 36
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "x5",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "metadata": "{\"pskl\":{}}",
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "x5.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 4,
+                        "y": 4
+                      },
+                      "centerPoint": {
+                        "automatic": false,
+                        "name": "centre",
+                        "x": 20,
+                        "y": 20
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 4,
+                            "y": 4
+                          },
+                          {
+                            "x": 36,
+                            "y": 4
+                          },
+                          {
+                            "x": 36,
+                            "y": 36
+                          },
+                          {
+                            "x": 4,
+                            "y": 36
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "assetStoreId": "",
+          "bold": false,
+          "italic": true,
+          "name": "MultiplierText",
+          "persistentUuid": "765c54a7-bdbf-45ab-9d2a-207b40510263",
+          "smoothed": true,
+          "type": "TextObject::Text",
+          "underlined": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "string": "x2 multiplier active",
+          "font": "",
+          "textAlignment": "left",
+          "characterSize": 32,
+          "color": {
+            "b": 0,
+            "g": 177,
+            "r": 255
+          },
+          "content": {
+            "bold": false,
+            "isOutlineEnabled": true,
+            "isShadowEnabled": false,
+            "italic": true,
+            "outlineColor": "255;255;255",
+            "outlineThickness": 2,
+            "shadowAngle": 90,
+            "shadowBlurRadius": 2,
+            "shadowColor": "0;0;0",
+            "shadowDistance": 4,
+            "shadowOpacity": 127,
+            "smoothed": true,
+            "underlined": false,
+            "text": "x2 multiplier active",
+            "font": "",
+            "textAlignment": "left",
+            "verticalTextAlignment": "top",
+            "characterSize": 32,
+            "lineHeight": 0,
+            "color": "255;177;0"
+          }
         }
       ],
       "objectsFolderStructure": {
@@ -2158,13 +2627,16 @@
             "objectName": "ShipDebris3"
           },
           {
-            "objectName": "MediumAsteroid"
-          },
-          {
             "objectName": "Bullet"
           },
           {
             "objectName": "LargeAsteroid"
+          },
+          {
+            "objectName": "MediumAsteroid"
+          },
+          {
+            "objectName": "SmallAsteroid"
           },
           {
             "objectName": "CreditsText"
@@ -2173,13 +2645,16 @@
             "objectName": "HealthText"
           },
           {
-            "objectName": "SmallAsteroid"
-          },
-          {
             "objectName": "TimeText"
           },
           {
             "objectName": "SolText"
+          },
+          {
+            "objectName": "MultiplierText"
+          },
+          {
+            "objectName": "InstructionsText"
           },
           {
             "objectName": "LargeGaseous"
@@ -2198,6 +2673,9 @@
           },
           {
             "objectName": "Gold"
+          },
+          {
+            "objectName": "Multiplier"
           }
         ]
       },
@@ -2463,6 +2941,16 @@
               },
               "parameters": [
                 "DeathCooldown",
+                "-",
+                "TimeDelta()"
+              ]
+            },
+            {
+              "type": {
+                "value": "SetNumberVariable"
+              },
+              "parameters": [
+                "TimeToMultiplier",
                 "-",
                 "TimeDelta()"
               ]
@@ -2771,7 +3259,7 @@
               "parameters": [
                 "Credits",
                 "+",
-                "10"
+                "10*MultiplyScore"
               ]
             }
           ]
@@ -2810,7 +3298,7 @@
               "parameters": [
                 "Credits",
                 "+",
-                "15"
+                "15*MultiplyScore"
               ]
             },
             {
@@ -2944,7 +3432,7 @@
               "parameters": [
                 "Credits",
                 "+",
-                "25"
+                "25*MultiplyScore"
               ]
             }
           ],
@@ -3056,7 +3544,7 @@
               "parameters": [
                 "Credits",
                 "+",
-                "40"
+                "40*MultiplyScore"
               ]
             },
             {
@@ -3189,7 +3677,7 @@
               "parameters": [
                 "Credits",
                 "+",
-                "40"
+                "40*MultiplyScore"
               ]
             },
             {
@@ -3368,7 +3856,7 @@
               "parameters": [
                 "Credits",
                 "+",
-                "100"
+                "100*MultiplyScore"
               ]
             }
           ]
@@ -3978,11 +4466,6 @@
               ]
             }
           ]
-        },
-        {
-          "type": "BuiltinCommonInstructions::Standard",
-          "conditions": [],
-          "actions": []
         },
         {
           "folded": true,
@@ -4620,6 +5103,428 @@
                 "value": "NumberVariable"
               },
               "parameters": [
+                "TimeToMultiplier",
+                "<=",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::Once"
+              },
+              "parameters": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "Create"
+              },
+              "parameters": [
+                "",
+                "Multiplier",
+                "RandomInRange(0,ScreenWidth())",
+                "RandomWithStep(0,ScreenHeight(), ScreenHeight())",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "AddForceTowardObject"
+              },
+              "parameters": [
+                "Multiplier",
+                "Ship",
+                "40",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "SetNumberVariable"
+              },
+              "parameters": [
+                "MultiplierRNG",
+                "=",
+                "RandomInRange(1,5)"
+              ]
+            }
+          ],
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "NumberVariable"
+                  },
+                  "parameters": [
+                    "MultiplierRNG",
+                    "<",
+                    "5"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "AnimatableCapability::AnimatableBehavior::SetName"
+                  },
+                  "parameters": [
+                    "Multiplier",
+                    "Animation",
+                    "=",
+                    "\"x2\""
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "NumberVariable"
+                  },
+                  "parameters": [
+                    "MultiplierRNG",
+                    "=",
+                    "5"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "AnimatableCapability::AnimatableBehavior::SetName"
+                  },
+                  "parameters": [
+                    "Multiplier",
+                    "Animation",
+                    "=",
+                    "\"x5\""
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "CollisionNP"
+              },
+              "parameters": [
+                "Ship",
+                "Multiplier",
+                "",
+                "",
+                ""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "Delete"
+              },
+              "parameters": [
+                "Multiplier",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "Show"
+              },
+              "parameters": [
+                "MultiplierText",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "SetNumberVariable"
+              },
+              "parameters": [
+                "MultiplierActiveTime",
+                "=",
+                "5"
+              ]
+            }
+          ],
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "NumberVariable"
+                  },
+                  "parameters": [
+                    "MultiplierRNG",
+                    "<",
+                    "5"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "SetNumberVariable"
+                  },
+                  "parameters": [
+                    "MultiplyScore",
+                    "=",
+                    "2"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "TextContainerCapability::TextContainerBehavior::SetValue"
+                  },
+                  "parameters": [
+                    "MultiplierText",
+                    "Text",
+                    "=",
+                    "\"x2 multiplier active\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "TextObject::ChangeColor"
+                  },
+                  "parameters": [
+                    "MultiplierText",
+                    "\"255;177;0\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "AnimatableCapability::AnimatableBehavior::SetName"
+                  },
+                  "parameters": [
+                    "Ship",
+                    "Animation",
+                    "=",
+                    "\"x2\""
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "NumberVariable"
+                  },
+                  "parameters": [
+                    "MultiplierRNG",
+                    "=",
+                    "5"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "SetNumberVariable"
+                  },
+                  "parameters": [
+                    "MultiplyScore",
+                    "=",
+                    "5"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "TextContainerCapability::TextContainerBehavior::SetValue"
+                  },
+                  "parameters": [
+                    "MultiplierText",
+                    "Text",
+                    "=",
+                    "\"x5 multiplier active\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "TextObject::ChangeColor"
+                  },
+                  "parameters": [
+                    "MultiplierText",
+                    "\"255;38;212\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "AnimatableCapability::AnimatableBehavior::SetName"
+                  },
+                  "parameters": [
+                    "Ship",
+                    "Animation",
+                    "=",
+                    "\"x5\""
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "NumberVariable"
+              },
+              "parameters": [
+                "MultiplierActiveTime",
+                ">",
+                "0"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "SetNumberVariable"
+              },
+              "parameters": [
+                "MultiplierActiveTime",
+                "-",
+                "TimeDelta()"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Else",
+          "conditions": [
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::Once"
+              },
+              "parameters": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "AnimatableCapability::AnimatableBehavior::SetName"
+              },
+              "parameters": [
+                "Ship",
+                "Animation",
+                "=",
+                "\"Normal\""
+              ]
+            },
+            {
+              "type": {
+                "value": "SetNumberVariable"
+              },
+              "parameters": [
+                "MultiplyScore",
+                "=",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "SetNumberVariable"
+              },
+              "parameters": [
+                "TimeToMultiplier",
+                "=",
+                "RandomFloatInRange(10,20)"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "CollisionNP"
+              },
+              "parameters": [
+                "Bullet",
+                "Multiplier",
+                "",
+                "",
+                ""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "Delete"
+              },
+              "parameters": [
+                "Bullet",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "Delete"
+              },
+              "parameters": [
+                "Multiplier",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "SetNumberVariable"
+              },
+              "parameters": [
+                "TimeToMultiplier",
+                "=",
+                "RandomFloatInRange(10,20)"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "NumberVariable"
+              },
+              "parameters": [
+                "MultiplyScore",
+                "=",
+                "1"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "Hide"
+              },
+              "parameters": [
+                "MultiplierText"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "NumberVariable"
+              },
+              "parameters": [
                 "DeathCooldown",
                 "<=",
                 "0"
@@ -4645,6 +5550,56 @@
                 "",
                 "\"Menu\"",
                 ""
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "NumberVariable"
+              },
+              "parameters": [
+                "Sol",
+                "=",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "NumberVariable"
+              },
+              "parameters": [
+                "Time.Hours",
+                "=",
+                "6"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "Show"
+              },
+              "parameters": [
+                "InstructionsText",
+                ""
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Else",
+          "conditions": [],
+          "actions": [
+            {
+              "type": {
+                "value": "Hide"
+              },
+              "parameters": [
+                "InstructionsText"
               ]
             }
           ]
@@ -4678,6 +5633,60 @@
               "width": 0
             }
           ],
+          "effects": [
+            {
+              "effectType": "Scene3D::HemisphereLight",
+              "name": "3D Ambient Hemisphere Light",
+              "doubleParameters": {
+                "elevation": 40,
+                "intensity": 0.33,
+                "rotation": 300
+              },
+              "stringParameters": {
+                "groundColor": "127;127;127",
+                "skyColor": "255;255;255",
+                "top": "Z+"
+              },
+              "booleanParameters": {}
+            },
+            {
+              "effectType": "Scene3D::DirectionalLight",
+              "name": "3D Sun Light",
+              "doubleParameters": {
+                "distanceFromCamera": 1500,
+                "elevation": 40,
+                "frustumSize": 4000,
+                "intensity": 0.75,
+                "minimumShadowBias": 0,
+                "rotation": 300
+              },
+              "stringParameters": {
+                "color": "255;255;255",
+                "shadowQuality": "medium",
+                "top": "Z+"
+              },
+              "booleanParameters": {
+                "isCastingShadow": true
+              }
+            }
+          ]
+        },
+        {
+          "ambientLightColorB": 200,
+          "ambientLightColorG": 200,
+          "ambientLightColorR": 200,
+          "camera2DPlaneMaxDrawingDistance": 5000,
+          "camera3DFarPlaneDistance": 10000,
+          "camera3DFieldOfView": 45,
+          "camera3DNearPlaneDistance": 3,
+          "cameraType": "",
+          "followBaseLayerCamera": false,
+          "isLightingLayer": false,
+          "isLocked": false,
+          "name": "UI",
+          "renderingType": "",
+          "visibility": true,
+          "cameras": [],
           "effects": [
             {
               "effectType": "Scene3D::HemisphereLight",
