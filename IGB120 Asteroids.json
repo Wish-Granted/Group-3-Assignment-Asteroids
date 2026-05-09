@@ -504,7 +504,7 @@
     {
       "name": "Bounds",
       "type": "number",
-      "value": 100
+      "value": 150
     }
   ],
   "layouts": [
@@ -772,7 +772,13 @@
                     {
                       "hasCustomCollisionMask": true,
                       "image": "ship.png",
-                      "points": [],
+                      "points": [
+                        {
+                          "name": "Front",
+                          "x": 29.5,
+                          "y": 16.5
+                        }
+                      ],
                       "originPoint": {
                         "name": "origine",
                         "x": 0,
@@ -817,7 +823,13 @@
                     {
                       "hasCustomCollisionMask": true,
                       "image": "ship_x2.png",
-                      "points": [],
+                      "points": [
+                        {
+                          "name": "Front",
+                          "x": 29.5,
+                          "y": 16.5
+                        }
+                      ],
                       "originPoint": {
                         "name": "origine",
                         "x": 0,
@@ -849,7 +861,13 @@
                     {
                       "hasCustomCollisionMask": true,
                       "image": "ship.png",
-                      "points": [],
+                      "points": [
+                        {
+                          "name": "Front",
+                          "x": 29.5,
+                          "y": 16.5
+                        }
+                      ],
                       "originPoint": {
                         "name": "origine",
                         "x": 0,
@@ -893,7 +911,13 @@
                     {
                       "hasCustomCollisionMask": true,
                       "image": "ship_x5.png",
-                      "points": [],
+                      "points": [
+                        {
+                          "name": "Front",
+                          "x": 29.5,
+                          "y": 16.5
+                        }
+                      ],
                       "originPoint": {
                         "name": "origine",
                         "x": 0,
@@ -925,7 +949,13 @@
                     {
                       "hasCustomCollisionMask": true,
                       "image": "ship.png",
-                      "points": [],
+                      "points": [
+                        {
+                          "name": "Front",
+                          "x": 29.5,
+                          "y": 16.5
+                        }
+                      ],
                       "originPoint": {
                         "name": "origine",
                         "x": 0,
@@ -3088,7 +3118,6 @@
           "comment": "Ship Movement and Shooting"
         },
         {
-          "folded": true,
           "type": "BuiltinCommonInstructions::Standard",
           "conditions": [
             {
@@ -3136,8 +3165,8 @@
                   "parameters": [
                     "",
                     "Bullet",
-                    "Ship.CenterX()",
-                    "Ship.CenterY()",
+                    "Ship.PointX(\"Front\")",
+                    "Ship.PointY(\"Front\")",
                     ""
                   ]
                 },
@@ -5338,6 +5367,60 @@
               ]
             },
             {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "NumberVariable"
+                  },
+                  "parameters": [
+                    "SpawnPosition[0]",
+                    "<",
+                    "0"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "SetNumberVariable"
+                  },
+                  "parameters": [
+                    "OriginOffset[0]",
+                    "=",
+                    "1"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "NumberVariable"
+                  },
+                  "parameters": [
+                    "SpawnPosition[1]",
+                    "<",
+                    "0"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "SetNumberVariable"
+                  },
+                  "parameters": [
+                    "OriginOffset[1]",
+                    "=",
+                    "1"
+                  ]
+                }
+              ]
+            },
+            {
               "type": "BuiltinCommonInstructions::Comment",
               "color": {
                 "b": 109,
@@ -5371,8 +5454,8 @@
                   "parameters": [
                     "",
                     "LargeAsteroid",
-                    "SpawnPosition[0]",
-                    "SpawnPosition[1]",
+                    "SpawnPosition[0]-100*OriginOffset[0]",
+                    "SpawnPosition[1]-100*OriginOffset[1]",
                     ""
                   ]
                 },
@@ -5434,8 +5517,8 @@
                   "parameters": [
                     "",
                     "LargeGaseous",
-                    "SpawnPosition[0]",
-                    "SpawnPosition[1]",
+                    "SpawnPosition[0]-100*OriginOffset[0]",
+                    "SpawnPosition[1]-100*OriginOffset[1]",
                     ""
                   ]
                 },
@@ -5519,8 +5602,8 @@
                   "parameters": [
                     "",
                     "LargeExplosive",
-                    "SpawnPosition[0]",
-                    "SpawnPosition[1]",
+                    "SpawnPosition[0]-100*OriginOffset[0]",
+                    "SpawnPosition[1]-100*OriginOffset[1]",
                     ""
                   ]
                 },
@@ -5560,8 +5643,8 @@
                   "parameters": [
                     "",
                     "Gold",
-                    "SpawnPosition[0]",
-                    "SpawnPosition[1]",
+                    "SpawnPosition[0]-64*OriginOffset[0]",
+                    "SpawnPosition[1]-64*OriginOffset[1]",
                     ""
                   ]
                 },
@@ -5584,6 +5667,20 @@
               "name": "Rand",
               "type": "number",
               "value": 0
+            },
+            {
+              "name": "OriginOffset",
+              "type": "array",
+              "children": [
+                {
+                  "type": "number",
+                  "value": 0
+                },
+                {
+                  "type": "number",
+                  "value": 0
+                }
+              ]
             },
             {
               "name": "SpawnPosition",
