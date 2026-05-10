@@ -388,6 +388,70 @@
         "name": "ship_x5.png",
         "smoothed": true,
         "userAdded": false
+      },
+      {
+        "file": "Playership.png",
+        "kind": "image",
+        "metadata": "{\"localFilePath\":\"Playership.png\",\"extension\":\".png\"}",
+        "name": "Playership.png",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "file": "Playershipx2mult-Sheet.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Playershipx2mult-Sheet.png",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "file": "assets/x2.png",
+        "kind": "image",
+        "metadata": "{\"extension\":\".png\"}",
+        "name": "x2",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "file": "assets/x3.png",
+        "kind": "image",
+        "metadata": "{\"extension\":\".png\"}",
+        "name": "x3",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "file": "assets/x4.png",
+        "kind": "image",
+        "metadata": "{\"extension\":\".png\"}",
+        "name": "x4",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "file": "assets/x5.png",
+        "kind": "image",
+        "metadata": "{\"extension\":\".png\"}",
+        "name": "x5",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "file": "assets/x6.png",
+        "kind": "image",
+        "metadata": "{\"extension\":\".png\"}",
+        "name": "x6",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "file": "assets/x7.png",
+        "kind": "image",
+        "metadata": "{\"extension\":\".png\"}",
+        "name": "x7",
+        "smoothed": true,
+        "userAdded": false
       }
     ]
   },
@@ -530,7 +594,7 @@
         "gridColor": 10401023,
         "gridAlpha": 0.8,
         "snap": false,
-        "zoomFactor": 0.6897782140104508,
+        "zoomFactor": 0.689778214010452,
         "windowMask": false,
         "selectedLayer": "",
         "gameEditorMode": "instances-editor"
@@ -767,11 +831,12 @@
               "directions": [
                 {
                   "looping": false,
+                  "metadata": "{\"pskl\":{}}",
                   "timeBetweenFrames": 0.08,
                   "sprites": [
                     {
                       "hasCustomCollisionMask": true,
-                      "image": "ship.png",
+                      "image": "Playership.png",
                       "points": [
                         {
                           "name": "Front",
@@ -822,7 +887,7 @@
                   "sprites": [
                     {
                       "hasCustomCollisionMask": true,
-                      "image": "ship_x2.png",
+                      "image": "x2",
                       "points": [
                         {
                           "name": "Front",
@@ -860,7 +925,159 @@
                     },
                     {
                       "hasCustomCollisionMask": true,
-                      "image": "ship.png",
+                      "image": "x3",
+                      "points": [
+                        {
+                          "name": "Front",
+                          "x": 29.5,
+                          "y": 16.5
+                        }
+                      ],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 0.5,
+                            "y": 0.5
+                          },
+                          {
+                            "x": 31,
+                            "y": 16.5
+                          },
+                          {
+                            "x": 0.5,
+                            "y": 31.5
+                          }
+                        ]
+                      ]
+                    },
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "x4",
+                      "points": [
+                        {
+                          "name": "Front",
+                          "x": 29.5,
+                          "y": 16.5
+                        }
+                      ],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 0.5,
+                            "y": 0.5
+                          },
+                          {
+                            "x": 31,
+                            "y": 16.5
+                          },
+                          {
+                            "x": 0.5,
+                            "y": 31.5
+                          }
+                        ]
+                      ]
+                    },
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "x5",
+                      "points": [
+                        {
+                          "name": "Front",
+                          "x": 29.5,
+                          "y": 16.5
+                        }
+                      ],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 0.5,
+                            "y": 0.5
+                          },
+                          {
+                            "x": 31,
+                            "y": 16.5
+                          },
+                          {
+                            "x": 0.5,
+                            "y": 31.5
+                          }
+                        ]
+                      ]
+                    },
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "x6",
+                      "points": [
+                        {
+                          "name": "Front",
+                          "x": 29.5,
+                          "y": 16.5
+                        }
+                      ],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 0.5,
+                            "y": 0.5
+                          },
+                          {
+                            "x": 31,
+                            "y": 16.5
+                          },
+                          {
+                            "x": 0.5,
+                            "y": 31.5
+                          }
+                        ]
+                      ]
+                    },
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "x7",
                       "points": [
                         {
                           "name": "Front",
