@@ -452,6 +452,53 @@
         "name": "x7",
         "smoothed": true,
         "userAdded": false
+      },
+      {
+        "file": "smallasteroid1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "smallasteroid1.png",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "file": "smallasteroid2.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "smallasteroid2.png",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "file": "smallasteroid3.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "smallasteroid3.png",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "file": "BoldsPixels.ttf",
+        "kind": "font",
+        "metadata": "",
+        "name": "BoldsPixels.ttf",
+        "userAdded": false
+      },
+      {
+        "file": "x2Combopickup.png",
+        "kind": "image",
+        "metadata": "{\"localFilePath\":\"x2Combopickup.png\",\"extension\":\".png\"}",
+        "name": "x2Combopickup.png",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "file": "x5Combopickup.png",
+        "kind": "image",
+        "metadata": "{\"localFilePath\":\"x5Combopickup.png\",\"extension\":\".png\"}",
+        "name": "x5Combopickup.png",
+        "smoothed": true,
+        "userAdded": false
       }
     ]
   },
@@ -594,7 +641,7 @@
         "gridColor": 10401023,
         "gridAlpha": 0.8,
         "snap": false,
-        "zoomFactor": 0.689778214010452,
+        "zoomFactor": 0.6244537826600016,
         "windowMask": false,
         "selectedLayer": "",
         "gameEditorMode": "instances-editor"
@@ -1558,9 +1605,9 @@
           "effects": [],
           "behaviors": [],
           "string": "CREDITS",
-          "font": "",
+          "font": "BoldsPixels.ttf",
           "textAlignment": "left",
-          "characterSize": 30,
+          "characterSize": 40,
           "color": {
             "b": 255,
             "g": 255,
@@ -1581,10 +1628,10 @@
             "smoothed": true,
             "underlined": false,
             "text": "CREDITS",
-            "font": "",
+            "font": "BoldsPixels.ttf",
             "textAlignment": "left",
             "verticalTextAlignment": "top",
-            "characterSize": 30,
+            "characterSize": 40,
             "lineHeight": 0,
             "color": "255;255;255"
           }
@@ -1602,9 +1649,9 @@
           "effects": [],
           "behaviors": [],
           "string": "HEALTH",
-          "font": "",
+          "font": "BoldsPixels.ttf",
           "textAlignment": "left",
-          "characterSize": 30,
+          "characterSize": 40,
           "color": {
             "b": 255,
             "g": 255,
@@ -1625,10 +1672,10 @@
             "smoothed": true,
             "underlined": false,
             "text": "HEALTH",
-            "font": "",
+            "font": "BoldsPixels.ttf",
             "textAlignment": "left",
             "verticalTextAlignment": "top",
-            "characterSize": 30,
+            "characterSize": 40,
             "lineHeight": 0,
             "color": "255;255;255"
           }
@@ -1947,7 +1994,7 @@
                   "sprites": [
                     {
                       "hasCustomCollisionMask": true,
-                      "image": "small_asteroid_4.png",
+                      "image": "smallasteroid1.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
@@ -1964,45 +2011,39 @@
                         [
                           {
                             "x": 4,
+                            "y": 2
+                          },
+                          {
+                            "x": 20,
                             "y": 3.5
                           },
                           {
-                            "x": 26,
-                            "y": 3.5
+                            "x": 28,
+                            "y": 17.5
+                          },
+                          {
+                            "x": 30,
+                            "y": 26
+                          },
+                          {
+                            "x": 21.5,
+                            "y": 30.5
                           },
                           {
                             "x": 15.5,
-                            "y": 13
+                            "y": 25
                           },
                           {
-                            "x": 6.5,
-                            "y": 13
-                          }
-                        ],
-                        [
-                          {
-                            "x": 6.5,
-                            "y": 13
-                          },
-                          {
-                            "x": 15.5,
-                            "y": 13
-                          },
-                          {
-                            "x": 27.5,
-                            "y": 22.5
-                          },
-                          {
-                            "x": 27,
-                            "y": 26.5
-                          },
-                          {
-                            "x": 12.5,
-                            "y": 29
+                            "x": 3,
+                            "y": 27
                           },
                           {
                             "x": 4.5,
-                            "y": 25.5
+                            "y": 18
+                          },
+                          {
+                            "x": 3,
+                            "y": 11.5
                           }
                         ]
                       ]
@@ -2021,7 +2062,7 @@
                   "sprites": [
                     {
                       "hasCustomCollisionMask": true,
-                      "image": "small_asteroid_5.png",
+                      "image": "smallasteroid2.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
@@ -2037,46 +2078,36 @@
                       "customCollisionMask": [
                         [
                           {
-                            "x": 4.5,
-                            "y": 3
+                            "x": 3.5,
+                            "y": 8
                           },
                           {
-                            "x": 15.5,
-                            "y": 13
+                            "x": 13.5,
+                            "y": 4.5
                           },
                           {
-                            "x": 7.5,
-                            "y": 22.5
+                            "x": 25,
+                            "y": 3.5
                           },
                           {
-                            "x": 1.5,
-                            "y": 9.5
-                          }
-                        ],
-                        [
-                          {
-                            "x": 14,
-                            "y": 11
+                            "x": 30,
+                            "y": 21.5
                           },
                           {
-                            "x": 19.5,
-                            "y": 3
+                            "x": 24.5,
+                            "y": 29
                           },
                           {
-                            "x": 29,
-                            "y": 9
+                            "x": 17.5,
+                            "y": 29
                           },
                           {
-                            "x": 30.5,
-                            "y": 17
+                            "x": 7,
+                            "y": 24
                           },
                           {
-                            "x": 28.5,
-                            "y": 27
-                          },
-                          {
-                            "x": 4,
-                            "y": 29.5
+                            "x": 3,
+                            "y": 18.5
                           }
                         ]
                       ]
@@ -2095,7 +2126,7 @@
                   "sprites": [
                     {
                       "hasCustomCollisionMask": true,
-                      "image": "small_asteroid_6.png",
+                      "image": "smallasteroid3.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
@@ -2111,46 +2142,32 @@
                       "customCollisionMask": [
                         [
                           {
+                            "x": 6,
+                            "y": 25
+                          },
+                          {
                             "x": 3,
                             "y": 12
                           },
                           {
-                            "x": 18.5,
-                            "y": 5.5
+                            "x": 6.5,
+                            "y": 6
+                          },
+                          {
+                            "x": 19,
+                            "y": 4.5
                           },
                           {
                             "x": 26.5,
                             "y": 11.5
                           },
                           {
-                            "x": 28.5,
-                            "y": 21
+                            "x": 29,
+                            "y": 26
                           },
                           {
-                            "x": 14.5,
-                            "y": 23.5
-                          }
-                        ],
-                        [
-                          {
-                            "x": 6,
-                            "y": 26.5
-                          },
-                          {
-                            "x": 12,
-                            "y": 21
-                          },
-                          {
-                            "x": 18,
-                            "y": 22.5
-                          },
-                          {
-                            "x": 22,
-                            "y": 29
-                          },
-                          {
-                            "x": 10,
-                            "y": 29.5
+                            "x": 14,
+                            "y": 30
                           }
                         ]
                       ]
@@ -2174,7 +2191,7 @@
           "effects": [],
           "behaviors": [],
           "string": "24:32",
-          "font": "",
+          "font": "BoldsPixels.ttf",
           "textAlignment": "left",
           "characterSize": 30,
           "color": {
@@ -2197,7 +2214,7 @@
             "smoothed": true,
             "underlined": false,
             "text": "24:32",
-            "font": "",
+            "font": "BoldsPixels.ttf",
             "textAlignment": "left",
             "verticalTextAlignment": "top",
             "characterSize": 30,
@@ -2218,7 +2235,7 @@
           "effects": [],
           "behaviors": [],
           "string": "SOL 0",
-          "font": "",
+          "font": "BoldsPixels.ttf",
           "textAlignment": "left",
           "characterSize": 30,
           "color": {
@@ -2241,7 +2258,7 @@
             "smoothed": true,
             "underlined": false,
             "text": "SOL 0",
-            "font": "",
+            "font": "BoldsPixels.ttf",
             "textAlignment": "left",
             "verticalTextAlignment": "top",
             "characterSize": 30,
@@ -3066,7 +3083,7 @@
           "effects": [],
           "behaviors": [],
           "string": "Use the arrow keys to move and turn. Press space to shoot!",
-          "font": "",
+          "font": "BoldsPixels.ttf",
           "textAlignment": "left",
           "characterSize": 32,
           "color": {
@@ -3089,7 +3106,7 @@
             "smoothed": true,
             "underlined": false,
             "text": "Use the arrow keys to move and turn. Press space to shoot!",
-            "font": "",
+            "font": "BoldsPixels.ttf",
             "textAlignment": "left",
             "verticalTextAlignment": "top",
             "characterSize": 32,
@@ -3119,7 +3136,7 @@
                   "sprites": [
                     {
                       "hasCustomCollisionMask": true,
-                      "image": "x2.png",
+                      "image": "x2Combopickup.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
@@ -3136,19 +3153,19 @@
                         [
                           {
                             "x": 4,
-                            "y": 4
+                            "y": 6
                           },
                           {
-                            "x": 36,
-                            "y": 4
+                            "x": 58,
+                            "y": 6
                           },
                           {
-                            "x": 36,
-                            "y": 36
+                            "x": 58,
+                            "y": 60
                           },
                           {
                             "x": 4,
-                            "y": 36
+                            "y": 60
                           }
                         ]
                       ]
@@ -3168,7 +3185,7 @@
                   "sprites": [
                     {
                       "hasCustomCollisionMask": true,
-                      "image": "x5.png",
+                      "image": "x5Combopickup.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
@@ -3185,19 +3202,19 @@
                         [
                           {
                             "x": 4,
-                            "y": 4
+                            "y": 6
                           },
                           {
-                            "x": 36,
-                            "y": 4
+                            "x": 58,
+                            "y": 6
                           },
                           {
-                            "x": 36,
-                            "y": 36
+                            "x": 58,
+                            "y": 60
                           },
                           {
                             "x": 4,
-                            "y": 36
+                            "y": 60
                           }
                         ]
                       ]
@@ -3221,7 +3238,7 @@
           "effects": [],
           "behaviors": [],
           "string": "x2 multiplier active",
-          "font": "",
+          "font": "BoldsPixels.ttf",
           "textAlignment": "left",
           "characterSize": 32,
           "color": {
@@ -3234,7 +3251,7 @@
             "isOutlineEnabled": true,
             "isShadowEnabled": false,
             "italic": true,
-            "outlineColor": "255;255;255",
+            "outlineColor": "230;230;230",
             "outlineThickness": 2,
             "shadowAngle": 90,
             "shadowBlurRadius": 2,
@@ -3244,7 +3261,7 @@
             "smoothed": true,
             "underlined": false,
             "text": "x2 multiplier active",
-            "font": "",
+            "font": "BoldsPixels.ttf",
             "textAlignment": "left",
             "verticalTextAlignment": "top",
             "characterSize": 32,
@@ -7187,9 +7204,9 @@
           "effects": [],
           "behaviors": [],
           "string": "Hull",
-          "font": "",
+          "font": "BoldsPixels.ttf",
           "textAlignment": "left",
-          "characterSize": 40,
+          "characterSize": 45,
           "color": {
             "b": 255,
             "g": 255,
@@ -7210,10 +7227,10 @@
             "smoothed": true,
             "underlined": false,
             "text": "Hull",
-            "font": "",
+            "font": "BoldsPixels.ttf",
             "textAlignment": "left",
             "verticalTextAlignment": "top",
-            "characterSize": 40,
+            "characterSize": 45,
             "lineHeight": 0,
             "color": "255;255;255"
           }
@@ -7231,9 +7248,9 @@
           "effects": [],
           "behaviors": [],
           "string": "Guns",
-          "font": "",
+          "font": "BoldsPixels.ttf",
           "textAlignment": "left",
-          "characterSize": 40,
+          "characterSize": 45,
           "color": {
             "b": 255,
             "g": 255,
@@ -7254,10 +7271,10 @@
             "smoothed": true,
             "underlined": false,
             "text": "Guns",
-            "font": "",
+            "font": "BoldsPixels.ttf",
             "textAlignment": "left",
             "verticalTextAlignment": "top",
-            "characterSize": 40,
+            "characterSize": 45,
             "lineHeight": 0,
             "color": "255;255;255"
           }
@@ -7275,9 +7292,9 @@
           "effects": [],
           "behaviors": [],
           "string": "Thrusters",
-          "font": "",
+          "font": "BoldsPixels.ttf",
           "textAlignment": "left",
-          "characterSize": 40,
+          "characterSize": 45,
           "color": {
             "b": 255,
             "g": 255,
@@ -7298,10 +7315,10 @@
             "smoothed": true,
             "underlined": false,
             "text": "Thrusters",
-            "font": "",
+            "font": "BoldsPixels.ttf",
             "textAlignment": "left",
             "verticalTextAlignment": "top",
-            "characterSize": 40,
+            "characterSize": 45,
             "lineHeight": 0,
             "color": "255;255;255"
           }
@@ -7319,7 +7336,7 @@
           "effects": [],
           "behaviors": [],
           "string": "Lvl 1",
-          "font": "",
+          "font": "BoldsPixels.ttf",
           "textAlignment": "left",
           "characterSize": 40,
           "color": {
@@ -7342,7 +7359,7 @@
             "smoothed": true,
             "underlined": false,
             "text": "Lvl 1",
-            "font": "",
+            "font": "BoldsPixels.ttf",
             "textAlignment": "left",
             "verticalTextAlignment": "top",
             "characterSize": 40,
@@ -7363,7 +7380,7 @@
           "effects": [],
           "behaviors": [],
           "string": "Lvl 1",
-          "font": "",
+          "font": "BoldsPixels.ttf",
           "textAlignment": "left",
           "characterSize": 40,
           "color": {
@@ -7386,7 +7403,7 @@
             "smoothed": true,
             "underlined": false,
             "text": "Lvl 1",
-            "font": "",
+            "font": "BoldsPixels.ttf",
             "textAlignment": "left",
             "verticalTextAlignment": "top",
             "characterSize": 40,
@@ -7407,7 +7424,7 @@
           "effects": [],
           "behaviors": [],
           "string": "Lvl 1",
-          "font": "",
+          "font": "BoldsPixels.ttf",
           "textAlignment": "left",
           "characterSize": 40,
           "color": {
@@ -7430,7 +7447,7 @@
             "smoothed": true,
             "underlined": false,
             "text": "Lvl 1",
-            "font": "",
+            "font": "BoldsPixels.ttf",
             "textAlignment": "left",
             "verticalTextAlignment": "top",
             "characterSize": 40,
@@ -7527,9 +7544,9 @@
           "effects": [],
           "behaviors": [],
           "string": "Shield Generator",
-          "font": "",
+          "font": "BoldsPixels.ttf",
           "textAlignment": "left",
-          "characterSize": 40,
+          "characterSize": 45,
           "color": {
             "b": 255,
             "g": 255,
@@ -7550,10 +7567,10 @@
             "smoothed": true,
             "underlined": false,
             "text": "Shield Generator",
-            "font": "",
+            "font": "BoldsPixels.ttf",
             "textAlignment": "left",
             "verticalTextAlignment": "top",
-            "characterSize": 40,
+            "characterSize": 45,
             "lineHeight": 0,
             "color": "255;255;255"
           }
@@ -7571,9 +7588,9 @@
           "effects": [],
           "behaviors": [],
           "string": "Reverse Thrusters",
-          "font": "",
+          "font": "BoldsPixels.ttf",
           "textAlignment": "left",
-          "characterSize": 40,
+          "characterSize": 45,
           "color": {
             "b": 255,
             "g": 255,
@@ -7594,10 +7611,10 @@
             "smoothed": true,
             "underlined": false,
             "text": "Reverse Thrusters",
-            "font": "",
+            "font": "BoldsPixels.ttf",
             "textAlignment": "left",
             "verticalTextAlignment": "top",
-            "characterSize": 40,
+            "characterSize": 45,
             "lineHeight": 0,
             "color": "255;255;255"
           }
@@ -7615,9 +7632,9 @@
           "effects": [],
           "behaviors": [],
           "string": "Thermal Shield",
-          "font": "",
+          "font": "BoldsPixels.ttf",
           "textAlignment": "left",
-          "characterSize": 40,
+          "characterSize": 45,
           "color": {
             "b": 255,
             "g": 255,
@@ -7638,10 +7655,10 @@
             "smoothed": true,
             "underlined": false,
             "text": "Thermal Shield",
-            "font": "",
+            "font": "BoldsPixels.ttf",
             "textAlignment": "left",
             "verticalTextAlignment": "top",
-            "characterSize": 40,
+            "characterSize": 45,
             "lineHeight": 0,
             "color": "255;255;255"
           }
@@ -7659,9 +7676,9 @@
           "effects": [],
           "behaviors": [],
           "string": "Carbon Filters",
-          "font": "",
+          "font": "BoldsPixels.ttf",
           "textAlignment": "left",
-          "characterSize": 40,
+          "characterSize": 45,
           "color": {
             "b": 255,
             "g": 255,
@@ -7682,10 +7699,10 @@
             "smoothed": true,
             "underlined": false,
             "text": "Carbon Filters",
-            "font": "",
+            "font": "BoldsPixels.ttf",
             "textAlignment": "left",
             "verticalTextAlignment": "top",
-            "characterSize": 40,
+            "characterSize": 45,
             "lineHeight": 0,
             "color": "255;255;255"
           }
@@ -7722,9 +7739,9 @@
           "effects": [],
           "behaviors": [],
           "string": "C100",
-          "font": "",
+          "font": "BoldsPixels.ttf",
           "textAlignment": "right",
-          "characterSize": 40,
+          "characterSize": 50,
           "color": {
             "b": 255,
             "g": 255,
@@ -7745,10 +7762,10 @@
             "smoothed": true,
             "underlined": false,
             "text": "C100",
-            "font": "",
+            "font": "BoldsPixels.ttf",
             "textAlignment": "right",
             "verticalTextAlignment": "top",
-            "characterSize": 40,
+            "characterSize": 50,
             "lineHeight": 0,
             "color": "255;255;255"
           }
@@ -8759,7 +8776,7 @@
           "name": "CreditText",
           "persistentUuid": "bdd0019b-dba2-4026-84c4-d0361f840525",
           "width": 0,
-          "x": 612,
+          "x": 508,
           "y": 440,
           "zOrder": 5,
           "numberProperties": [],
@@ -8775,8 +8792,8 @@
           "name": "TitleText",
           "persistentUuid": "7970c182-32c2-4a54-8955-874851843166",
           "width": 0,
-          "x": 497,
-          "y": 44,
+          "x": 462,
+          "y": 40,
           "zOrder": 6,
           "numberProperties": [],
           "stringProperties": [],
@@ -8936,9 +8953,9 @@
           "effects": [],
           "behaviors": [],
           "string": "Sol 1",
-          "font": "",
+          "font": "BoldsPixels.ttf",
           "textAlignment": "left",
-          "characterSize": 30,
+          "characterSize": 40,
           "color": {
             "b": 255,
             "g": 255,
@@ -8959,10 +8976,10 @@
             "smoothed": true,
             "underlined": false,
             "text": "Sol 1",
-            "font": "",
+            "font": "BoldsPixels.ttf",
             "textAlignment": "left",
             "verticalTextAlignment": "top",
-            "characterSize": 30,
+            "characterSize": 40,
             "lineHeight": 0,
             "color": "255;255;255"
           }
@@ -8979,10 +8996,10 @@
           "variables": [],
           "effects": [],
           "behaviors": [],
-          "string": "C0",
-          "font": "",
+          "string": "Credits: 0",
+          "font": "BoldsPixels.ttf",
           "textAlignment": "left",
-          "characterSize": 30,
+          "characterSize": 40,
           "color": {
             "b": 255,
             "g": 255,
@@ -9002,11 +9019,11 @@
             "shadowOpacity": 127,
             "smoothed": true,
             "underlined": false,
-            "text": "C0",
-            "font": "",
+            "text": "Credits: 0",
+            "font": "BoldsPixels.ttf",
             "textAlignment": "left",
             "verticalTextAlignment": "top",
-            "characterSize": 30,
+            "characterSize": 40,
             "lineHeight": 0,
             "color": "255;255;255"
           }
@@ -9087,9 +9104,9 @@
           "effects": [],
           "behaviors": [],
           "string": "24:32",
-          "font": "",
+          "font": "BoldsPixels.ttf",
           "textAlignment": "left",
-          "characterSize": 30,
+          "characterSize": 40,
           "color": {
             "b": 255,
             "g": 255,
@@ -9110,10 +9127,10 @@
             "smoothed": true,
             "underlined": false,
             "text": "24:32",
-            "font": "",
+            "font": "BoldsPixels.ttf",
             "textAlignment": "left",
             "verticalTextAlignment": "top",
-            "characterSize": 30,
+            "characterSize": 40,
             "lineHeight": 0,
             "color": "255;255;255"
           }
