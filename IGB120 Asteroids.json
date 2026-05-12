@@ -2742,7 +2742,18 @@
           "textureParticleName": "Gas.png",
           "type": "ParticleSystem::ParticleEmitter",
           "zoneRadius": 75,
-          "variables": [],
+          "variables": [
+            {
+              "name": "Lifetime",
+              "type": "number",
+              "value": 0
+            },
+            {
+              "name": "Unlinked",
+              "type": "boolean",
+              "value": false
+            }
+          ],
           "effects": [],
           "behaviors": []
         },
@@ -3352,6 +3363,7 @@
           "comment": "Ship Movement and Shooting"
         },
         {
+          "folded": true,
           "type": "BuiltinCommonInstructions::Standard",
           "conditions": [
             {
@@ -3481,7 +3493,7 @@
                   },
                   "parameters": [
                     "Ship",
-                    "-120 * (1+ThrusterLevel/5)",
+                    "-90 * (1+ThrusterLevel/5)",
                     ""
                   ]
                 }
@@ -3507,7 +3519,7 @@
                   },
                   "parameters": [
                     "Ship",
-                    "120 * (1+ThrusterLevel/5)",
+                    "90 * (1+ThrusterLevel/5)",
                     ""
                   ]
                 }
@@ -3534,7 +3546,7 @@
                   "parameters": [
                     "Ship",
                     "Ship.Angle()",
-                    "100*(1+ThrusterLevel/5)",
+                    "80*(1+ThrusterLevel/5)",
                     ""
                   ]
                 }
@@ -3571,7 +3583,7 @@
                   "parameters": [
                     "Ship",
                     "Ship.Angle()",
-                    "-80*(1 + ThrusterLevel/5)",
+                    "-60*(1 + ThrusterLevel/5)",
                     ""
                   ]
                 }
@@ -3711,6 +3723,62 @@
                   },
                   "parameters": [
                     "Bullet",
+                    ""
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "BooleanObjectVariable"
+                  },
+                  "parameters": [
+                    "Gas",
+                    "Unlinked",
+                    "True",
+                    ""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "SetNumberObjectVariable"
+                  },
+                  "parameters": [
+                    "Gas",
+                    "Lifetime",
+                    "-",
+                    "TimeDelta()"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "NumberObjectVariable"
+                  },
+                  "parameters": [
+                    "Gas",
+                    "Lifetime",
+                    "<=",
+                    "0"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Delete"
+                  },
+                  "parameters": [
+                    "Gas",
                     ""
                   ]
                 }
@@ -4412,11 +4480,32 @@
                 },
                 {
                   "type": {
-                    "value": "Delete"
+                    "value": "SetBooleanObjectVariable"
                   },
                   "parameters": [
                     "Gas",
+                    "Unlinked",
+                    "True",
                     ""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetNumberObjectVariable"
+                  },
+                  "parameters": [
+                    "Gas",
+                    "Lifetime",
+                    "=",
+                    "1"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ClearForces"
+                  },
+                  "parameters": [
+                    "Gas"
                   ]
                 },
                 {
@@ -5023,7 +5112,6 @@
           "comment": "Ui"
         },
         {
-          "folded": true,
           "type": "BuiltinCommonInstructions::Standard",
           "conditions": [],
           "actions": [],
@@ -5484,7 +5572,7 @@
               "parameters": [
                 "AsteroidCount",
                 "<",
-                "Time.Hours"
+                "Time.Hours + 3"
               ]
             }
           ],
@@ -6703,7 +6791,7 @@
           "layer": "",
           "name": "Hull_Upgrade",
           "persistentUuid": "30740700-0284-4271-95d4-9452484e4642",
-          "width": 120,
+          "width": 140,
           "x": 421,
           "y": 18,
           "zOrder": 1,
@@ -6719,7 +6807,7 @@
           "layer": "",
           "name": "Guns_Upgrade",
           "persistentUuid": "e0d3093f-3925-4435-b070-44cbd1249449",
-          "width": 120,
+          "width": 140,
           "x": 421,
           "y": 89,
           "zOrder": 2,
@@ -6735,7 +6823,7 @@
           "layer": "",
           "name": "Thruster_Upgrade",
           "persistentUuid": "23be514e-c619-4862-8de9-0563f6d8feff",
-          "width": 120,
+          "width": 140,
           "x": 421,
           "y": 159,
           "zOrder": 3,
@@ -6842,12 +6930,12 @@
         {
           "angle": 0,
           "customSize": true,
-          "depth": 21.333333333333332,
+          "depth": 21,
           "height": 64,
           "layer": "",
           "name": "ShieldGenPurchase",
           "persistentUuid": "d050de65-faf0-40a6-bc4e-1dcf22219030",
-          "width": 120,
+          "width": 140,
           "x": 421,
           "y": 249,
           "zOrder": 11,
@@ -6863,7 +6951,7 @@
           "layer": "",
           "name": "ThermalShieldPurchase",
           "persistentUuid": "e585428f-b67d-4b59-80f2-622faa0d539b",
-          "width": 120,
+          "width": 140,
           "x": 421,
           "y": 319,
           "zOrder": 12,
@@ -6874,12 +6962,12 @@
         {
           "angle": 0,
           "customSize": true,
-          "depth": 33.33333333333333,
+          "depth": 33,
           "height": 64,
           "layer": "",
           "name": "CarbonFilterPurchase",
           "persistentUuid": "1ab3fd10-0919-4583-aeb3-2220399650d1",
-          "width": 120,
+          "width": 140,
           "x": 421,
           "y": 459,
           "zOrder": 13,
@@ -6890,12 +6978,12 @@
         {
           "angle": 0,
           "customSize": true,
-          "depth": 33.33333333333333,
+          "depth": 33,
           "height": 64,
           "layer": "",
           "name": "ReverseThrusterPurchase",
           "persistentUuid": "c63cc14d-4b82-42d9-b7c8-6797e2e6f953",
-          "width": 120,
+          "width": 140,
           "x": 421,
           "y": 389,
           "zOrder": 14,
@@ -7007,7 +7095,7 @@
           "name": "Hull_Upgrade",
           "persistentUuid": "5dd67d47-d1e8-46ee-9217-bad06344968c",
           "type": "PanelSpriteButton::PanelSpriteButton",
-          "variant": "Black Decorated Button",
+          "variant": "Button",
           "variables": [],
           "effects": [],
           "behaviors": [],
@@ -7026,7 +7114,7 @@
           "name": "Guns_Upgrade",
           "persistentUuid": "0d059703-f6bf-4273-a090-1ed7023c5b73",
           "type": "PanelSpriteButton::PanelSpriteButton",
-          "variant": "Black Decorated Button",
+          "variant": "Button",
           "variables": [],
           "effects": [],
           "behaviors": [],
@@ -7045,7 +7133,7 @@
           "name": "Thruster_Upgrade",
           "persistentUuid": "bab0bc4c-8ceb-4f97-bda4-414ac1c54b2e",
           "type": "PanelSpriteButton::PanelSpriteButton",
-          "variant": "Black Decorated Button",
+          "variant": "Button",
           "variables": [],
           "effects": [],
           "behaviors": [],
@@ -7460,7 +7548,7 @@
           "name": "ShieldGenPurchase",
           "persistentUuid": "4859750e-8440-4d8a-9b0b-feb5bff57e01",
           "type": "PanelSpriteButton::PanelSpriteButton",
-          "variant": "Black Decorated Button",
+          "variant": "Button",
           "variables": [],
           "effects": [],
           "behaviors": [],
@@ -7479,7 +7567,7 @@
           "name": "ThermalShieldPurchase",
           "persistentUuid": "fcdac471-1e5b-49a8-a7f5-8e663f57a475",
           "type": "PanelSpriteButton::PanelSpriteButton",
-          "variant": "Black Decorated Button",
+          "variant": "Button",
           "variables": [],
           "effects": [],
           "behaviors": [],
@@ -7498,7 +7586,7 @@
           "name": "CarbonFilterPurchase",
           "persistentUuid": "3ff6c80f-e6e4-4690-bc99-c31174f2a086",
           "type": "PanelSpriteButton::PanelSpriteButton",
-          "variant": "Black Decorated Button",
+          "variant": "Button",
           "variables": [],
           "effects": [],
           "behaviors": [],
@@ -7517,7 +7605,7 @@
           "name": "ReverseThrusterPurchase",
           "persistentUuid": "327d6534-382d-4f18-8fe9-9f74413c53d9",
           "type": "PanelSpriteButton::PanelSpriteButton",
-          "variant": "Black Decorated Button",
+          "variant": "Button",
           "variables": [],
           "effects": [],
           "behaviors": [],
@@ -7712,7 +7800,7 @@
           "name": "BackButton",
           "persistentUuid": "79ee2dd6-8986-4854-8592-af35d0c4357f",
           "type": "PanelSpriteButton::PanelSpriteButton",
-          "variant": "Black Decorated Button",
+          "variant": "Button",
           "variables": [],
           "effects": [],
           "behaviors": [],
@@ -8537,7 +8625,7 @@
                 "Gun_Lvl",
                 "Text",
                 "=",
-                "\"Lvl\" + GunsLevel"
+                "\"Lvl \" + GunsLevel"
               ]
             },
             {
@@ -8548,7 +8636,7 @@
                 "Hull_Lvl",
                 "Text",
                 "=",
-                "\"Lvl\" + HullLevel"
+                "\"Lvl \" + HullLevel"
               ]
             },
             {
@@ -8559,7 +8647,7 @@
                 "Thruster_Lvl",
                 "Text",
                 "=",
-                "\"Lvl\" + ThrusterLevel"
+                "\"Lvl \" + ThrusterLevel"
               ]
             },
             {
@@ -8709,7 +8797,7 @@
           "layer": "",
           "name": "Play",
           "persistentUuid": "430a327f-79cc-4818-9be1-5f93e7e0b876",
-          "width": 203,
+          "width": 237,
           "x": 25,
           "y": 50,
           "zOrder": 1,
@@ -8726,7 +8814,7 @@
           "layer": "",
           "name": "Galactic_Mart",
           "persistentUuid": "d97424df-ac06-433f-a549-0dcdaf8c213f",
-          "width": 228,
+          "width": 269,
           "x": 25,
           "y": 300,
           "zOrder": 2,
@@ -8808,7 +8896,7 @@
           "layer": "",
           "name": "Sleep",
           "persistentUuid": "d8110466-f760-4267-82f4-7a78402629ed",
-          "width": 132,
+          "width": 130,
           "x": 25,
           "y": 175,
           "zOrder": 7,
@@ -8888,7 +8976,7 @@
           "name": "Play",
           "persistentUuid": "cd1d91e6-a833-4200-81ef-713654ff13d3",
           "type": "PanelSpriteButton::PanelSpriteButton",
-          "variant": "Black Decorated Button",
+          "variant": "Button",
           "variables": [],
           "effects": [],
           "behaviors": [],
@@ -8907,7 +8995,7 @@
           "name": "Galactic_Mart",
           "persistentUuid": "bfe8acd2-626b-4fe8-b6a8-510c880b1442",
           "type": "PanelSpriteButton::PanelSpriteButton",
-          "variant": "Black Decorated Button",
+          "variant": "Button",
           "variables": [],
           "effects": [],
           "behaviors": [],
@@ -8926,7 +9014,7 @@
           "name": "Quit",
           "persistentUuid": "b42ab7cb-dbf8-483e-bf9f-a7cccb3c204b",
           "type": "PanelSpriteButton::PanelSpriteButton",
-          "variant": "Black Decorated Button",
+          "variant": "Button",
           "variables": [],
           "effects": [],
           "behaviors": [],
@@ -9041,7 +9129,7 @@
           "effects": [],
           "behaviors": [],
           "string": "The Mines of Kuiper",
-          "font": "",
+          "font": "BoldsPixels.ttf",
           "textAlignment": "left",
           "characterSize": 50,
           "color": {
@@ -9064,7 +9152,7 @@
             "smoothed": true,
             "underlined": false,
             "text": "The Mines of Kuiper",
-            "font": "",
+            "font": "BoldsPixels.ttf",
             "textAlignment": "left",
             "verticalTextAlignment": "top",
             "characterSize": 50,
@@ -9077,7 +9165,7 @@
           "name": "Sleep",
           "persistentUuid": "50eae55f-1f26-4c01-872a-530430d64aff",
           "type": "PanelSpriteButton::PanelSpriteButton",
-          "variant": "Black Decorated Button",
+          "variant": "Button",
           "variables": [],
           "effects": [],
           "behaviors": [],
@@ -13841,6 +13929,359 @@
             ]
           },
           "variants": [
+            {
+              "areaMaxX": 192,
+              "areaMaxY": 64,
+              "areaMaxZ": 64,
+              "areaMinX": 0,
+              "areaMinY": 0,
+              "areaMinZ": 0,
+              "name": "Button",
+              "objects": [
+                {
+                  "assetStoreId": "",
+                  "bold": false,
+                  "italic": false,
+                  "name": "Label",
+                  "persistentUuid": "332e10bb-f227-45ee-b133-01689a0e1092",
+                  "smoothed": true,
+                  "type": "TextObject::Text",
+                  "underlined": false,
+                  "variables": [],
+                  "effects": [],
+                  "behaviors": [
+                    {
+                      "name": "Anchor",
+                      "type": "AnchorBehavior::AnchorBehavior",
+                      "bottomEdgeAnchor": 2,
+                      "leftEdgeAnchor": 1,
+                      "relativeToOriginalWindowSize": true,
+                      "rightEdgeAnchor": 2,
+                      "topEdgeAnchor": 1,
+                      "useLegacyBottomAndRightAnchors": false
+                    },
+                    {
+                      "name": "TextStyleState",
+                      "type": "PanelSpriteButton::TextStyleState",
+                      "ShouldEnableOutlineOnHover": false,
+                      "HoverColor": "",
+                      "ShouldEnableShadowOnHover": false,
+                      "HoverFontSize": 0,
+                      "IsHovered": false,
+                      "IdleFontSize": 0,
+                      "IdleColor": ""
+                    }
+                  ],
+                  "string": "Button",
+                  "font": "BoldsPixels.ttf",
+                  "textAlignment": "center",
+                  "characterSize": 40,
+                  "color": {
+                    "b": 255,
+                    "g": 255,
+                    "r": 255
+                  },
+                  "content": {
+                    "bold": false,
+                    "isOutlineEnabled": false,
+                    "isShadowEnabled": false,
+                    "italic": false,
+                    "outlineColor": "255;255;255",
+                    "outlineThickness": 2,
+                    "shadowAngle": 90,
+                    "shadowBlurRadius": 2,
+                    "shadowColor": "0;0;0",
+                    "shadowDistance": 4,
+                    "shadowOpacity": 127,
+                    "smoothed": true,
+                    "underlined": false,
+                    "text": "Button",
+                    "font": "BoldsPixels.ttf",
+                    "textAlignment": "center",
+                    "verticalTextAlignment": "center",
+                    "characterSize": 40,
+                    "lineHeight": 0,
+                    "color": "255;255;255"
+                  }
+                },
+                {
+                  "assetStoreId": "",
+                  "bottomMargin": 22,
+                  "height": 64,
+                  "leftMargin": 16,
+                  "name": "Idle",
+                  "persistentUuid": "242a3029-e782-4264-85ca-48b9acfe4dbe",
+                  "rightMargin": 16,
+                  "texture": "Black Decorated Button_Idle.png",
+                  "tiled": false,
+                  "topMargin": 16,
+                  "type": "PanelSpriteObject::PanelSprite",
+                  "width": 192,
+                  "variables": [
+                    {
+                      "folded": true,
+                      "name": "State",
+                      "type": "string",
+                      "value": "Idle"
+                    }
+                  ],
+                  "effects": [],
+                  "behaviors": [
+                    {
+                      "name": "Anchor",
+                      "type": "AnchorBehavior::AnchorBehavior",
+                      "bottomEdgeAnchor": 2,
+                      "leftEdgeAnchor": 1,
+                      "relativeToOriginalWindowSize": true,
+                      "rightEdgeAnchor": 2,
+                      "topEdgeAnchor": 1,
+                      "useLegacyBottomAndRightAnchors": false
+                    },
+                    {
+                      "name": "ButtonFSM",
+                      "type": "PanelSpriteButton::ButtonFSM",
+                      "serializedBehavior": {
+                        "name": "ButtonFSM",
+                        "type": "PanelSpriteButton::ButtonFSM",
+                        "ShouldCheckHovering": true
+                      }
+                    }
+                  ]
+                },
+                {
+                  "assetStoreId": "",
+                  "bottomMargin": 22,
+                  "height": 64,
+                  "leftMargin": 16,
+                  "name": "Hovered",
+                  "rightMargin": 16,
+                  "texture": "Black Decorated Button_Hovered.png",
+                  "tiled": false,
+                  "topMargin": 16,
+                  "type": "PanelSpriteObject::PanelSprite",
+                  "width": 192,
+                  "variables": [],
+                  "effects": [],
+                  "behaviors": [
+                    {
+                      "name": "Anchor",
+                      "type": "AnchorBehavior::AnchorBehavior",
+                      "bottomEdgeAnchor": 2,
+                      "leftEdgeAnchor": 1,
+                      "relativeToOriginalWindowSize": true,
+                      "rightEdgeAnchor": 2,
+                      "topEdgeAnchor": 1,
+                      "useLegacyBottomAndRightAnchors": false
+                    },
+                    {
+                      "name": "Tween",
+                      "type": "Tween::TweenBehavior",
+                      "serializedBehavior": {
+                        "name": "Tween",
+                        "type": "Tween::TweenBehavior"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "assetStoreId": "",
+                  "bottomMargin": 16,
+                  "height": 64,
+                  "leftMargin": 16,
+                  "name": "Pressed",
+                  "rightMargin": 16,
+                  "texture": "Black Decorated Button_Pressed.png",
+                  "tiled": false,
+                  "topMargin": 22,
+                  "type": "PanelSpriteObject::PanelSprite",
+                  "width": 192,
+                  "variables": [],
+                  "effects": [],
+                  "behaviors": [
+                    {
+                      "name": "Anchor",
+                      "type": "AnchorBehavior::AnchorBehavior",
+                      "bottomEdgeAnchor": 2,
+                      "leftEdgeAnchor": 1,
+                      "relativeToOriginalWindowSize": true,
+                      "rightEdgeAnchor": 2,
+                      "topEdgeAnchor": 1,
+                      "useLegacyBottomAndRightAnchors": false
+                    }
+                  ]
+                },
+                {
+                  "assetStoreId": "",
+                  "name": "BitmapLabel",
+                  "type": "BitmapText::BitmapTextObject",
+                  "variables": [],
+                  "effects": [],
+                  "behaviors": [
+                    {
+                      "name": "Anchor",
+                      "type": "AnchorBehavior::AnchorBehavior",
+                      "bottomEdgeAnchor": 4,
+                      "topEdgeAnchor": 4,
+                      "leftEdgeAnchor": 1,
+                      "relativeToOriginalWindowSize": true,
+                      "rightEdgeAnchor": 2,
+                      "useLegacyBottomAndRightAnchors": false
+                    },
+                    {
+                      "name": "BitmapTextStyleState",
+                      "type": "PanelSpriteButton::BitmapTextStyleState",
+                      "HoverColor": "",
+                      "HoverPrefix": "",
+                      "HoverSuffix": "",
+                      "IsHovered": false,
+                      "IdleText": "",
+                      "IdleColor": ""
+                    }
+                  ],
+                  "content": {
+                    "text": "Text",
+                    "opacity": 255,
+                    "scale": 1,
+                    "fontSize": 20,
+                    "tint": "255;255;255",
+                    "bitmapFontResourceName": "",
+                    "textureAtlasResourceName": "",
+                    "align": "center",
+                    "verticalTextAlignment": "center"
+                  }
+                }
+              ],
+              "objectsFolderStructure": {
+                "folderName": "__ROOT",
+                "children": [
+                  {
+                    "objectName": "Label"
+                  },
+                  {
+                    "objectName": "Idle"
+                  },
+                  {
+                    "objectName": "Hovered"
+                  },
+                  {
+                    "objectName": "Pressed"
+                  },
+                  {
+                    "objectName": "BitmapLabel"
+                  }
+                ]
+              },
+              "objectsGroups": [
+                {
+                  "name": "Background",
+                  "objects": [
+                    {
+                      "name": "Idle"
+                    },
+                    {
+                      "name": "Hovered"
+                    },
+                    {
+                      "name": "Pressed"
+                    }
+                  ]
+                },
+                {
+                  "name": "Labels",
+                  "objects": [
+                    {
+                      "name": "Label"
+                    },
+                    {
+                      "name": "BitmapLabel"
+                    }
+                  ]
+                }
+              ],
+              "layers": [
+                {
+                  "ambientLightColorB": 200,
+                  "ambientLightColorG": 200,
+                  "ambientLightColorR": 200,
+                  "camera2DPlaneMaxDrawingDistance": 5000,
+                  "camera3DFarPlaneDistance": 10000,
+                  "camera3DFieldOfView": 45,
+                  "camera3DNearPlaneDistance": 3,
+                  "cameraType": "",
+                  "followBaseLayerCamera": false,
+                  "isLightingLayer": false,
+                  "isLocked": false,
+                  "name": "",
+                  "renderingType": "",
+                  "visibility": true,
+                  "cameras": [
+                    {
+                      "defaultSize": true,
+                      "defaultViewport": true,
+                      "height": 0,
+                      "viewportBottom": 1,
+                      "viewportLeft": 0,
+                      "viewportRight": 1,
+                      "viewportTop": 0,
+                      "width": 0
+                    }
+                  ],
+                  "effects": []
+                }
+              ],
+              "instances": [
+                {
+                  "angle": 0,
+                  "customSize": false,
+                  "depth": 1,
+                  "height": 64,
+                  "layer": "",
+                  "name": "Idle",
+                  "persistentUuid": "24882334-eec8-403e-8bf1-70fc928a46e6",
+                  "width": 64,
+                  "x": 0,
+                  "y": 0,
+                  "zOrder": 1,
+                  "numberProperties": [],
+                  "stringProperties": [],
+                  "initialVariables": []
+                },
+                {
+                  "angle": 0,
+                  "customSize": true,
+                  "depth": 1,
+                  "height": 53,
+                  "keepRatio": true,
+                  "layer": "",
+                  "name": "Label",
+                  "persistentUuid": "009f07bd-849b-40c6-9e45-c01705c3a608",
+                  "width": 164,
+                  "x": 14,
+                  "y": 29,
+                  "zOrder": 2,
+                  "numberProperties": [],
+                  "stringProperties": [],
+                  "initialVariables": []
+                }
+              ],
+              "editionSettings": {
+                "grid": false,
+                "gridType": "rectangular",
+                "gridWidth": 32,
+                "gridHeight": 32,
+                "gridDepth": 32,
+                "gridOffsetX": 0,
+                "gridOffsetY": 0,
+                "gridOffsetZ": 0,
+                "gridColor": 10401023,
+                "gridAlpha": 0.8,
+                "snap": false,
+                "zoomFactor": 3.6458333333333335,
+                "windowMask": false,
+                "selectedLayer": "",
+                "gameEditorMode": "instances-editor"
+              }
+            },
             {
               "areaMaxX": 192,
               "areaMaxY": 64,
