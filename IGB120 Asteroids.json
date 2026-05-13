@@ -5258,7 +5258,7 @@
                   "parameters": [
                     "Time.Seconds",
                     "+",
-                    "TimeDelta()*120"
+                    "TimeDelta()*360"
                   ]
                 },
                 {
@@ -5563,7 +5563,6 @@
           "comment": "Asteroid Spawning"
         },
         {
-          "folded": true,
           "type": "BuiltinCommonInstructions::Standard",
           "conditions": [
             {
@@ -5753,7 +5752,7 @@
                 "textG": 0,
                 "textR": 0
               },
-              "comment": "If rnd <= 90 spawns regular large asteroid"
+              "comment": "If rnd <= 87 spawns regular large asteroid"
             },
             {
               "type": "BuiltinCommonInstructions::Standard",
@@ -5765,7 +5764,7 @@
                   "parameters": [
                     "Rand",
                     "<=",
-                    "90"
+                    "87"
                   ]
                 }
               ],
@@ -5816,7 +5815,7 @@
                 "textG": 0,
                 "textR": 0
               },
-              "comment": "Else if rnd <= 95 spwans gaseous"
+              "comment": "Else if rnd <= 92 spwans gaseous"
             },
             {
               "type": "BuiltinCommonInstructions::Else",
@@ -5828,7 +5827,7 @@
                   "parameters": [
                     "Rand",
                     "<=",
-                    "95"
+                    "92"
                   ]
                 }
               ],
@@ -5901,7 +5900,7 @@
                 "textG": 0,
                 "textR": 0
               },
-              "comment": "Else if rnd is <= 99 spawns explosive"
+              "comment": "Else if rnd is <= (100 before 12:00, decreasing to 94 at 24:00) spawns explosive"
             },
             {
               "type": "BuiltinCommonInstructions::Else",
@@ -5913,7 +5912,7 @@
                   "parameters": [
                     "Rand",
                     "<=",
-                    "99"
+                    "106-Time.Hours*0.5"
                   ]
                 }
               ],
@@ -5953,7 +5952,7 @@
                 "textG": 0,
                 "textR": 0
               },
-              "comment": "Else spawns gold asteroid"
+              "comment": "Else spawns gold asteroid (chance is 0 until 12:00, then linearly increases to 6% at 24:00)"
             },
             {
               "type": "BuiltinCommonInstructions::Else",
