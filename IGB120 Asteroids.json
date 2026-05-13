@@ -5109,13 +5109,80 @@
             "textG": 0,
             "textR": 0
           },
-          "comment": "Ui"
+          "comment": "Ui/ Time"
         },
         {
           "type": "BuiltinCommonInstructions::Standard",
           "conditions": [],
           "actions": [],
           "events": [
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "NumberVariable"
+                  },
+                  "parameters": [
+                    "Time.Hours",
+                    ">",
+                    "24"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "SetNumberVariable"
+                  },
+                  "parameters": [
+                    "Sol",
+                    "+",
+                    "1"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetNumberVariable"
+                  },
+                  "parameters": [
+                    "Time.Hours",
+                    "=",
+                    "6"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetNumberVariable"
+                  },
+                  "parameters": [
+                    "Time.Minutes",
+                    "=",
+                    "0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetNumberVariable"
+                  },
+                  "parameters": [
+                    "Time.Seconds",
+                    "=",
+                    "0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Scene"
+                  },
+                  "parameters": [
+                    "",
+                    "\"Menu\"",
+                    ""
+                  ]
+                }
+              ]
+            },
             {
               "type": "BuiltinCommonInstructions::Standard",
               "conditions": [
@@ -5236,7 +5303,7 @@
                     "TimeText",
                     "Text",
                     "=",
-                    "TimeString.Hours + \":\" + TimeString.Minutes"
+                    "TimeString.Hours + \":\" + ToString(floor(Time.Minutes/10)*10)"
                   ]
                 },
                 {
@@ -5257,7 +5324,7 @@
                   "parameters": [
                     "Time.Seconds",
                     "+",
-                    "TimeDelta()*120"
+                    "TimeDelta()*720"
                   ]
                 },
                 {
@@ -5280,6 +5347,36 @@
                     "Text",
                     "=",
                     "\"Credits \" + Credits"
+                  ]
+                }
+              ],
+              "events": [
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "NumberVariable"
+                      },
+                      "parameters": [
+                        "Time.Minutes",
+                        "<",
+                        "10"
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "TextContainerCapability::TextContainerBehavior::SetValue"
+                      },
+                      "parameters": [
+                        "TimeText",
+                        "Text",
+                        "=",
+                        "TimeString.Hours + \":\" + ToString(floor(Time.Minutes/10)*10)+\"0\""
+                      ]
+                    }
                   ]
                 }
               ]
@@ -5572,7 +5669,7 @@
               "parameters": [
                 "AsteroidCount",
                 "<",
-                "Time.Hours + 3"
+                "(Time.Hours) + pow(1.5,Sol) + 3"
               ]
             }
           ],
