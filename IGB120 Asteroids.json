@@ -5119,7 +5119,7 @@
             "textG": 0,
             "textR": 0
           },
-          "comment": "Ui"
+          "comment": "Ui/ Time"
         },
         {
           "folded": true,
@@ -5127,6 +5127,73 @@
           "conditions": [],
           "actions": [],
           "events": [
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "NumberVariable"
+                  },
+                  "parameters": [
+                    "Time.Hours",
+                    ">",
+                    "24"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "SetNumberVariable"
+                  },
+                  "parameters": [
+                    "Sol",
+                    "+",
+                    "1"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetNumberVariable"
+                  },
+                  "parameters": [
+                    "Time.Hours",
+                    "=",
+                    "6"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetNumberVariable"
+                  },
+                  "parameters": [
+                    "Time.Minutes",
+                    "=",
+                    "0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetNumberVariable"
+                  },
+                  "parameters": [
+                    "Time.Seconds",
+                    "=",
+                    "0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Scene"
+                  },
+                  "parameters": [
+                    "",
+                    "\"Menu\"",
+                    ""
+                  ]
+                }
+              ]
+            },
             {
               "type": "BuiltinCommonInstructions::Standard",
               "conditions": [
@@ -5247,7 +5314,7 @@
                     "TimeText",
                     "Text",
                     "=",
-                    "TimeString.Hours + \":\" + TimeString.Minutes"
+                    "TimeString.Hours + \":\" + ToString(floor(Time.Minutes/10)*10)"
                   ]
                 },
                 {
@@ -5268,7 +5335,7 @@
                   "parameters": [
                     "Time.Seconds",
                     "+",
-                    "TimeDelta()*120"
+                    "TimeDelta()*720"
                   ]
                 },
                 {
@@ -5291,6 +5358,36 @@
                     "Text",
                     "=",
                     "\"Credits \" + Credits"
+                  ]
+                }
+              ],
+              "events": [
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "NumberVariable"
+                      },
+                      "parameters": [
+                        "Time.Minutes",
+                        "<",
+                        "10"
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "TextContainerCapability::TextContainerBehavior::SetValue"
+                      },
+                      "parameters": [
+                        "TimeText",
+                        "Text",
+                        "=",
+                        "TimeString.Hours + \":\" + ToString(floor(Time.Minutes/10)*10)+\"0\""
+                      ]
+                    }
                   ]
                 }
               ]
@@ -5573,7 +5670,6 @@
           "comment": "Asteroid Spawning"
         },
         {
-          "folded": true,
           "type": "BuiltinCommonInstructions::Standard",
           "conditions": [
             {
@@ -5583,7 +5679,7 @@
               "parameters": [
                 "AsteroidCount",
                 "<",
-                "Time.Hours + 3"
+                "(Time.Hours) + pow(1.5,Sol) + 3"
               ]
             }
           ],
@@ -5763,7 +5859,7 @@
                 "textG": 0,
                 "textR": 0
               },
-              "comment": "If rnd <= 90 spawns regular large asteroid"
+              "comment": "If rnd <= 87 spawns regular large asteroid"
             },
             {
               "type": "BuiltinCommonInstructions::Standard",
@@ -5775,7 +5871,7 @@
                   "parameters": [
                     "Rand",
                     "<=",
-                    "90"
+                    "87"
                   ]
                 }
               ],
@@ -5826,7 +5922,7 @@
                 "textG": 0,
                 "textR": 0
               },
-              "comment": "Else if rnd <= 95 spwans gaseous"
+              "comment": "Else if rnd <= 92 spwans gaseous"
             },
             {
               "type": "BuiltinCommonInstructions::Else",
@@ -5838,7 +5934,7 @@
                   "parameters": [
                     "Rand",
                     "<=",
-                    "95"
+                    "92"
                   ]
                 }
               ],
@@ -5911,7 +6007,7 @@
                 "textG": 0,
                 "textR": 0
               },
-              "comment": "Else if rnd is <= 99 spawns explosive"
+              "comment": "Else if rnd is <= (100 before 12:00, decreasing to 94 at 24:00) spawns explosive"
             },
             {
               "type": "BuiltinCommonInstructions::Else",
@@ -5923,7 +6019,7 @@
                   "parameters": [
                     "Rand",
                     "<=",
-                    "99"
+                    "106-Time.Hours*0.5"
                   ]
                 }
               ],
@@ -5963,7 +6059,7 @@
                 "textG": 0,
                 "textR": 0
               },
-              "comment": "Else spawns gold asteroid"
+              "comment": "Else spawns gold asteroid (chance is 0 until 12:00, then linearly increases to 6% at 24:00)"
             },
             {
               "type": "BuiltinCommonInstructions::Else",
