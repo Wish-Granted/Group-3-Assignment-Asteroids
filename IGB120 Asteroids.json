@@ -827,11 +827,17 @@
               "name": "FireCooldown",
               "type": "number",
               "value": 0
+            },
+            {
+              "name": "GasMeter",
+              "type": "number",
+              "value": 0
             }
           ],
           "effects": [],
           "behaviors": [
             {
+              "isFolded": true,
               "name": "Health",
               "type": "Health::Health",
               "Health": 100,
@@ -860,6 +866,7 @@
               "PercentDamageReduction": 0
             },
             {
+              "isFolded": true,
               "name": "ScreenWrap",
               "type": "ScreenWrap::ScreenWrap",
               "HorizontalWrapping": true,
@@ -3604,6 +3611,7 @@
           "comment": "Timers"
         },
         {
+          "folded": true,
           "type": "BuiltinCommonInstructions::Standard",
           "conditions": [],
           "actions": [],
@@ -3728,6 +3736,7 @@
               ]
             },
             {
+              "folded": true,
               "type": "BuiltinCommonInstructions::Standard",
               "conditions": [
                 {
@@ -4150,6 +4159,7 @@
           "comment": "Asteroids Collision"
         },
         {
+          "folded": true,
           "type": "BuiltinCommonInstructions::Standard",
           "conditions": [],
           "actions": [],
@@ -8338,7 +8348,7 @@
               "parameters": [
                 "Hull_Upgrade",
                 "=",
-                "\"C\" + ToString(100 * HullLevel + 100)",
+                "\"C\" + ToString(((100 + (50 * HullLevel)) * HullLevel) + 100)",
                 ""
               ]
             },
@@ -8349,7 +8359,7 @@
               "parameters": [
                 "Guns_Upgrade",
                 "=",
-                "\"C\" + ToString(100 * GunsLevel + 100)",
+                "\"C\" + ToString(((100 + (50 * GunsLevel)) * GunsLevel) + 100)",
                 ""
               ]
             },
@@ -8360,7 +8370,7 @@
               "parameters": [
                 "Thruster_Upgrade",
                 "=",
-                "\"C\" + ToString(100 * ThrusterLevel + 100)",
+                "\"C\" + ToString(((100 + (50 * ThrusterLevel)) * ThrusterLevel) + 100)",
                 ""
               ]
             },
@@ -8384,7 +8394,7 @@
                 "value": "BuiltinCommonInstructions::CompareNumbers"
               },
               "parameters": [
-                "HullLevel*100+100",
+                "((100 + (50 * HullLevel)) * HullLevel) + 100",
                 "<=",
                 "Credits"
               ]
@@ -8397,6 +8407,16 @@
                 "Hull_Upgrade",
                 ""
               ]
+            },
+            {
+              "type": {
+                "value": "NumberVariable"
+              },
+              "parameters": [
+                "HullLevel",
+                "<",
+                "5"
+              ]
             }
           ],
           "actions": [
@@ -8407,7 +8427,7 @@
               "parameters": [
                 "Credits",
                 "-",
-                "100 * HullLevel + 100"
+                "((100 + (50 * HullLevel)) * HullLevel) + 100"
               ]
             },
             {
@@ -8430,7 +8450,7 @@
                 "value": "BuiltinCommonInstructions::CompareNumbers"
               },
               "parameters": [
-                "GunsLevel*100+100",
+                "((100 + (50 * GunsLevel)) * GunsLevel) + 100",
                 "<=",
                 "Credits"
               ]
@@ -8443,6 +8463,16 @@
                 "Guns_Upgrade",
                 ""
               ]
+            },
+            {
+              "type": {
+                "value": "NumberVariable"
+              },
+              "parameters": [
+                "GunsLevel",
+                "<",
+                "5"
+              ]
             }
           ],
           "actions": [
@@ -8453,7 +8483,7 @@
               "parameters": [
                 "Credits",
                 "-",
-                "100 * GunsLevel+ 100"
+                "((100 + (50 * GunsLevel)) * GunsLevel) + 100"
               ]
             },
             {
@@ -8476,7 +8506,7 @@
                 "value": "BuiltinCommonInstructions::CompareNumbers"
               },
               "parameters": [
-                "ThrusterLevel*100+100",
+                "((100 + (50 * ThrusterLevel)) * ThrusterLevel) + 100",
                 "<=",
                 "Credits"
               ]
@@ -8489,6 +8519,16 @@
                 "Thruster_Upgrade",
                 ""
               ]
+            },
+            {
+              "type": {
+                "value": "NumberVariable"
+              },
+              "parameters": [
+                "ThrusterLevel",
+                "<",
+                "5"
+              ]
             }
           ],
           "actions": [
@@ -8499,7 +8539,7 @@
               "parameters": [
                 "Credits",
                 "-",
-                "100 * ThrusterLevel + 100"
+                "((100 + (50 * ThrusterLevel)) * ThrusterLevel) + 100"
               ]
             },
             {
@@ -8663,6 +8703,11 @@
               ]
             }
           ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": []
         }
       ],
       "layers": [
