@@ -499,6 +499,14 @@
         "name": "x5Combopickup.png",
         "smoothed": true,
         "userAdded": false
+      },
+      {
+        "file": "Powerup.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Powerup.png",
+        "smoothed": true,
+        "userAdded": false
       }
     ]
   },
@@ -654,9 +662,19 @@
           "value": false
         },
         {
+          "name": "TimeToPowerup",
+          "type": "number",
+          "value": 10
+        },
+        {
+          "name": "PowerupActiveTime",
+          "type": "number",
+          "value": 0
+        },
+        {
           "name": "TimeToMultiplier",
           "type": "number",
-          "value": 15
+          "value": 12
         },
         {
           "name": "MultiplierRNG",
@@ -670,6 +688,21 @@
         },
         {
           "name": "MultiplyScore",
+          "type": "number",
+          "value": 1
+        },
+        {
+          "name": "Combo",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "ComboBonus",
+          "type": "number",
+          "value": 1
+        },
+        {
+          "name": "ComboTimer",
           "type": "number",
           "value": 1
         }
@@ -716,8 +749,8 @@
           "name": "HealthText",
           "persistentUuid": "eb8b9ab7-dc6e-425e-9ee0-1d05329cf38c",
           "width": 0,
-          "x": 17,
-          "y": 14,
+          "x": 15,
+          "y": 15,
           "zOrder": 3,
           "numberProperties": [],
           "stringProperties": [],
@@ -802,6 +835,22 @@
           "numberProperties": [],
           "stringProperties": [],
           "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "keepRatio": true,
+          "layer": "UI",
+          "name": "ComboText",
+          "persistentUuid": "24e99ca8-2526-4bf1-bbcf-3cf6829b0548",
+          "width": 0,
+          "x": 15,
+          "y": 85,
+          "zOrder": 11,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
         }
       ],
       "objects": [
@@ -832,6 +881,11 @@
               "name": "GasMeter",
               "type": "number",
               "value": 0
+            },
+            {
+              "name": "Powered",
+              "type": "boolean",
+              "value": false
             }
           ],
           "effects": [],
@@ -3286,6 +3340,111 @@
             "lineHeight": 0,
             "color": "255;177;0"
           }
+        },
+        {
+          "assetStoreId": "",
+          "bold": false,
+          "italic": false,
+          "name": "ComboText",
+          "persistentUuid": "ede4d4be-de9b-40ed-9c44-872f27032479",
+          "smoothed": true,
+          "type": "TextObject::Text",
+          "underlined": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "string": "1X COMBO! (1X CREDITS)",
+          "font": "BoldsPixels.ttf",
+          "textAlignment": "left",
+          "characterSize": 28,
+          "color": {
+            "b": 28,
+            "g": 231,
+            "r": 248
+          },
+          "content": {
+            "bold": false,
+            "isOutlineEnabled": false,
+            "isShadowEnabled": false,
+            "italic": false,
+            "outlineColor": "255;255;255",
+            "outlineThickness": 2,
+            "shadowAngle": 90,
+            "shadowBlurRadius": 2,
+            "shadowColor": "0;0;0",
+            "shadowDistance": 4,
+            "shadowOpacity": 127,
+            "smoothed": true,
+            "underlined": false,
+            "text": "1X COMBO! (1X CREDITS)",
+            "font": "BoldsPixels.ttf",
+            "textAlignment": "left",
+            "verticalTextAlignment": "top",
+            "characterSize": 28,
+            "lineHeight": 0,
+            "color": "248;231;28"
+          }
+        },
+        {
+          "adaptCollisionMaskAutomatically": true,
+          "assetStoreId": "",
+          "name": "Powerup",
+          "persistentUuid": "5bbf37bf-f8f1-4dd2-8b77-4024f298fd5c",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "animations": [
+            {
+              "name": "",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "Powerup.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 4,
+                            "y": 4
+                          },
+                          {
+                            "x": 36,
+                            "y": 4
+                          },
+                          {
+                            "x": 36,
+                            "y": 36
+                          },
+                          {
+                            "x": 4,
+                            "y": 36
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
         }
       ],
       "objectsFolderStructure": {
@@ -3316,10 +3475,13 @@
             "objectName": "SmallAsteroid"
           },
           {
+            "objectName": "HealthText"
+          },
+          {
             "objectName": "CreditsText"
           },
           {
-            "objectName": "HealthText"
+            "objectName": "ComboText"
           },
           {
             "objectName": "TimeText"
@@ -3353,6 +3515,9 @@
           },
           {
             "objectName": "Multiplier"
+          },
+          {
+            "objectName": "Powerup"
           }
         ]
       },
@@ -3425,6 +3590,16 @@
                 },
                 {
                   "type": {
+                    "value": "SetAngle"
+                  },
+                  "parameters": [
+                    "Bullet",
+                    "=",
+                    "Ship.Angle()"
+                  ]
+                },
+                {
+                  "type": {
                     "value": "SetNumberObjectVariable"
                   },
                   "parameters": [
@@ -3432,16 +3607,6 @@
                     "Lifetime",
                     "=",
                     "2"
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "SetAngle"
-                  },
-                  "parameters": [
-                    "Bullet",
-                    "=",
-                    "Ship.Angle()"
                   ]
                 },
                 {
@@ -3476,6 +3641,82 @@
                     "FireCooldown",
                     "=",
                     "0.75 / (1 + GunsLevel)"
+                  ]
+                }
+              ],
+              "events": [
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "BooleanObjectVariable"
+                      },
+                      "parameters": [
+                        "Ship",
+                        "Powered",
+                        "True",
+                        ""
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "Create"
+                      },
+                      "parameters": [
+                        "",
+                        "Bullet",
+                        "Ship.PointX(\"Front\")",
+                        "Ship.PointY(\"Front\")",
+                        ""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "Create"
+                      },
+                      "parameters": [
+                        "",
+                        "Bullet",
+                        "Ship.PointX(\"Front\")",
+                        "Ship.PointY(\"Front\")",
+                        ""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "SetAngle"
+                      },
+                      "parameters": [
+                        "Bullet",
+                        "=",
+                        "RandomInRange(Ship.Angle()-30, Ship.Angle()+30)"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "SetNumberObjectVariable"
+                      },
+                      "parameters": [
+                        "Bullet",
+                        "Lifetime",
+                        "=",
+                        "2"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "AddForceAL"
+                      },
+                      "parameters": [
+                        "Bullet",
+                        "Bullet.Angle()",
+                        "200 * (1+GunsLevel/5)",
+                        "1"
+                      ]
+                    }
                   ]
                 }
               ]
@@ -3685,6 +3926,16 @@
                   },
                   "parameters": [
                     "TimeToMultiplier",
+                    "-",
+                    "TimeDelta()"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetNumberVariable"
+                  },
+                  "parameters": [
+                    "TimeToPowerup",
                     "-",
                     "TimeDelta()"
                   ]
@@ -4226,9 +4477,39 @@
                     "value": "SetNumberVariable"
                   },
                   "parameters": [
+                    "ComboTimer",
+                    "=",
+                    "0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetNumberVariable"
+                  },
+                  "parameters": [
+                    "Combo",
+                    "+",
+                    "1"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetNumberVariable"
+                  },
+                  "parameters": [
+                    "ComboBonus",
+                    "=",
+                    "min(0.8+Combo/5, 3)"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetNumberVariable"
+                  },
+                  "parameters": [
                     "Credits",
                     "+",
-                    "10*MultiplyScore"
+                    "10*MultiplyScore*ComboBonus"
                   ]
                 }
               ]
@@ -4265,9 +4546,39 @@
                     "value": "SetNumberVariable"
                   },
                   "parameters": [
+                    "ComboTimer",
+                    "=",
+                    "0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetNumberVariable"
+                  },
+                  "parameters": [
+                    "Combo",
+                    "+",
+                    "1"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetNumberVariable"
+                  },
+                  "parameters": [
+                    "ComboBonus",
+                    "=",
+                    "min(0.8+Combo/5, 3)"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetNumberVariable"
+                  },
+                  "parameters": [
                     "Credits",
                     "+",
-                    "15*MultiplyScore"
+                    "15*MultiplyScore*ComboBonus"
                   ]
                 },
                 {
@@ -4399,9 +4710,39 @@
                     "value": "SetNumberVariable"
                   },
                   "parameters": [
+                    "ComboTimer",
+                    "=",
+                    "0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetNumberVariable"
+                  },
+                  "parameters": [
+                    "Combo",
+                    "+",
+                    "1"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetNumberVariable"
+                  },
+                  "parameters": [
+                    "ComboBonus",
+                    "=",
+                    "min(0.8+Combo/5, 3)"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetNumberVariable"
+                  },
+                  "parameters": [
                     "Credits",
                     "+",
-                    "25*MultiplyScore"
+                    "25*MultiplyScore*ComboBonus"
                   ]
                 }
               ],
@@ -4532,9 +4873,39 @@
                     "value": "SetNumberVariable"
                   },
                   "parameters": [
+                    "ComboTimer",
+                    "=",
+                    "0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetNumberVariable"
+                  },
+                  "parameters": [
+                    "Combo",
+                    "+",
+                    "1"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetNumberVariable"
+                  },
+                  "parameters": [
+                    "ComboBonus",
+                    "=",
+                    "min(0.8+Combo/5, 3)"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetNumberVariable"
+                  },
+                  "parameters": [
                     "Credits",
                     "+",
-                    "40*MultiplyScore"
+                    "40*MultiplyScore*ComboBonus"
                   ]
                 },
                 {
@@ -4665,9 +5036,39 @@
                     "value": "SetNumberVariable"
                   },
                   "parameters": [
+                    "ComboTimer",
+                    "=",
+                    "0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetNumberVariable"
+                  },
+                  "parameters": [
+                    "Combo",
+                    "+",
+                    "1"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetNumberVariable"
+                  },
+                  "parameters": [
+                    "ComboBonus",
+                    "=",
+                    "min(0.8+Combo/5, 3)"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetNumberVariable"
+                  },
+                  "parameters": [
                     "Credits",
                     "+",
-                    "40*MultiplyScore"
+                    "40*MultiplyScore*ComboBonus"
                   ]
                 },
                 {
@@ -4844,9 +5245,151 @@
                     "value": "SetNumberVariable"
                   },
                   "parameters": [
+                    "ComboTimer",
+                    "=",
+                    "0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetNumberVariable"
+                  },
+                  "parameters": [
+                    "Combo",
+                    "+",
+                    "1"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetNumberVariable"
+                  },
+                  "parameters": [
+                    "ComboBonus",
+                    "=",
+                    "roundTo(min(0.8+Combo/5, 3), 1)"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetNumberVariable"
+                  },
+                  "parameters": [
                     "Credits",
                     "+",
-                    "100*MultiplyScore"
+                    "100*MultiplyScore*ComboBonus"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "NumberVariable"
+                  },
+                  "parameters": [
+                    "Combo",
+                    ">=",
+                    "2"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "TextContainerCapability::TextContainerBehavior::SetValue"
+                  },
+                  "parameters": [
+                    "ComboText",
+                    "Text",
+                    "=",
+                    "Combo + \"X COMBO! (\" + ToString(roundTo(ComboBonus, 1)) + \"X CREDITS)\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Show"
+                  },
+                  "parameters": [
+                    "ComboText",
+                    ""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "TextObject::ChangeColor"
+                  },
+                  "parameters": [
+                    "CreditsText",
+                    "\"255;249;177\""
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Else",
+              "conditions": [],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Hide"
+                  },
+                  "parameters": [
+                    "ComboText"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "TextObject::ChangeColor"
+                  },
+                  "parameters": [
+                    "CreditsText",
+                    "\"255;255;255\""
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "NumberVariable"
+                  },
+                  "parameters": [
+                    "ComboTimer",
+                    ">=",
+                    "0.5"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "SetNumberVariable"
+                  },
+                  "parameters": [
+                    "Combo",
+                    "=",
+                    "0"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Else",
+              "conditions": [],
+              "actions": [
+                {
+                  "type": {
+                    "value": "SetNumberVariable"
+                  },
+                  "parameters": [
+                    "ComboTimer",
+                    "+",
+                    "TimeDelta()"
                   ]
                 }
               ]
@@ -5188,7 +5731,7 @@
                   },
                   "parameters": [
                     "",
-                    "\"Menu\"",
+                    "\"Day Start\"",
                     ""
                   ]
                 }
@@ -5335,7 +5878,7 @@
                   "parameters": [
                     "Time.Seconds",
                     "+",
-                    "TimeDelta()*720"
+                    "TimeDelta()*900"
                   ]
                 },
                 {
@@ -5670,6 +6213,7 @@
           "comment": "Asteroid Spawning"
         },
         {
+          "folded": true,
           "type": "BuiltinCommonInstructions::Standard",
           "conditions": [
             {
@@ -6203,6 +6747,229 @@
             "textG": 0,
             "textR": 0
           },
+          "comment": "Powerups"
+        },
+        {
+          "folded": true,
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": [],
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "NumberVariable"
+                  },
+                  "parameters": [
+                    "TimeToPowerup",
+                    "<=",
+                    "0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "BuiltinCommonInstructions::Once"
+                  },
+                  "parameters": []
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Create"
+                  },
+                  "parameters": [
+                    "",
+                    "Powerup",
+                    "RandomInRange(0,ScreenWidth())",
+                    "RandomWithStep(0,ScreenHeight(), ScreenHeight())",
+                    ""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "AddForceTowardObject"
+                  },
+                  "parameters": [
+                    "Powerup",
+                    "Ship",
+                    "40",
+                    "1"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "CollisionNP"
+                  },
+                  "parameters": [
+                    "Ship",
+                    "Powerup",
+                    "",
+                    "",
+                    ""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Delete"
+                  },
+                  "parameters": [
+                    "Powerup",
+                    ""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetBooleanObjectVariable"
+                  },
+                  "parameters": [
+                    "Ship",
+                    "Powered",
+                    "True",
+                    ""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetNumberVariable"
+                  },
+                  "parameters": [
+                    "PowerupActiveTime",
+                    "=",
+                    "5"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "NumberVariable"
+                  },
+                  "parameters": [
+                    "PowerupActiveTime",
+                    ">",
+                    "0"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "SetNumberVariable"
+                  },
+                  "parameters": [
+                    "PowerupActiveTime",
+                    "-",
+                    "TimeDelta()"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Else",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "BuiltinCommonInstructions::Once"
+                  },
+                  "parameters": []
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "SetBooleanObjectVariable"
+                  },
+                  "parameters": [
+                    "Ship",
+                    "Powered",
+                    "False",
+                    ""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetNumberVariable"
+                  },
+                  "parameters": [
+                    "TimeToPowerup",
+                    "=",
+                    "RandomFloatInRange(10,15)"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "CollisionNP"
+                  },
+                  "parameters": [
+                    "Bullet",
+                    "Powerup",
+                    "",
+                    "",
+                    ""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Delete"
+                  },
+                  "parameters": [
+                    "Bullet",
+                    ""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Delete"
+                  },
+                  "parameters": [
+                    "Powerup",
+                    ""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetNumberVariable"
+                  },
+                  "parameters": [
+                    "TimeToPowerup",
+                    "=",
+                    "RandomFloatInRange(10,15)"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Comment",
+          "color": {
+            "b": 109,
+            "g": 230,
+            "r": 255,
+            "textB": 0,
+            "textG": 0,
+            "textR": 0
+          },
           "comment": "Multipliers"
         },
         {
@@ -6558,7 +7325,7 @@
                   "parameters": [
                     "TimeToMultiplier",
                     "=",
-                    "RandomFloatInRange(10,20)"
+                    "RandomFloatInRange(10,15)"
                   ]
                 }
               ]
@@ -6605,7 +7372,7 @@
                   "parameters": [
                     "TimeToMultiplier",
                     "=",
-                    "RandomFloatInRange(10,20)"
+                    "RandomFloatInRange(10,15)"
                   ]
                 }
               ]
@@ -6668,8 +7435,8 @@
               },
               "parameters": [
                 "Time.Hours",
-                "=",
-                "6"
+                "<",
+                "9"
               ]
             }
           ],
@@ -6898,7 +7665,7 @@
           "layer": "",
           "name": "Hull_Upgrade",
           "persistentUuid": "30740700-0284-4271-95d4-9452484e4642",
-          "width": 140,
+          "width": 150,
           "x": 421,
           "y": 18,
           "zOrder": 1,
@@ -6914,7 +7681,7 @@
           "layer": "",
           "name": "Guns_Upgrade",
           "persistentUuid": "e0d3093f-3925-4435-b070-44cbd1249449",
-          "width": 140,
+          "width": 150,
           "x": 421,
           "y": 89,
           "zOrder": 2,
@@ -6930,7 +7697,7 @@
           "layer": "",
           "name": "Thruster_Upgrade",
           "persistentUuid": "23be514e-c619-4862-8de9-0563f6d8feff",
-          "width": 140,
+          "width": 150,
           "x": 421,
           "y": 159,
           "zOrder": 3,
@@ -8435,7 +9202,18 @@
         },
         {
           "type": "BuiltinCommonInstructions::Standard",
-          "conditions": [],
+          "conditions": [
+            {
+              "type": {
+                "value": "NumberVariable"
+              },
+              "parameters": [
+                "HullLevel",
+                "<",
+                "5"
+              ]
+            }
+          ],
           "actions": [
             {
               "type": {
@@ -8447,7 +9225,41 @@
                 "\"C\" + ToString(((100 + (50 * HullLevel)) * HullLevel) + 100)",
                 ""
               ]
-            },
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Else",
+          "conditions": [],
+          "actions": [
+            {
+              "type": {
+                "value": "PanelSpriteButton::PanelSpriteButton::SetLabelTextOp"
+              },
+              "parameters": [
+                "Hull_Upgrade",
+                "=",
+                "\"MAX\"",
+                ""
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "NumberVariable"
+              },
+              "parameters": [
+                "GunsLevel",
+                "<",
+                "5"
+              ]
+            }
+          ],
+          "actions": [
             {
               "type": {
                 "value": "PanelSpriteButton::PanelSpriteButton::SetLabelTextOp"
@@ -8458,7 +9270,41 @@
                 "\"C\" + ToString(((100 + (50 * GunsLevel)) * GunsLevel) + 100)",
                 ""
               ]
-            },
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Else",
+          "conditions": [],
+          "actions": [
+            {
+              "type": {
+                "value": "PanelSpriteButton::PanelSpriteButton::SetLabelTextOp"
+              },
+              "parameters": [
+                "Guns_Upgrade",
+                "=",
+                "\"MAX\"",
+                ""
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "NumberVariable"
+              },
+              "parameters": [
+                "ThrusterLevel",
+                "<",
+                "5"
+              ]
+            }
+          ],
+          "actions": [
             {
               "type": {
                 "value": "PanelSpriteButton::PanelSpriteButton::SetLabelTextOp"
@@ -8469,15 +9315,22 @@
                 "\"C\" + ToString(((100 + (50 * ThrusterLevel)) * ThrusterLevel) + 100)",
                 ""
               ]
-            },
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Else",
+          "conditions": [],
+          "actions": [
             {
               "type": {
-                "value": "SetNumberVariable"
+                "value": "PanelSpriteButton::PanelSpriteButton::SetLabelTextOp"
               },
               "parameters": [
-                "Time.Seconds",
-                "+",
-                "TimeDelta()*120"
+                "Thruster_Upgrade",
+                "=",
+                "\"MAX\"",
+                ""
               ]
             }
           ]
@@ -8797,13 +9650,18 @@
                 "=",
                 "\"C\"+Credits"
               ]
+            },
+            {
+              "type": {
+                "value": "SetNumberVariable"
+              },
+              "parameters": [
+                "Time.Seconds",
+                "+",
+                "TimeDelta()*120"
+              ]
             }
           ]
-        },
-        {
-          "type": "BuiltinCommonInstructions::Standard",
-          "conditions": [],
-          "actions": []
         }
       ],
       "layers": [
@@ -9592,11 +10450,11 @@
             },
             {
               "type": {
-                "value": "SetBooleanVariable"
+                "value": "Scene"
               },
               "parameters": [
-                "Dead",
-                "False",
+                "",
+                "\"Day Start\"",
                 ""
               ]
             }
@@ -9933,6 +10791,7 @@
       ]
     },
     {
+      "b": 0,
       "disableInputWhenNotFocused": true,
       "mangledName": "Game_32Over",
       "name": "Game Over",
@@ -9970,7 +10829,7 @@
           "name": "Game_Over",
           "persistentUuid": "7e90682f-d16e-42ea-9c20-87f3380ecd55",
           "width": 0,
-          "x": 350,
+          "x": 379,
           "y": 193,
           "zOrder": 1,
           "numberProperties": [],
@@ -9986,7 +10845,7 @@
           "name": "Restart_Button",
           "persistentUuid": "5e5af2b6-5d01-42c0-b9c8-9d1879c9c1e9",
           "width": 0,
-          "x": 362,
+          "x": 400,
           "y": 308,
           "zOrder": 2,
           "numberProperties": [],
@@ -10201,7 +11060,7 @@
               },
               "parameters": [
                 "",
-                "\"Level1\"",
+                "\"Day Start\"",
                 ""
               ]
             }
@@ -10291,6 +11150,333 @@
         {
           "name": "Resizable",
           "type": "ResizableCapability::ResizableBehavior"
+        },
+        {
+          "name": "Scale",
+          "type": "ScalableCapability::ScalableBehavior"
+        },
+        {
+          "name": "Text",
+          "type": "TextContainerCapability::TextContainerBehavior"
+        }
+      ]
+    },
+    {
+      "b": 0,
+      "disableInputWhenNotFocused": true,
+      "mangledName": "Day_32Start",
+      "name": "Day Start",
+      "r": 0,
+      "standardSortMethod": true,
+      "stopSoundsOnStartup": true,
+      "title": "",
+      "v": 0,
+      "uiSettings": {
+        "grid": false,
+        "gridType": "rectangular",
+        "gridWidth": 32,
+        "gridHeight": 32,
+        "gridDepth": 32,
+        "gridOffsetX": 0,
+        "gridOffsetY": 0,
+        "gridOffsetZ": 0,
+        "gridColor": 10401023,
+        "gridAlpha": 0.8,
+        "snap": false,
+        "zoomFactor": 0.7291666666666666,
+        "windowMask": false,
+        "selectedLayer": "",
+        "gameEditorMode": "instances-editor"
+      },
+      "objectsGroups": [],
+      "variables": [],
+      "instances": [
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "keepRatio": true,
+          "layer": "",
+          "name": "SolText",
+          "persistentUuid": "3313ac79-061e-49c7-8665-1407eb51e11e",
+          "width": 0,
+          "x": 353,
+          "y": 162,
+          "zOrder": 1,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "keepRatio": true,
+          "layer": "",
+          "name": "CreditsText",
+          "persistentUuid": "2249a2fb-c672-440f-a108-b694d4984b66",
+          "width": 0,
+          "x": 318,
+          "y": 272,
+          "zOrder": 2,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        }
+      ],
+      "objects": [
+        {
+          "assetStoreId": "",
+          "bold": false,
+          "italic": false,
+          "name": "SolText",
+          "persistentUuid": "203a1da6-9e80-46d6-8299-3739724f862c",
+          "smoothed": true,
+          "type": "TextObject::Text",
+          "underlined": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "string": "Sol 1",
+          "font": "BoldsPixels.ttf",
+          "textAlignment": "left",
+          "characterSize": 100,
+          "color": {
+            "b": 255,
+            "g": 255,
+            "r": 255
+          },
+          "content": {
+            "bold": false,
+            "isOutlineEnabled": false,
+            "isShadowEnabled": false,
+            "italic": false,
+            "outlineColor": "255;255;255",
+            "outlineThickness": 2,
+            "shadowAngle": 90,
+            "shadowBlurRadius": 2,
+            "shadowColor": "0;0;0",
+            "shadowDistance": 4,
+            "shadowOpacity": 127,
+            "smoothed": true,
+            "underlined": false,
+            "text": "Sol 1",
+            "font": "BoldsPixels.ttf",
+            "textAlignment": "left",
+            "verticalTextAlignment": "top",
+            "characterSize": 100,
+            "lineHeight": 0,
+            "color": "255;255;255"
+          }
+        },
+        {
+          "assetStoreId": "",
+          "bold": false,
+          "italic": false,
+          "name": "CreditsText",
+          "persistentUuid": "5961019d-406d-4c3f-bda5-43193d017e9c",
+          "smoothed": true,
+          "type": "TextObject::Text",
+          "underlined": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "string": "Credits: 0",
+          "font": "BoldsPixels.ttf",
+          "textAlignment": "left",
+          "characterSize": 70,
+          "color": {
+            "b": 255,
+            "g": 255,
+            "r": 255
+          },
+          "content": {
+            "bold": false,
+            "isOutlineEnabled": false,
+            "isShadowEnabled": false,
+            "italic": false,
+            "outlineColor": "255;255;255",
+            "outlineThickness": 2,
+            "shadowAngle": 90,
+            "shadowBlurRadius": 2,
+            "shadowColor": "0;0;0",
+            "shadowDistance": 4,
+            "shadowOpacity": 127,
+            "smoothed": true,
+            "underlined": false,
+            "text": "Credits: 0",
+            "font": "BoldsPixels.ttf",
+            "textAlignment": "left",
+            "verticalTextAlignment": "top",
+            "characterSize": 70,
+            "lineHeight": 0,
+            "color": "255;255;255"
+          }
+        }
+      ],
+      "objectsFolderStructure": {
+        "folderName": "__ROOT",
+        "children": [
+          {
+            "objectName": "SolText"
+          },
+          {
+            "objectName": "CreditsText"
+          }
+        ]
+      },
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "SceneJustBegins"
+              },
+              "parameters": [
+                ""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "TextContainerCapability::TextContainerBehavior::SetValue"
+              },
+              "parameters": [
+                "SolText",
+                "Text",
+                "=",
+                "\"Sol \" + Sol"
+              ]
+            },
+            {
+              "type": {
+                "value": "TextContainerCapability::TextContainerBehavior::SetValue"
+              },
+              "parameters": [
+                "CreditsText",
+                "Text",
+                "=",
+                "\"Credits: \" + Credits"
+              ]
+            },
+            {
+              "type": {
+                "value": "SetX"
+              },
+              "parameters": [
+                "SolText",
+                "=",
+                "ScreenWidth()/2 - SolText.Width()/2"
+              ]
+            },
+            {
+              "type": {
+                "value": "SetX"
+              },
+              "parameters": [
+                "CreditsText",
+                "=",
+                "ScreenWidth()/2 - CreditsText.Width()/2"
+              ]
+            },
+            {
+              "type": {
+                "value": "Wait"
+              },
+              "parameters": [
+                "3"
+              ]
+            },
+            {
+              "type": {
+                "value": "Scene"
+              },
+              "parameters": [
+                "",
+                "\"Menu\"",
+                ""
+              ]
+            }
+          ]
+        }
+      ],
+      "layers": [
+        {
+          "ambientLightColorB": 200,
+          "ambientLightColorG": 200,
+          "ambientLightColorR": 200,
+          "camera2DPlaneMaxDrawingDistance": 5000,
+          "camera3DFarPlaneDistance": 10000,
+          "camera3DFieldOfView": 45,
+          "camera3DNearPlaneDistance": 3,
+          "cameraType": "",
+          "followBaseLayerCamera": false,
+          "isLightingLayer": false,
+          "isLocked": false,
+          "name": "",
+          "renderingType": "",
+          "visibility": true,
+          "cameras": [
+            {
+              "defaultSize": true,
+              "defaultViewport": true,
+              "height": 0,
+              "viewportBottom": 1,
+              "viewportLeft": 0,
+              "viewportRight": 1,
+              "viewportTop": 0,
+              "width": 0
+            }
+          ],
+          "effects": [
+            {
+              "effectType": "Scene3D::HemisphereLight",
+              "name": "3D Ambient Hemisphere Light",
+              "doubleParameters": {
+                "elevation": 40,
+                "intensity": 0.33,
+                "rotation": 300
+              },
+              "stringParameters": {
+                "groundColor": "127;127;127",
+                "skyColor": "255;255;255",
+                "top": "Z+"
+              },
+              "booleanParameters": {}
+            },
+            {
+              "effectType": "Scene3D::DirectionalLight",
+              "name": "3D Sun Light",
+              "doubleParameters": {
+                "distanceFromCamera": 1500,
+                "elevation": 40,
+                "frustumSize": 4000,
+                "intensity": 0.75,
+                "minimumShadowBias": 0,
+                "rotation": 300
+              },
+              "stringParameters": {
+                "color": "255;255;255",
+                "shadowQuality": "medium",
+                "top": "Z+"
+              },
+              "booleanParameters": {
+                "isCastingShadow": true
+              }
+            }
+          ]
+        }
+      ],
+      "behaviorsSharedData": [
+        {
+          "name": "Effect",
+          "type": "EffectCapability::EffectBehavior"
+        },
+        {
+          "name": "Opacity",
+          "type": "OpacityCapability::OpacityBehavior"
         },
         {
           "name": "Scale",
