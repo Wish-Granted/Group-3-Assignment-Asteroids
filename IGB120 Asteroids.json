@@ -3604,7 +3604,6 @@
           "comment": "Timers"
         },
         {
-          "folded": true,
           "type": "BuiltinCommonInstructions::Standard",
           "conditions": [],
           "actions": [],
@@ -3755,31 +3754,33 @@
                     "TimeDelta()"
                   ]
                 }
-              ]
-            },
-            {
-              "type": "BuiltinCommonInstructions::Standard",
-              "conditions": [
-                {
-                  "type": {
-                    "value": "NumberObjectVariable"
-                  },
-                  "parameters": [
-                    "Gas",
-                    "Lifetime",
-                    "<=",
-                    "0"
-                  ]
-                }
               ],
-              "actions": [
+              "events": [
                 {
-                  "type": {
-                    "value": "Delete"
-                  },
-                  "parameters": [
-                    "Gas",
-                    ""
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "NumberObjectVariable"
+                      },
+                      "parameters": [
+                        "Gas",
+                        "Lifetime",
+                        "<=",
+                        "0"
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "Delete"
+                      },
+                      "parameters": [
+                        "Gas",
+                        ""
+                      ]
+                    }
                   ]
                 }
               ]
@@ -4149,7 +4150,6 @@
           "comment": "Asteroids Collision"
         },
         {
-          "folded": true,
           "type": "BuiltinCommonInstructions::Standard",
           "conditions": [],
           "actions": [],
@@ -4497,7 +4497,7 @@
                     "Gas",
                     "Lifetime",
                     "=",
-                    "1"
+                    "3"
                   ]
                 },
                 {
@@ -5112,6 +5112,7 @@
           "comment": "Ui"
         },
         {
+          "folded": true,
           "type": "BuiltinCommonInstructions::Standard",
           "conditions": [],
           "actions": [],
