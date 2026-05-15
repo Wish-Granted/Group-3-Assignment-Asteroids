@@ -5665,7 +5665,6 @@
           "comment": "Ui/ Time"
         },
         {
-          "folded": true,
           "type": "BuiltinCommonInstructions::Standard",
           "conditions": [],
           "actions": [],
@@ -9658,7 +9657,7 @@
               "parameters": [
                 "Time.Seconds",
                 "+",
-                "TimeDelta()*120"
+                "TimeDelta()*900"
               ]
             }
           ]
@@ -10483,7 +10482,7 @@
                 "TimeText",
                 "Text",
                 "=",
-                "TimeString.Hours + \":\" + TimeString.Minutes"
+                "TimeString.Hours + \":\" + ToString(floor(Time.Minutes/10)*10)"
               ]
             },
             {
@@ -10504,7 +10503,37 @@
               "parameters": [
                 "Time.Seconds",
                 "+",
-                "TimeDelta()*120"
+                "TimeDelta()*900"
+              ]
+            }
+          ],
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "NumberVariable"
+                  },
+                  "parameters": [
+                    "Time.Minutes",
+                    "<",
+                    "10"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "TextContainerCapability::TextContainerBehavior::SetValue"
+                  },
+                  "parameters": [
+                    "TimeText",
+                    "Text",
+                    "=",
+                    "TimeString.Hours + \":\" + ToString(floor(Time.Minutes/10)*10)+\"0\""
+                  ]
+                }
               ]
             }
           ]
