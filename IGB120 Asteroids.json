@@ -555,6 +555,86 @@
         "name": "assets/x13.png",
         "smoothed": true,
         "userAdded": false
+      },
+      {
+        "file": "goldAsteroid.png",
+        "kind": "image",
+        "metadata": "{\"localFilePath\":\"goldAsteroid.png\",\"extension\":\".png\"}",
+        "name": "goldAsteroid.png",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "file": "bigasteroid1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "bigasteroid1.png",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "file": "bigasteroid2.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "bigasteroid2.png",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "file": "bigasteroid3.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "bigasteroid3.png",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "file": "medasteroid1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "medasteroid1.png",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "file": "medasteroid2.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "medasteroid2.png",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "file": "medasteroid3.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "medasteroid3.png",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "file": "smallasteroid4.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "smallasteroid4.png",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "file": "smallasteroid5.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "smallasteroid5.png",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "file": "smallasteroid6.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "smallasteroid6.png",
+        "smoothed": true,
+        "userAdded": false
       }
     ]
   },
@@ -1565,7 +1645,7 @@
                   "sprites": [
                     {
                       "hasCustomCollisionMask": true,
-                      "image": "larg_asteroid_4.png",
+                      "image": "bigasteroid1.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
@@ -1581,58 +1661,32 @@
                       "customCollisionMask": [
                         [
                           {
-                            "x": 11.5,
-                            "y": 38.5
+                            "x": 5,
+                            "y": 37.5
                           },
                           {
-                            "x": 41.5,
-                            "y": 19
+                            "x": 24,
+                            "y": 18
                           },
                           {
-                            "x": 68,
-                            "y": 19
+                            "x": 61,
+                            "y": 12
                           },
                           {
-                            "x": 82.5,
-                            "y": 31
+                            "x": 89,
+                            "y": 42.5
                           },
                           {
-                            "x": 85,
-                            "y": 52.5
-                          },
-                          {
-                            "x": 65,
-                            "y": 66
-                          },
-                          {
-                            "x": 38.5,
-                            "y": 67
-                          },
-                          {
-                            "x": 9,
-                            "y": 63
-                          }
-                        ],
-                        [
-                          {
-                            "x": 30.5,
-                            "y": 77.5
-                          },
-                          {
-                            "x": 39.5,
-                            "y": 64.5
-                          },
-                          {
-                            "x": 69.5,
+                            "x": 96.5,
                             "y": 63.5
                           },
                           {
-                            "x": 71.5,
-                            "y": 80.5
+                            "x": 74,
+                            "y": 88
                           },
                           {
-                            "x": 49,
-                            "y": 86.5
+                            "x": 19,
+                            "y": 94.5
                           }
                         ]
                       ]
@@ -1651,7 +1705,7 @@
                   "sprites": [
                     {
                       "hasCustomCollisionMask": true,
-                      "image": "larg_asteroid_5.png",
+                      "image": "bigasteroid2.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
@@ -1668,45 +1722,35 @@
                         [
                           {
                             "x": 12,
-                            "y": 49.5
+                            "y": 84
                           },
                           {
-                            "x": 15.5,
-                            "y": 18.5
+                            "x": 7.5,
+                            "y": 29
                           },
                           {
-                            "x": 55.5,
-                            "y": 21
+                            "x": 20.5,
+                            "y": 10.5
                           },
                           {
-                            "x": 62.5,
-                            "y": 44
-                          }
-                        ],
-                        [
-                          {
-                            "x": 16,
-                            "y": 78
+                            "x": 75.5,
+                            "y": 13
                           },
                           {
-                            "x": 11.5,
-                            "y": 50
+                            "x": 91.5,
+                            "y": 46
                           },
                           {
-                            "x": 63,
-                            "y": 44
+                            "x": 93.5,
+                            "y": 76.5
                           },
                           {
-                            "x": 87.5,
-                            "y": 56.5
+                            "x": 77,
+                            "y": 96
                           },
                           {
-                            "x": 82.5,
-                            "y": 74.5
-                          },
-                          {
-                            "x": 49,
-                            "y": 89.5
+                            "x": 35.5,
+                            "y": 97.5
                           }
                         ]
                       ]
@@ -1725,7 +1769,7 @@
                   "sprites": [
                     {
                       "hasCustomCollisionMask": true,
-                      "image": "larg_asteroid_6.png",
+                      "image": "bigasteroid3.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
@@ -1741,42 +1785,32 @@
                       "customCollisionMask": [
                         [
                           {
-                            "x": 45.5,
-                            "y": 42.5
+                            "x": 4.5,
+                            "y": 32.5
                           },
                           {
-                            "x": 20.5,
-                            "y": 17.5
+                            "x": 27,
+                            "y": 13
                           },
                           {
-                            "x": 70,
-                            "y": 7.5
+                            "x": 82.5,
+                            "y": 5.5
                           },
                           {
-                            "x": 90.5,
-                            "y": 49.5
-                          }
-                        ],
-                        [
-                          {
-                            "x": 17,
-                            "y": 57.5
+                            "x": 92,
+                            "y": 52.5
                           },
                           {
-                            "x": 45.5,
-                            "y": 42.5
+                            "x": 72.5,
+                            "y": 87.5
                           },
                           {
-                            "x": 90.5,
-                            "y": 49
+                            "x": 22.5,
+                            "y": 94
                           },
                           {
-                            "x": 63.5,
-                            "y": 84.5
-                          },
-                          {
-                            "x": 16,
-                            "y": 81
+                            "x": 4,
+                            "y": 67.5
                           }
                         ]
                       ]
@@ -1991,7 +2025,7 @@
                   "sprites": [
                     {
                       "hasCustomCollisionMask": true,
-                      "image": "medium_asteroid_5.png",
+                      "image": "medasteroid1.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
@@ -2007,38 +2041,32 @@
                       "customCollisionMask": [
                         [
                           {
-                            "x": 12.5,
-                            "y": 7.5
+                            "x": 4.5,
+                            "y": 33
                           },
                           {
-                            "x": 48,
-                            "y": 12
-                          },
-                          {
-                            "x": 56,
-                            "y": 31.5
-                          },
-                          {
-                            "x": 52,
-                            "y": 49
+                            "x": 3.5,
+                            "y": 14.5
                           },
                           {
                             "x": 31.5,
-                            "y": 58.5
-                          }
-                        ],
-                        [
-                          {
-                            "x": 10,
-                            "y": 33.5
+                            "y": 8
                           },
                           {
-                            "x": 24,
-                            "y": 15.5
+                            "x": 56.5,
+                            "y": 35
                           },
                           {
-                            "x": 29,
-                            "y": 46.5
+                            "x": 60.5,
+                            "y": 46
+                          },
+                          {
+                            "x": 43.5,
+                            "y": 56.5
+                          },
+                          {
+                            "x": 14.5,
+                            "y": 55.5
                           }
                         ]
                       ]
@@ -2057,7 +2085,7 @@
                   "sprites": [
                     {
                       "hasCustomCollisionMask": true,
-                      "image": "medium_asteroid_6.png",
+                      "image": "medasteroid2.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
@@ -2073,64 +2101,28 @@
                       "customCollisionMask": [
                         [
                           {
-                            "x": 6,
-                            "y": 5
+                            "x": 46,
+                            "y": 6.5
                           },
                           {
-                            "x": 32,
-                            "y": 19.5
+                            "x": 54.5,
+                            "y": 45
                           },
                           {
-                            "x": 31.5,
-                            "y": 41
+                            "x": 41.5,
+                            "y": 58.5
                           },
                           {
-                            "x": 5,
-                            "y": 22.5
-                          }
-                        ],
-                        [
-                          {
-                            "x": 51.5,
-                            "y": 15.5
+                            "x": 25,
+                            "y": 59
                           },
                           {
-                            "x": 60,
-                            "y": 25
+                            "x": 13.5,
+                            "y": 45.5
                           },
                           {
-                            "x": 48.5,
-                            "y": 48
-                          },
-                          {
-                            "x": 31.5,
-                            "y": 41
-                          },
-                          {
-                            "x": 31.5,
-                            "y": 19.5
-                          }
-                        ],
-                        [
-                          {
-                            "x": 9.5,
-                            "y": 50.5
-                          },
-                          {
-                            "x": 33.5,
-                            "y": 41
-                          },
-                          {
-                            "x": 48.5,
-                            "y": 47.5
-                          },
-                          {
-                            "x": 52.5,
-                            "y": 57
-                          },
-                          {
-                            "x": 19.5,
-                            "y": 60
+                            "x": 4.5,
+                            "y": 14
                           }
                         ]
                       ]
@@ -2149,7 +2141,7 @@
                   "sprites": [
                     {
                       "hasCustomCollisionMask": true,
-                      "image": "medium_asteroid_7.png",
+                      "image": "medasteroid3.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
@@ -2165,30 +2157,16 @@
                       "customCollisionMask": [
                         [
                           {
-                            "x": 28,
-                            "y": 3.5
-                          },
-                          {
-                            "x": 54,
-                            "y": 6
-                          },
-                          {
-                            "x": 50.5,
-                            "y": 18
-                          },
-                          {
-                            "x": 24,
-                            "y": 14.5
-                          }
-                        ],
-                        [
-                          {
                             "x": 7,
                             "y": 17
                           },
                           {
-                            "x": 47.5,
-                            "y": 12.5
+                            "x": 26,
+                            "y": 11
+                          },
+                          {
+                            "x": 55.5,
+                            "y": 13.5
                           },
                           {
                             "x": 58.5,
@@ -2196,29 +2174,15 @@
                           },
                           {
                             "x": 53,
-                            "y": 54
+                            "y": 47.5
                           },
                           {
-                            "x": 22.5,
+                            "x": 18.5,
                             "y": 56
                           },
                           {
-                            "x": 11.5,
-                            "y": 41
-                          }
-                        ],
-                        [
-                          {
-                            "x": 23,
-                            "y": 47
-                          },
-                          {
-                            "x": 28.5,
-                            "y": 55
-                          },
-                          {
-                            "x": 16,
-                            "y": 57
+                            "x": 8,
+                            "y": 46
                           }
                         ]
                       ]
@@ -2256,7 +2220,7 @@
                   "sprites": [
                     {
                       "hasCustomCollisionMask": true,
-                      "image": "smallasteroid1.png",
+                      "image": "smallasteroid4.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
@@ -2292,16 +2256,8 @@
                             "y": 30.5
                           },
                           {
-                            "x": 15.5,
-                            "y": 25
-                          },
-                          {
                             "x": 3,
                             "y": 27
-                          },
-                          {
-                            "x": 4.5,
-                            "y": 18
                           },
                           {
                             "x": 3,
@@ -2324,7 +2280,7 @@
                   "sprites": [
                     {
                       "hasCustomCollisionMask": true,
-                      "image": "smallasteroid2.png",
+                      "image": "smallasteroid5.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
@@ -2388,7 +2344,7 @@
                   "sprites": [
                     {
                       "hasCustomCollisionMask": true,
-                      "image": "smallasteroid3.png",
+                      "image": "smallasteroid6.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
@@ -3276,16 +3232,17 @@
           "behaviors": [],
           "animations": [
             {
-              "name": "",
+              "name": "gold_asteroidt",
               "useMultipleDirections": false,
               "directions": [
                 {
                   "looping": false,
+                  "metadata": "{\"pskl\":{}}",
                   "timeBetweenFrames": 0.08,
                   "sprites": [
                     {
                       "hasCustomCollisionMask": true,
-                      "image": "gold_asteroidt.png",
+                      "image": "goldAsteroid.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
@@ -3301,38 +3258,24 @@
                       "customCollisionMask": [
                         [
                           {
-                            "x": 12,
-                            "y": 7
-                          },
-                          {
-                            "x": 47.5,
-                            "y": 12
-                          },
-                          {
-                            "x": 56.5,
-                            "y": 32
-                          },
-                          {
-                            "x": 52,
-                            "y": 49.5
-                          },
-                          {
-                            "x": 32,
+                            "x": 59.5,
                             "y": 58.5
-                          }
-                        ],
-                        [
-                          {
-                            "x": 8.5,
-                            "y": 33
                           },
                           {
-                            "x": 22.5,
-                            "y": 18.5
+                            "x": 14.5,
+                            "y": 61.5
+                          },
+                          {
+                            "x": 2.5,
+                            "y": 31
                           },
                           {
                             "x": 30,
-                            "y": 48.5
+                            "y": 5.5
+                          },
+                          {
+                            "x": 60,
+                            "y": 17
                           }
                         ]
                       ]
