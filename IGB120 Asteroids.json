@@ -11162,6 +11162,16 @@
                 "value": "SetNumberVariable"
               },
               "parameters": [
+                "Credits",
+                "=",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "SetNumberVariable"
+              },
+              "parameters": [
                 "GunsLevel",
                 "=",
                 "0"
