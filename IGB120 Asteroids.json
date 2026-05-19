@@ -10387,7 +10387,7 @@
                   "sprites": [
                     {
                       "hasCustomCollisionMask": true,
-                      "image": "larg_asteroid_5.png",
+                      "image": "bigasteroid1.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
@@ -10403,20 +10403,20 @@
                       "customCollisionMask": [
                         [
                           {
-                            "x": 4,
-                            "y": 16
+                            "x": 3,
+                            "y": 7
                           },
                           {
-                            "x": 89,
-                            "y": 16
+                            "x": 96,
+                            "y": 7
                           },
                           {
-                            "x": 89,
-                            "y": 91
+                            "x": 96,
+                            "y": 97
                           },
                           {
-                            "x": 4,
-                            "y": 91
+                            "x": 3,
+                            "y": 97
                           }
                         ]
                       ]
