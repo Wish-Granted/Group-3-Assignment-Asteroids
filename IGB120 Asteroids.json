@@ -752,6 +752,11 @@
       "name": "Bounds",
       "type": "number",
       "value": 150
+    },
+    {
+      "name": "InstructionsTime",
+      "type": "number",
+      "value": 15
     }
   ],
   "layouts": [
@@ -3722,50 +3727,6 @@
               "actions": [
                 {
                   "type": {
-                    "value": "Create"
-                  },
-                  "parameters": [
-                    "",
-                    "Bullet",
-                    "Ship.PointX(\"Front\")",
-                    "Ship.PointY(\"Front\")",
-                    ""
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "SetAngle"
-                  },
-                  "parameters": [
-                    "Bullet",
-                    "=",
-                    "Ship.Angle()"
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "SetNumberObjectVariable"
-                  },
-                  "parameters": [
-                    "Bullet",
-                    "Lifetime",
-                    "=",
-                    "2"
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "AddForceAL"
-                  },
-                  "parameters": [
-                    "Bullet",
-                    "Ship.Angle()",
-                    "200 * (1+GunsLevel/5)",
-                    "1"
-                  ]
-                },
-                {
-                  "type": {
                     "value": "PlaySound"
                   },
                   "parameters": [
@@ -3831,6 +3792,18 @@
                     },
                     {
                       "type": {
+                        "value": "Create"
+                      },
+                      "parameters": [
+                        "",
+                        "Bullet",
+                        "Ship.PointX(\"Front\")",
+                        "Ship.PointY(\"Front\")",
+                        ""
+                      ]
+                    },
+                    {
+                      "type": {
                         "value": "SetAngle"
                       },
                       "parameters": [
@@ -3857,6 +3830,56 @@
                       "parameters": [
                         "Bullet",
                         "Bullet.Angle()",
+                        "200 * (1+GunsLevel/5)",
+                        "1"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Else",
+                  "conditions": [],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "Create"
+                      },
+                      "parameters": [
+                        "",
+                        "Bullet",
+                        "Ship.PointX(\"Front\")",
+                        "Ship.PointY(\"Front\")",
+                        ""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "SetAngle"
+                      },
+                      "parameters": [
+                        "Bullet",
+                        "=",
+                        "Ship.Angle()"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "SetNumberObjectVariable"
+                      },
+                      "parameters": [
+                        "Bullet",
+                        "Lifetime",
+                        "=",
+                        "2"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "AddForceAL"
+                      },
+                      "parameters": [
+                        "Bullet",
+                        "Ship.Angle()",
                         "200 * (1+GunsLevel/5)",
                         "1"
                       ]
@@ -4442,23 +4465,59 @@
                     "",
                     ""
                   ]
+                }
+              ],
+              "events": [
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "BooleanVariable"
+                      },
+                      "parameters": [
+                        "CarbonFilters",
+                        "False",
+                        ""
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "Health::Health::SetCooldownDurationOp"
+                      },
+                      "parameters": [
+                        "Ship",
+                        "Health",
+                        "=",
+                        "1",
+                        ""
+                      ]
+                    }
+                  ]
                 },
                 {
-                  "type": {
-                    "value": "Health::Health::SetCooldownDurationOp"
-                  },
-                  "parameters": [
-                    "Ship",
-                    "Health",
-                    "=",
-                    "1",
-                    ""
+                  "type": "BuiltinCommonInstructions::Else",
+                  "conditions": [],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "Health::Health::SetCooldownDurationOp"
+                      },
+                      "parameters": [
+                        "Ship",
+                        "Health",
+                        "=",
+                        "2",
+                        ""
+                      ]
+                    }
                   ]
                 }
               ]
             },
             {
-              "folded": true,
               "type": "BuiltinCommonInstructions::Standard",
               "conditions": [
                 {
@@ -4886,7 +4945,7 @@
                   "parameters": [
                     "Credits",
                     "+",
-                    "25*MultiplyScore*ComboBonus"
+                    "20*MultiplyScore*ComboBonus"
                   ]
                 }
               ],
@@ -5049,7 +5108,7 @@
                   "parameters": [
                     "Credits",
                     "+",
-                    "40*MultiplyScore*ComboBonus"
+                    "30*MultiplyScore*ComboBonus"
                   ]
                 },
                 {
@@ -5212,7 +5271,7 @@
                   "parameters": [
                     "Credits",
                     "+",
-                    "40*MultiplyScore*ComboBonus"
+                    "30*MultiplyScore*ComboBonus"
                   ]
                 },
                 {
@@ -5809,6 +5868,7 @@
           "comment": "Ui/ Time"
         },
         {
+          "folded": true,
           "type": "BuiltinCommonInstructions::Standard",
           "conditions": [],
           "actions": [],
@@ -6366,7 +6426,7 @@
               "parameters": [
                 "AsteroidCount",
                 "<",
-                "(Time.Hours) + pow(1.5,Sol) + 3"
+                "(Time.Hours) + pow(1.8,Sol) + 3"
               ]
             }
           ],
@@ -6890,7 +6950,7 @@
             "textG": 0,
             "textR": 0
           },
-          "comment": "Powerups"
+          "comment": "Powerups (Shotgun)"
         },
         {
           "folded": true,
@@ -7567,19 +7627,9 @@
                 "value": "NumberVariable"
               },
               "parameters": [
-                "Sol",
-                "=",
-                "1"
-              ]
-            },
-            {
-              "type": {
-                "value": "NumberVariable"
-              },
-              "parameters": [
-                "Time.Hours",
-                "<",
-                "9"
+                "InstructionsTime",
+                ">",
+                "0"
               ]
             }
           ],
@@ -7591,6 +7641,16 @@
               "parameters": [
                 "InstructionsText",
                 ""
+              ]
+            },
+            {
+              "type": {
+                "value": "SetNumberVariable"
+              },
+              "parameters": [
+                "InstructionsTime",
+                "-",
+                "TimeDelta()"
               ]
             }
           ]
@@ -10691,6 +10751,73 @@
               },
               "parameters": [
                 "Time.Hours",
+                ">=",
+                "24"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "SetNumberVariable"
+              },
+              "parameters": [
+                "Sol",
+                "+",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "SetNumberVariable"
+              },
+              "parameters": [
+                "Time.Hours",
+                "=",
+                "6"
+              ]
+            },
+            {
+              "type": {
+                "value": "SetNumberVariable"
+              },
+              "parameters": [
+                "Time.Minutes",
+                "=",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "SetNumberVariable"
+              },
+              "parameters": [
+                "Time.Seconds",
+                "=",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "Scene"
+              },
+              "parameters": [
+                "",
+                "\"Day Start\"",
+                ""
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "NumberVariable"
+              },
+              "parameters": [
+                "Time.Hours",
                 "<",
                 "10"
               ]
@@ -11239,6 +11366,16 @@
             },
             {
               "type": {
+                "value": "SetNumberVariable"
+              },
+              "parameters": [
+                "InstructionsTime",
+                "=",
+                "15"
+              ]
+            },
+            {
+              "type": {
                 "value": "Scene"
               },
               "parameters": [
@@ -11383,7 +11520,7 @@
           "name": "SolText",
           "persistentUuid": "3313ac79-061e-49c7-8665-1407eb51e11e",
           "width": 0,
-          "x": 353,
+          "x": 361,
           "y": 162,
           "zOrder": 1,
           "numberProperties": [],
@@ -11399,7 +11536,7 @@
           "name": "CreditsText",
           "persistentUuid": "2249a2fb-c672-440f-a108-b694d4984b66",
           "width": 0,
-          "x": 318,
+          "x": 329,
           "y": 272,
           "zOrder": 2,
           "numberProperties": [],
@@ -11551,7 +11688,7 @@
               "parameters": [
                 "SolText",
                 "=",
-                "ScreenWidth()/2 - SolText.Width()/2"
+                "480 - SolText.Width()/2"
               ]
             },
             {
@@ -11561,7 +11698,7 @@
               "parameters": [
                 "CreditsText",
                 "=",
-                "ScreenWidth()/2 - CreditsText.Width()/2"
+                "480 - CreditsText.Width()/2"
               ]
             },
             {
