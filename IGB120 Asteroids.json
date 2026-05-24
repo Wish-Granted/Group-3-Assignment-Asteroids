@@ -635,6 +635,26 @@
         "name": "smallasteroid6.png",
         "smoothed": true,
         "userAdded": false
+      },
+      {
+        "file": "8-Bit-Perplexion_LoFi.ogg",
+        "kind": "audio",
+        "metadata": "",
+        "name": "8-Bit-Perplexion_LoFi.ogg",
+        "preloadAsMusic": false,
+        "preloadAsSound": false,
+        "preloadInCache": false,
+        "userAdded": false
+      },
+      {
+        "file": "Arcade-Drama2.ogg",
+        "kind": "audio",
+        "metadata": "",
+        "name": "Arcade-Drama2.ogg",
+        "preloadAsMusic": false,
+        "preloadAsSound": false,
+        "preloadInCache": false,
+        "userAdded": false
       }
     ]
   },
@@ -3733,8 +3753,8 @@
                     "",
                     "Laser_Shoot.ogg",
                     "",
-                    "",
-                    ""
+                    "50",
+                    "2"
                   ]
                 },
                 {
@@ -4661,8 +4681,8 @@
                     "",
                     "Explosion.ogg",
                     "",
-                    "",
-                    "1.2"
+                    "7",
+                    "1.7"
                   ]
                 },
                 {
@@ -4792,8 +4812,8 @@
                     "",
                     "Explosion.ogg",
                     "",
-                    "",
-                    "1"
+                    "9",
+                    "1.6"
                   ]
                 },
                 {
@@ -4904,8 +4924,8 @@
                     "",
                     "Explosion.ogg",
                     "",
-                    "",
-                    "0.8"
+                    "11",
+                    "1.55"
                   ]
                 },
                 {
@@ -5128,8 +5148,8 @@
                     "",
                     "Explosion.ogg",
                     "",
-                    "",
-                    "0.8"
+                    "10",
+                    "1.6"
                   ]
                 }
               ],
@@ -5230,7 +5250,7 @@
                     "",
                     "Explosion.ogg",
                     "",
-                    "",
+                    "80",
                     "0.8"
                   ]
                 },
@@ -5345,7 +5365,7 @@
                     "",
                     "Explosion.ogg",
                     "",
-                    "",
+                    "80",
                     "0.8"
                   ]
                 },
@@ -5429,8 +5449,8 @@
                     "",
                     "Explosion.ogg",
                     "",
-                    "",
-                    "1.2"
+                    "8",
+                    "1.8"
                   ]
                 },
                 {
@@ -6227,7 +6247,6 @@
           "comment": "Scene Start"
         },
         {
-          "folded": true,
           "type": "BuiltinCommonInstructions::Standard",
           "conditions": [
             {
@@ -6271,6 +6290,19 @@
                 "AsteroidCount",
                 "=",
                 "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "PlaySoundOnChannel"
+              },
+              "parameters": [
+                "",
+                "Arcade-Drama2.ogg",
+                "1000",
+                "yes",
+                "50",
+                "0.9"
               ]
             }
           ],
@@ -6953,7 +6985,6 @@
           "comment": "Powerups (Shotgun)"
         },
         {
-          "folded": true,
           "type": "BuiltinCommonInstructions::Standard",
           "conditions": [],
           "actions": [],
@@ -7176,7 +7207,6 @@
           "comment": "Multipliers"
         },
         {
-          "folded": true,
           "type": "BuiltinCommonInstructions::Standard",
           "conditions": [],
           "actions": [],
@@ -7837,7 +7867,7 @@
       "name": "GalacticStore",
       "r": 0,
       "standardSortMethod": true,
-      "stopSoundsOnStartup": true,
+      "stopSoundsOnStartup": false,
       "title": "",
       "v": 0,
       "uiSettings": {
@@ -8161,6 +8191,70 @@
           "x": 795,
           "y": 15,
           "zOrder": 22,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "keepRatio": true,
+          "layer": "",
+          "name": "ShieldGenHint",
+          "persistentUuid": "4e2b3fb0-43dc-4436-9c18-0558bcf3ed23",
+          "width": 0,
+          "x": 36,
+          "y": 291,
+          "zOrder": 23,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "keepRatio": true,
+          "layer": "",
+          "name": "ThermalHint",
+          "persistentUuid": "fa24d985-5ca5-458c-9291-2dbff28a16fc",
+          "width": 0,
+          "x": 37,
+          "y": 357,
+          "zOrder": 24,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "keepRatio": true,
+          "layer": "",
+          "name": "reverseHint",
+          "persistentUuid": "13870003-dea4-481f-a101-991d0ceb911f",
+          "width": 0,
+          "x": 82,
+          "y": 431,
+          "zOrder": 25,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "keepRatio": true,
+          "layer": "",
+          "name": "GasHint",
+          "persistentUuid": "279c7289-25c5-471b-a639-53ff357d0af2",
+          "width": 0,
+          "x": 43,
+          "y": 496,
+          "zOrder": 26,
           "numberProperties": [],
           "stringProperties": [],
           "initialVariables": []
@@ -8934,6 +9028,182 @@
             "lineHeight": 0,
             "color": "255;255;255"
           }
+        },
+        {
+          "assetStoreId": "",
+          "bold": false,
+          "italic": false,
+          "name": "ShieldGenHint",
+          "persistentUuid": "262b5fd4-2860-49f3-8f5e-aa2aed554214",
+          "smoothed": true,
+          "type": "TextObject::Text",
+          "underlined": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "string": "A regenerating to block asteroids!",
+          "font": "BoldsPixels.ttf",
+          "textAlignment": "left",
+          "characterSize": 20,
+          "color": {
+            "b": 255,
+            "g": 255,
+            "r": 255
+          },
+          "content": {
+            "bold": false,
+            "isOutlineEnabled": false,
+            "isShadowEnabled": false,
+            "italic": false,
+            "outlineColor": "255;255;255",
+            "outlineThickness": 2,
+            "shadowAngle": 90,
+            "shadowBlurRadius": 2,
+            "shadowColor": "0;0;0",
+            "shadowDistance": 4,
+            "shadowOpacity": 127,
+            "smoothed": true,
+            "underlined": false,
+            "text": "A regenerating to block asteroids!",
+            "font": "BoldsPixels.ttf",
+            "textAlignment": "left",
+            "verticalTextAlignment": "top",
+            "characterSize": 20,
+            "lineHeight": 0,
+            "color": "255;255;255"
+          }
+        },
+        {
+          "assetStoreId": "",
+          "bold": false,
+          "italic": false,
+          "name": "ThermalHint",
+          "persistentUuid": "4af910ee-23b1-465c-bef2-562dc036a9dd",
+          "smoothed": true,
+          "type": "TextObject::Text",
+          "underlined": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "string": "Reduces damage from explosions!",
+          "font": "BoldsPixels.ttf",
+          "textAlignment": "left",
+          "characterSize": 20,
+          "color": {
+            "b": 255,
+            "g": 255,
+            "r": 255
+          },
+          "content": {
+            "bold": false,
+            "isOutlineEnabled": false,
+            "isShadowEnabled": false,
+            "italic": false,
+            "outlineColor": "255;255;255",
+            "outlineThickness": 2,
+            "shadowAngle": 90,
+            "shadowBlurRadius": 2,
+            "shadowColor": "0;0;0",
+            "shadowDistance": 4,
+            "shadowOpacity": 127,
+            "smoothed": true,
+            "underlined": false,
+            "text": "Reduces damage from explosions!",
+            "font": "BoldsPixels.ttf",
+            "textAlignment": "left",
+            "verticalTextAlignment": "top",
+            "characterSize": 20,
+            "lineHeight": 0,
+            "color": "255;255;255"
+          }
+        },
+        {
+          "assetStoreId": "",
+          "bold": false,
+          "italic": false,
+          "name": "reverseHint",
+          "persistentUuid": "f4acd765-4693-4f52-b2d4-b06d541e3bb7",
+          "smoothed": true,
+          "type": "TextObject::Text",
+          "underlined": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "string": "Lets you move backwards!",
+          "font": "BoldsPixels.ttf",
+          "textAlignment": "left",
+          "characterSize": 20,
+          "color": {
+            "b": 255,
+            "g": 255,
+            "r": 255
+          },
+          "content": {
+            "bold": false,
+            "isOutlineEnabled": false,
+            "isShadowEnabled": false,
+            "italic": false,
+            "outlineColor": "255;255;255",
+            "outlineThickness": 2,
+            "shadowAngle": 90,
+            "shadowBlurRadius": 2,
+            "shadowColor": "0;0;0",
+            "shadowDistance": 4,
+            "shadowOpacity": 127,
+            "smoothed": true,
+            "underlined": false,
+            "text": "Lets you move backwards!",
+            "font": "BoldsPixels.ttf",
+            "textAlignment": "left",
+            "verticalTextAlignment": "top",
+            "characterSize": 20,
+            "lineHeight": 0,
+            "color": "255;255;255"
+          }
+        },
+        {
+          "assetStoreId": "",
+          "bold": false,
+          "italic": false,
+          "name": "GasHint",
+          "persistentUuid": "ecfe51b8-1f67-42e8-bb83-5e66f1e728d4",
+          "smoothed": true,
+          "type": "TextObject::Text",
+          "underlined": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "string": "Reduces damage from noxious gas!",
+          "font": "BoldsPixels.ttf",
+          "textAlignment": "left",
+          "characterSize": 20,
+          "color": {
+            "b": 255,
+            "g": 255,
+            "r": 255
+          },
+          "content": {
+            "bold": false,
+            "isOutlineEnabled": false,
+            "isShadowEnabled": false,
+            "italic": false,
+            "outlineColor": "255;255;255",
+            "outlineThickness": 2,
+            "shadowAngle": 90,
+            "shadowBlurRadius": 2,
+            "shadowColor": "0;0;0",
+            "shadowDistance": 4,
+            "shadowOpacity": 127,
+            "smoothed": true,
+            "underlined": false,
+            "text": "Reduces damage from noxious gas!",
+            "font": "BoldsPixels.ttf",
+            "textAlignment": "left",
+            "verticalTextAlignment": "top",
+            "characterSize": 20,
+            "lineHeight": 0,
+            "color": "255;255;255"
+          }
         }
       ],
       "objectsFolderStructure": {
@@ -9004,6 +9274,18 @@
           },
           {
             "objectName": "CarbonFilter"
+          },
+          {
+            "objectName": "ShieldGenHint"
+          },
+          {
+            "objectName": "ThermalHint"
+          },
+          {
+            "objectName": "reverseHint"
+          },
+          {
+            "objectName": "GasHint"
           }
         ]
       },
@@ -9968,7 +10250,7 @@
       "name": "Menu",
       "r": 0,
       "standardSortMethod": true,
-      "stopSoundsOnStartup": true,
+      "stopSoundsOnStartup": false,
       "title": "",
       "v": 0,
       "uiSettings": {
@@ -10987,6 +11269,44 @@
                 "Time.Minutes",
                 "-",
                 "60"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "SceneJustBegins"
+              },
+              "parameters": [
+                ""
+              ]
+            },
+            {
+              "type": {
+                "inverted": true,
+                "value": "SoundPlaying"
+              },
+              "parameters": [
+                "",
+                "0"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "PlaySoundOnChannel"
+              },
+              "parameters": [
+                "",
+                "8-Bit-Perplexion_LoFi.ogg",
+                "0",
+                "yes",
+                "30",
+                ""
               ]
             }
           ]
