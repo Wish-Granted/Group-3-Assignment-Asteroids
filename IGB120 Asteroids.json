@@ -10368,7 +10368,7 @@
         "gridColor": 10401023,
         "gridAlpha": 0.8,
         "snap": false,
-        "zoomFactor": 0.7291666666666666,
+        "zoomFactor": 0.9197042853472659,
         "windowMask": false,
         "selectedLayer": "",
         "gameEditorMode": "instances-editor"
@@ -13070,7 +13070,7 @@
       "name": "DevCredits",
       "r": 0,
       "standardSortMethod": true,
-      "stopSoundsOnStartup": true,
+      "stopSoundsOnStartup": false,
       "title": "",
       "v": 0,
       "uiSettings": {
@@ -13113,7 +13113,7 @@
           "angle": 0,
           "customSize": true,
           "depth": 1,
-          "height": 270,
+          "height": 330,
           "keepRatio": true,
           "layer": "",
           "name": "Creditstext",
