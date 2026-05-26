@@ -821,6 +821,14 @@
           "identifier": "https://asset-resources.gdevelop.io/public-resources/Dialog Boxes/6b410f07a3a02e721a49d41795e84b56707ef28ac4d095d55f1fd1093760e134_8BitOperatorPlus8Regular_Edited.fnt",
           "name": "8BitOperatorPlus8Regular_Edited.fnt"
         }
+      },
+      {
+        "file": "assets/NewSprite6.png",
+        "kind": "image",
+        "metadata": "{\"extension\":\".png\"}",
+        "name": "NewSprite6",
+        "smoothed": true,
+        "userAdded": false
       }
     ]
   },
@@ -876,7 +884,6 @@
       "value": 1
     },
     {
-      "folded": true,
       "name": "Time",
       "type": "structure",
       "children": [
@@ -1172,6 +1179,23 @@
           "x": 15,
           "y": 85,
           "zOrder": 11,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 0.9805924412665985,
+          "height": 540,
+          "layer": "UI",
+          "name": "Black_Overlay",
+          "opacity": 0,
+          "persistentUuid": "e8dbefcd-f7ff-4259-9f22-f9e66c236f03",
+          "width": 960,
+          "x": 0,
+          "y": 0,
+          "zOrder": 100,
           "numberProperties": [],
           "stringProperties": [],
           "initialVariables": []
@@ -3105,7 +3129,7 @@
           "jumpForwardInTimeOnCreation": 0,
           "maxParticleNb": 200,
           "name": "Gas",
-          "particleAlpha1": 30,
+          "particleAlpha1": 90,
           "particleAlpha2": 0,
           "particleAlphaRandomness1": 0,
           "particleAlphaRandomness2": 0,
@@ -3766,6 +3790,68 @@
               ]
             }
           ]
+        },
+        {
+          "adaptCollisionMaskAutomatically": true,
+          "assetStoreId": "",
+          "name": "Black_Overlay",
+          "persistentUuid": "83dee702-942f-4d82-b124-24c04e99bbe9",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "animations": [
+            {
+              "name": "NewSprite",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "metadata": "{\"pskl\":{}}",
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "NewSprite6",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 0,
+                            "y": 0
+                          },
+                          {
+                            "x": 64,
+                            "y": 0
+                          },
+                          {
+                            "x": 64,
+                            "y": 64
+                          },
+                          {
+                            "x": 0,
+                            "y": 64
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
         }
       ],
       "objectsFolderStructure": {
@@ -3821,6 +3907,9 @@
           },
           {
             "objectName": "Gas"
+          },
+          {
+            "objectName": "Black_Overlay"
           },
           {
             "objectName": "Shield"
@@ -6096,12 +6185,12 @@
           "comment": "Ui/ Time"
         },
         {
-          "folded": true,
           "type": "BuiltinCommonInstructions::Standard",
           "conditions": [],
           "actions": [],
           "events": [
             {
+              "folded": true,
               "type": "BuiltinCommonInstructions::Standard",
               "conditions": [
                 {
@@ -6345,6 +6434,7 @@
               ]
             },
             {
+              "folded": true,
               "type": "BuiltinCommonInstructions::Standard",
               "conditions": [],
               "actions": [
@@ -6504,6 +6594,44 @@
                     "Time.Seconds",
                     "-",
                     "60"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "NumberVariable"
+                  },
+                  "parameters": [
+                    "Time.Hours",
+                    ">=",
+                    "23"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "NumberVariable"
+                  },
+                  "parameters": [
+                    "Time.Minutes",
+                    ">=",
+                    "45"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "OpacityCapability::OpacityBehavior::SetValue"
+                  },
+                  "parameters": [
+                    "Black_Overlay",
+                    "Opacity",
+                    "+",
+                    "3"
                   ]
                 }
               ]
@@ -6754,6 +6882,7 @@
           "comment": "Asteroid Spawning"
         },
         {
+          "folded": true,
           "type": "BuiltinCommonInstructions::Standard",
           "conditions": [
             {
