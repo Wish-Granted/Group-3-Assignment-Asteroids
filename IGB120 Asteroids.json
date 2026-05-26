@@ -1801,23 +1801,6 @@
           "updateIfNotVisible": false,
           "variables": [
             {
-              "folded": true,
-              "name": "direction",
-              "type": "structure",
-              "children": [
-                {
-                  "name": "x",
-                  "type": "number",
-                  "value": 0
-                },
-                {
-                  "name": "y",
-                  "type": "number",
-                  "value": 0
-                }
-              ]
-            },
-            {
               "name": "speed",
               "type": "number",
               "value": 4
@@ -1826,6 +1809,11 @@
               "name": "weight",
               "type": "number",
               "value": 1
+            },
+            {
+              "name": "direction",
+              "type": "number",
+              "value": 0
             }
           ],
           "effects": [],
@@ -2181,23 +2169,6 @@
           "updateIfNotVisible": false,
           "variables": [
             {
-              "folded": true,
-              "name": "direction",
-              "type": "structure",
-              "children": [
-                {
-                  "name": "x",
-                  "type": "number",
-                  "value": 0.5
-                },
-                {
-                  "name": "y",
-                  "type": "number",
-                  "value": 0.8
-                }
-              ]
-            },
-            {
               "name": "weight",
               "type": "number",
               "value": 0.5
@@ -2206,6 +2177,11 @@
               "name": "speed",
               "type": "number",
               "value": 4
+            },
+            {
+              "name": "direction",
+              "type": "number",
+              "value": 0
             }
           ],
           "effects": [],
@@ -2875,6 +2851,11 @@
               "name": "weight",
               "type": "number",
               "value": 1
+            },
+            {
+              "name": "direction",
+              "type": "number",
+              "value": 0
             }
           ],
           "effects": [],
@@ -3875,6 +3856,7 @@
           "comment": "Ship Movement and Shooting"
         },
         {
+          "folded": true,
           "type": "BuiltinCommonInstructions::Standard",
           "conditions": [
             {
@@ -4840,6 +4822,7 @@
           "comment": "Asteroids Collision"
         },
         {
+          "folded": true,
           "type": "BuiltinCommonInstructions::Standard",
           "conditions": [],
           "actions": [],
@@ -4944,7 +4927,6 @@
               ]
             },
             {
-              "folded": true,
               "type": "BuiltinCommonInstructions::Standard",
               "conditions": [
                 {
@@ -5056,7 +5038,7 @@
                       },
                       "parameters": [
                         "SmallAsteroid",
-                        "RandomFloatInRange(0, 360)",
+                        "MediumAsteroid.direction+RandomFloatInRange(-60, 60)",
                         "65",
                         "1"
                       ]
@@ -5087,7 +5069,6 @@
               ]
             },
             {
-              "folded": true,
               "type": "BuiltinCommonInstructions::Standard",
               "conditions": [
                 {
@@ -5195,11 +5176,22 @@
                     },
                     {
                       "type": {
+                        "value": "SetNumberObjectVariable"
+                      },
+                      "parameters": [
+                        "MediumAsteroid",
+                        "direction",
+                        "=",
+                        "LargeAsteroid.direction+RandomFloatInRange(-60, 60)"
+                      ]
+                    },
+                    {
+                      "type": {
                         "value": "AddForceAL"
                       },
                       "parameters": [
                         "MediumAsteroid",
-                        "RandomFloatInRange(0, 360)",
+                        "MediumAsteroid.direction",
                         "50",
                         "1"
                       ]
@@ -5230,7 +5222,6 @@
               ]
             },
             {
-              "folded": true,
               "type": "BuiltinCommonInstructions::Standard",
               "conditions": [
                 {
@@ -5379,11 +5370,22 @@
                     },
                     {
                       "type": {
+                        "value": "SetNumberObjectVariable"
+                      },
+                      "parameters": [
+                        "MediumAsteroid",
+                        "direction",
+                        "=",
+                        "LargeAsteroid.direction+RandomFloatInRange(-60, 60)"
+                      ]
+                    },
+                    {
+                      "type": {
                         "value": "AddForceAL"
                       },
                       "parameters": [
                         "MediumAsteroid",
-                        "RandomFloatInRange(0, 360)",
+                        "MediumAsteroid.direction",
                         "50",
                         "1"
                       ]
@@ -6094,6 +6096,7 @@
           "comment": "Ui/ Time"
         },
         {
+          "folded": true,
           "type": "BuiltinCommonInstructions::Standard",
           "conditions": [],
           "actions": [],
@@ -6520,6 +6523,7 @@
           "comment": "Scene Start"
         },
         {
+          "folded": true,
           "type": "BuiltinCommonInstructions::Standard",
           "conditions": [
             {
@@ -6750,7 +6754,6 @@
           "comment": "Asteroid Spawning"
         },
         {
-          "folded": true,
           "type": "BuiltinCommonInstructions::Standard",
           "conditions": [
             {
@@ -6982,11 +6985,22 @@
                 },
                 {
                   "type": {
+                    "value": "SetNumberObjectVariable"
+                  },
+                  "parameters": [
+                    "LargeAsteroid",
+                    "direction",
+                    "=",
+                    "RandomFloatInRange(0, 360)"
+                  ]
+                },
+                {
+                  "type": {
                     "value": "AddForceAL"
                   },
                   "parameters": [
                     "LargeAsteroid",
-                    "RandomFloatInRange(0, 360)",
+                    "LargeAsteroid.direction",
                     "40",
                     "1"
                   ]
@@ -7056,11 +7070,22 @@
                 },
                 {
                   "type": {
+                    "value": "SetNumberObjectVariable"
+                  },
+                  "parameters": [
+                    "LargeGaseous",
+                    "direction",
+                    "=",
+                    "RandomFloatInRange(0, 360)"
+                  ]
+                },
+                {
+                  "type": {
                     "value": "AddForceAL"
                   },
                   "parameters": [
                     "LargeGaseous",
-                    "RandomFloatInRange(0, 360)",
+                    "LargeGaseous.direction",
                     "40",
                     "1"
                   ]
@@ -7287,6 +7312,7 @@
           "comment": "Powerups (Shotgun)"
         },
         {
+          "folded": true,
           "type": "BuiltinCommonInstructions::Standard",
           "conditions": [],
           "actions": [],
@@ -7509,6 +7535,7 @@
           "comment": "Multipliers"
         },
         {
+          "folded": true,
           "type": "BuiltinCommonInstructions::Standard",
           "conditions": [],
           "actions": [],
@@ -11171,7 +11198,7 @@
           "effects": [],
           "behaviors": [],
           "content": {
-            "text": "[color=white]Ship Condition: [/color][b][color=green]Healthy[/color][/b]",
+            "text": "[color=white]Ship Condition: [/color][b][color=lime]Healthy[/color][/b]",
             "opacity": 255,
             "fontSize": 20,
             "visible": true,
