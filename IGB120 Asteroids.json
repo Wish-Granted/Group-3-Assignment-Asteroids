@@ -5024,7 +5024,6 @@
           "comment": "Asteroids Collision"
         },
         {
-          "folded": true,
           "type": "BuiltinCommonInstructions::Standard",
           "conditions": [],
           "actions": [],
@@ -6433,13 +6432,11 @@
           "comment": "Ui/ Time"
         },
         {
-          "folded": true,
           "type": "BuiltinCommonInstructions::Standard",
           "conditions": [],
           "actions": [],
           "events": [
             {
-              "folded": true,
               "type": "BuiltinCommonInstructions::Standard",
               "conditions": [
                 {
@@ -6469,49 +6466,15 @@
                       ]
                     }
                   ],
-                  "actions": [],
-                  "events": [
+                  "actions": [
                     {
-                      "type": "BuiltinCommonInstructions::Standard",
-                      "conditions": [
-                        {
-                          "type": {
-                            "value": "NumberVariable"
-                          },
-                          "parameters": [
-                            "Credits",
-                            ">=",
-                            "10000"
-                          ]
-                        }
-                      ],
-                      "actions": [
-                        {
-                          "type": {
-                            "value": "Scene"
-                          },
-                          "parameters": [
-                            "",
-                            "\"Good Ending\"",
-                            ""
-                          ]
-                        }
-                      ]
-                    },
-                    {
-                      "type": "BuiltinCommonInstructions::Else",
-                      "conditions": [],
-                      "actions": [
-                        {
-                          "type": {
-                            "value": "Scene"
-                          },
-                          "parameters": [
-                            "",
-                            "\"Bad Ending\"",
-                            ""
-                          ]
-                        }
+                      "type": {
+                        "value": "Scene"
+                      },
+                      "parameters": [
+                        "",
+                        "\"Bad Ending\"",
+                        ""
                       ]
                     }
                   ]
@@ -6570,6 +6533,33 @@
                         ""
                       ]
                     }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "NumberVariable"
+                  },
+                  "parameters": [
+                    "Credits",
+                    ">=",
+                    "10000"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Scene"
+                  },
+                  "parameters": [
+                    "",
+                    "\"Good Ending\"",
+                    ""
                   ]
                 }
               ]
