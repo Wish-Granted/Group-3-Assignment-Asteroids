@@ -3823,7 +3823,6 @@
           "comment": "Ship Movement and Shooting"
         },
         {
-          "folded": true,
           "type": "BuiltinCommonInstructions::Standard",
           "conditions": [
             {
@@ -4138,6 +4137,43 @@
                     "Ship",
                     "Ship.Angle()",
                     "-60*(1 + ThrusterLevel/5)",
+                    ""
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "BooleanVariable"
+                  },
+                  "parameters": [
+                    "ReverseThrusters",
+                    "False",
+                    ""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "KeyFromTextPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "\"Down\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "AddForceAL"
+                  },
+                  "parameters": [
+                    "Ship",
+                    "Ship.Angle()",
+                    "-25*(1 + ThrusterLevel/5)",
                     ""
                   ]
                 }
@@ -8415,7 +8451,7 @@
           "name": "reverseHint",
           "persistentUuid": "13870003-dea4-481f-a101-991d0ceb911f",
           "width": 0,
-          "x": 82,
+          "x": 47,
           "y": 431,
           "zOrder": 25,
           "numberProperties": [],
@@ -9308,7 +9344,7 @@
           "variables": [],
           "effects": [],
           "behaviors": [],
-          "string": "Lets you move backwards!",
+          "string": "Lets you move backwards faster!",
           "font": "BoldsPixels.ttf",
           "textAlignment": "left",
           "characterSize": 20,
@@ -9331,7 +9367,7 @@
             "shadowOpacity": 127,
             "smoothed": true,
             "underlined": false,
-            "text": "Lets you move backwards!",
+            "text": "Lets you move backwards faster!",
             "font": "BoldsPixels.ttf",
             "textAlignment": "left",
             "verticalTextAlignment": "top",
@@ -10444,7 +10480,7 @@
         "gridColor": 10401023,
         "gridAlpha": 0.8,
         "snap": false,
-        "zoomFactor": 0.9197042853472659,
+        "zoomFactor": 0.3289678260987502,
         "windowMask": false,
         "selectedLayer": "",
         "gameEditorMode": "instances-editor"
