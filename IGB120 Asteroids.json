@@ -758,6 +758,22 @@
           "identifier": "https://asset-resources.gdevelop.io/public-resources/Menu buttons/7423149de6e486ac885567761bef3236bcdb8414d05cb0920ae7aedffdec85f9_mononoki-Regular.ttf",
           "name": "mononoki-Regular.ttf"
         }
+      },
+      {
+        "file": "watching_ad.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "watching_ad.png",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "file": "wallet_emptypixel.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "wallet_emptypixel.png",
+        "smoothed": true,
+        "userAdded": false
       }
     ]
   },
@@ -12377,7 +12393,7 @@
         "gridColor": 10401023,
         "gridAlpha": 0.8,
         "snap": false,
-        "zoomFactor": 0.45833603221497526,
+        "zoomFactor": 0.48976767267450944,
         "windowMask": false,
         "selectedLayer": "",
         "gameEditorMode": "instances-editor"
@@ -12455,6 +12471,40 @@
           "x": -57,
           "y": -269,
           "zOrder": 4,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 565,
+          "keepRatio": true,
+          "layer": "",
+          "name": "watchingAd",
+          "persistentUuid": "ed23d6c2-aa9e-4daf-aadf-a3f1822ab114",
+          "width": 1004,
+          "x": -5,
+          "y": -21,
+          "zOrder": 5,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 572,
+          "keepRatio": true,
+          "layer": "",
+          "name": "walletEmpty",
+          "persistentUuid": "250d3164-3e3d-4bb3-96df-3f3ab69d21d0",
+          "width": 1017,
+          "x": -53,
+          "y": 546,
+          "zOrder": 6,
           "numberProperties": [],
           "stringProperties": [],
           "initialVariables": []
@@ -12713,6 +12763,128 @@
               ]
             }
           ]
+        },
+        {
+          "adaptCollisionMaskAutomatically": true,
+          "assetStoreId": "",
+          "name": "watchingAd",
+          "persistentUuid": "b03d7475-9b62-4773-9b67-5c91a9f34b12",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "animations": [
+            {
+              "name": "",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "watching_ad.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 0,
+                            "y": 56
+                          },
+                          {
+                            "x": 1848,
+                            "y": 56
+                          },
+                          {
+                            "x": 1848,
+                            "y": 1080
+                          },
+                          {
+                            "x": 0,
+                            "y": 1080
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "adaptCollisionMaskAutomatically": true,
+          "assetStoreId": "",
+          "name": "walletEmpty",
+          "persistentUuid": "7b09172c-6990-46bf-99bb-d5d72c01a4b5",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "animations": [
+            {
+              "name": "",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "wallet_emptypixel.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 279,
+                            "y": 54
+                          },
+                          {
+                            "x": 1620,
+                            "y": 54
+                          },
+                          {
+                            "x": 1620,
+                            "y": 1080
+                          },
+                          {
+                            "x": 279,
+                            "y": 1080
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
         }
       ],
       "objectsFolderStructure": {
@@ -12729,6 +12901,12 @@
           },
           {
             "objectName": "spinningBG"
+          },
+          {
+            "objectName": "watchingAd"
+          },
+          {
+            "objectName": "walletEmpty"
           }
         ]
       },
@@ -12756,13 +12934,21 @@
             },
             {
               "type": {
+                "value": "Hide"
+              },
+              "parameters": [
+                "watchingAd"
+              ]
+            },
+            {
+              "type": {
                 "value": "TextContainerCapability::TextContainerBehavior::SetValue"
               },
               "parameters": [
                 "cutscene_text",
                 "Text",
                 "=",
-                "\"The new 'Auto-Miner 4072'! Available now for ___ Sols!! Call Today!\""
+                "\"The new 'Auto-Miner 4072'! Available now for 10000 Credits!! Call Today, offer lasts until Sol 6!\""
               ]
             },
             {
@@ -12816,7 +13002,7 @@
                 "value": "Wait"
               },
               "parameters": [
-                "1"
+                "2"
               ]
             },
             {
@@ -12827,7 +13013,41 @@
                 "cutscene_text",
                 "Text",
                 "=",
-                "\"Woaah! I won't even need to go out with my ship anymore!\""
+                "\"Wow! I won't even need to go out with my ship anymore!\""
+              ]
+            },
+            {
+              "type": {
+                "value": "Hide"
+              },
+              "parameters": [
+                "autodrone"
+              ]
+            },
+            {
+              "type": {
+                "value": "Show"
+              },
+              "parameters": [
+                "watchingAd",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "Hide"
+              },
+              "parameters": [
+                "spinningBG"
+              ]
+            },
+            {
+              "type": {
+                "value": "SceneBackground"
+              },
+              "parameters": [
+                "",
+                "\"27;28;49\""
               ]
             },
             {
@@ -12835,7 +13055,7 @@
                 "value": "Wait"
               },
               "parameters": [
-                "0.5"
+                "0.1"
               ]
             },
             {
@@ -12880,7 +13100,15 @@
                 "value": "Wait"
               },
               "parameters": [
-                "0.5"
+                "1.4"
+              ]
+            },
+            {
+              "type": {
+                "value": "Hide"
+              },
+              "parameters": [
+                "watchingAd"
               ]
             },
             {
@@ -12892,6 +13120,52 @@
                 "Text",
                 "=",
                 "\"Damn... I gotta get out there for some credits quickly!\""
+              ]
+            },
+            {
+              "type": {
+                "value": "AddForceTowardPosition"
+              },
+              "parameters": [
+                "walletEmpty",
+                "480",
+                "0",
+                "10",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "Wait"
+              },
+              "parameters": [
+                "1.25"
+              ]
+            },
+            {
+              "type": {
+                "value": "ClearForces"
+              },
+              "parameters": [
+                "walletEmpty"
+              ]
+            },
+            {
+              "type": {
+                "value": "Wait"
+              },
+              "parameters": [
+                "0.8"
+              ]
+            },
+            {
+              "type": {
+                "value": "SetNumberVariable"
+              },
+              "parameters": [
+                "current_scene",
+                "=",
+                "3"
               ]
             }
           ]
@@ -12908,6 +13182,42 @@
                 "spinningBG",
                 "15",
                 ""
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "AutoTyping::AutoTyping::IsFinished"
+              },
+              "parameters": [
+                "cutscene_text",
+                "AutoTyping",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "NumberVariable"
+              },
+              "parameters": [
+                "current_scene",
+                "=",
+                "3"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "PushScene"
+              },
+              "parameters": [
+                "",
+                "\"Menu\""
               ]
             }
           ]
@@ -13746,24 +14056,12 @@
       ],
       "behaviorsSharedData": [
         {
-          "name": "Animation",
-          "type": "AnimatableCapability::AnimatableBehavior"
-        },
-        {
           "name": "Effect",
           "type": "EffectCapability::EffectBehavior"
         },
         {
-          "name": "Flippable",
-          "type": "FlippableCapability::FlippableBehavior"
-        },
-        {
           "name": "Opacity",
           "type": "OpacityCapability::OpacityBehavior"
-        },
-        {
-          "name": "Resizable",
-          "type": "ResizableCapability::ResizableBehavior"
         },
         {
           "name": "Scale",
