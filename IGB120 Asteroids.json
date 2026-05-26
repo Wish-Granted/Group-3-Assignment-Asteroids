@@ -3852,6 +3852,30 @@
               ]
             }
           ]
+        },
+        {
+          "assetStoreId": "",
+          "name": "Indicator_Text",
+          "persistentUuid": "57bae65c-be26-4c35-af88-792c9c4ded57",
+          "type": "BBText::BBText",
+          "variables": [],
+          "effects": [],
+          "behaviors": [
+            {
+              "name": "Tween",
+              "type": "Tween::TweenBehavior"
+            }
+          ],
+          "content": {
+            "text": "",
+            "opacity": 255,
+            "fontSize": 20,
+            "visible": true,
+            "color": "0;0;0",
+            "fontFamily": "BoldsPixels.ttf",
+            "align": "left",
+            "verticalTextAlignment": "top"
+          }
         }
       ],
       "objectsFolderStructure": {
@@ -3928,6 +3952,9 @@
           },
           {
             "objectName": "Powerup"
+          },
+          {
+            "objectName": "Indicator_Text"
           }
         ]
       },
@@ -4525,7 +4552,6 @@
           "comment": "Taking Damage"
         },
         {
-          "folded": true,
           "type": "BuiltinCommonInstructions::Standard",
           "conditions": [],
           "actions": [],
@@ -4668,6 +4694,16 @@
                     "2",
                     ""
                   ]
+                },
+                {
+                  "type": {
+                    "value": "SetNumberVariable"
+                  },
+                  "parameters": [
+                    "last_damage_taken",
+                    "=",
+                    "1"
+                  ]
                 }
               ]
             },
@@ -4725,6 +4761,7 @@
               ]
             },
             {
+              "folded": true,
               "type": "BuiltinCommonInstructions::Standard",
               "conditions": [
                 {
@@ -4762,6 +4799,16 @@
                     "",
                     "",
                     ""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetNumberVariable"
+                  },
+                  "parameters": [
+                    "last_damage_taken",
+                    "=",
+                    "1"
                   ]
                 }
               ],
@@ -4872,6 +4919,16 @@
                         "",
                         ""
                       ]
+                    },
+                    {
+                      "type": {
+                        "value": "SetNumberVariable"
+                      },
+                      "parameters": [
+                        "last_damage_taken",
+                        "=",
+                        "2"
+                      ]
                     }
                   ]
                 },
@@ -4891,10 +4948,66 @@
                         "",
                         ""
                       ]
+                    },
+                    {
+                      "type": {
+                        "value": "SetNumberVariable"
+                      },
+                      "parameters": [
+                        "last_damage_taken",
+                        "=",
+                        "1"
+                      ]
                     }
                   ]
                 }
               ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "Health::Health::IsJustDamaged"
+                  },
+                  "parameters": [
+                    "Ship",
+                    "Health",
+                    ""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Create"
+                  },
+                  "parameters": [
+                    "",
+                    "Indicator_Text",
+                    "Ship.CenterX()-23",
+                    "Ship.CenterY()-50",
+                    "\"UI\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "BBText::SetBBText"
+                  },
+                  "parameters": [
+                    "Indicator_Text",
+                    "=",
+                    "\"[size=30][color=red]-\"+ToString(last_damage_taken)+\"[/color][/size]\""
+                  ]
+                }
+              ]
+            }
+          ],
+          "variables": [
+            {
+              "name": "last_damage_taken",
+              "type": "number",
+              "value": 0
             }
           ]
         },
@@ -4933,6 +5046,28 @@
                 }
               ],
               "actions": [
+                {
+                  "type": {
+                    "value": "Create"
+                  },
+                  "parameters": [
+                    "",
+                    "Indicator_Text",
+                    "Bullet.BoundingBoxCenterX()-35",
+                    "Bullet.BoundingBoxCenterY()-10",
+                    "\"UI\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "BBText::SetBBText"
+                  },
+                  "parameters": [
+                    "Indicator_Text",
+                    "=",
+                    "\"[color=yellow]+C\"+ToString(floor(10*MultiplyScore*ComboBonus))+\"[/color]\""
+                  ]
+                },
                 {
                   "type": {
                     "value": "Delete"
@@ -5010,12 +5145,13 @@
                   "parameters": [
                     "Credits",
                     "+",
-                    "10*MultiplyScore*ComboBonus"
+                    "floor(10*MultiplyScore*ComboBonus)"
                   ]
                 }
               ]
             },
             {
+              "folded": true,
               "type": "BuiltinCommonInstructions::Standard",
               "conditions": [
                 {
@@ -5032,6 +5168,28 @@
                 }
               ],
               "actions": [
+                {
+                  "type": {
+                    "value": "Create"
+                  },
+                  "parameters": [
+                    "",
+                    "Indicator_Text",
+                    "Bullet.BoundingBoxCenterX()-35",
+                    "Bullet.BoundingBoxCenterY()-10",
+                    "\"UI\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "BBText::SetBBText"
+                  },
+                  "parameters": [
+                    "Indicator_Text",
+                    "=",
+                    "\"[color=yellow]+C\"+ToString(floor(15*MultiplyScore*ComboBonus))+\"[/color]\""
+                  ]
+                },
                 {
                   "type": {
                     "value": "Delete"
@@ -5078,7 +5236,7 @@
                   "parameters": [
                     "Credits",
                     "+",
-                    "15*MultiplyScore*ComboBonus"
+                    "floor(15*MultiplyScore*ComboBonus)"
                   ]
                 },
                 {
@@ -5158,6 +5316,7 @@
               ]
             },
             {
+              "folded": true,
               "type": "BuiltinCommonInstructions::Standard",
               "conditions": [
                 {
@@ -5174,6 +5333,28 @@
                 }
               ],
               "actions": [
+                {
+                  "type": {
+                    "value": "Create"
+                  },
+                  "parameters": [
+                    "",
+                    "Indicator_Text",
+                    "Bullet.BoundingBoxCenterX()-35",
+                    "Bullet.BoundingBoxCenterY()-10",
+                    "\"UI\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "BBText::SetBBText"
+                  },
+                  "parameters": [
+                    "Indicator_Text",
+                    "=",
+                    "\"[color=yellow]+C\"+ToString(floor(20*MultiplyScore*ComboBonus))+\"[/color]\""
+                  ]
+                },
                 {
                   "type": {
                     "value": "Delete"
@@ -5241,7 +5422,7 @@
                   "parameters": [
                     "Credits",
                     "+",
-                    "20*MultiplyScore*ComboBonus"
+                    "floor(20*MultiplyScore*ComboBonus)"
                   ]
                 }
               ],
@@ -5311,6 +5492,7 @@
               ]
             },
             {
+              "folded": true,
               "type": "BuiltinCommonInstructions::Standard",
               "conditions": [
                 {
@@ -5327,6 +5509,28 @@
                 }
               ],
               "actions": [
+                {
+                  "type": {
+                    "value": "Create"
+                  },
+                  "parameters": [
+                    "",
+                    "Indicator_Text",
+                    "Bullet.BoundingBoxCenterX()-35",
+                    "Bullet.BoundingBoxCenterY()-10",
+                    "\"UI\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "BBText::SetBBText"
+                  },
+                  "parameters": [
+                    "Indicator_Text",
+                    "=",
+                    "\"[color=yellow]+C\"+ToString(floor(30*MultiplyScore*ComboBonus))+\"[/color]\""
+                  ]
+                },
                 {
                   "type": {
                     "value": "LinkedObjects::PickObjectsLinkedTo"
@@ -5414,7 +5618,7 @@
                   "parameters": [
                     "Credits",
                     "+",
-                    "30*MultiplyScore*ComboBonus"
+                    "floor(30*MultiplyScore*ComboBonus)"
                   ]
                 },
                 {
@@ -5523,6 +5727,28 @@
               "actions": [
                 {
                   "type": {
+                    "value": "Create"
+                  },
+                  "parameters": [
+                    "",
+                    "Indicator_Text",
+                    "Bullet.BoundingBoxCenterX()-35",
+                    "Bullet.BoundingBoxCenterY()-10",
+                    "\"UI\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "BBText::SetBBText"
+                  },
+                  "parameters": [
+                    "Indicator_Text",
+                    "=",
+                    "\"[color=yellow]+C\"+ToString(floor(30*MultiplyScore*ComboBonus))+\"[/color]\""
+                  ]
+                },
+                {
+                  "type": {
                     "value": "Delete"
                   },
                   "parameters": [
@@ -5588,7 +5814,7 @@
                   "parameters": [
                     "Credits",
                     "+",
-                    "30*MultiplyScore*ComboBonus"
+                    "floor(30*MultiplyScore*ComboBonus)"
                   ]
                 },
                 {
@@ -5722,6 +5948,28 @@
               "actions": [
                 {
                   "type": {
+                    "value": "Create"
+                  },
+                  "parameters": [
+                    "",
+                    "Indicator_Text",
+                    "Bullet.BoundingBoxCenterX()-35",
+                    "Bullet.BoundingBoxCenterY()-10",
+                    "\"UI\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "BBText::SetBBText"
+                  },
+                  "parameters": [
+                    "Indicator_Text",
+                    "=",
+                    "\"[color=yellow]+C\"+ToString(floor(100*MultiplyScore*ComboBonus))+\"[/color]\""
+                  ]
+                },
+                {
+                  "type": {
                     "value": "Delete"
                   },
                   "parameters": [
@@ -5797,7 +6045,7 @@
                   "parameters": [
                     "Credits",
                     "+",
-                    "100*MultiplyScore*ComboBonus"
+                    "floor(100*MultiplyScore*ComboBonus)"
                   ]
                 }
               ]
@@ -6185,6 +6433,7 @@
           "comment": "Ui/ Time"
         },
         {
+          "folded": true,
           "type": "BuiltinCommonInstructions::Standard",
           "conditions": [],
           "actions": [],
@@ -8156,6 +8405,71 @@
               ]
             }
           ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Comment",
+          "color": {
+            "b": 109,
+            "g": 230,
+            "r": 255,
+            "textB": 0,
+            "textG": 0,
+            "textR": 0
+          },
+          "comment": "Indicators"
+        },
+        {
+          "type": "BuiltinCommonInstructions::ForEach",
+          "object": "Indicator_Text",
+          "conditions": [],
+          "actions": [
+            {
+              "type": {
+                "value": "Tween::TweenBehavior::AddObjectOpacityTween2"
+              },
+              "parameters": [
+                "Indicator_Text",
+                "Tween",
+                "\"Opacity\"",
+                "0",
+                "\"linear\"",
+                "0.5",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "Tween::TweenBehavior::AddObjectPositionTween2"
+              },
+              "parameters": [
+                "Indicator_Text",
+                "Tween",
+                "\"Position\"",
+                "Indicator_Text.X()",
+                "Indicator_Text.Y()-10",
+                "\"linear\"",
+                "0.5",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "Wait"
+              },
+              "parameters": [
+                "0.5"
+              ]
+            },
+            {
+              "type": {
+                "value": "Delete"
+              },
+              "parameters": [
+                "Indicator_Text",
+                ""
+              ]
+            }
+          ]
         }
       ],
       "layers": [
@@ -8315,6 +8629,10 @@
         {
           "name": "Text",
           "type": "TextContainerCapability::TextContainerBehavior"
+        },
+        {
+          "name": "Tween",
+          "type": "Tween::TweenBehavior"
         }
       ]
     },
