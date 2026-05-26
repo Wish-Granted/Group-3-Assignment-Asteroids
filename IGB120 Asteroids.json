@@ -4667,6 +4667,17 @@
                       ]
                     }
                   ]
+                },
+                {
+                  "type": {
+                    "value": "NumberObjectVariable"
+                  },
+                  "parameters": [
+                    "Ship",
+                    "ShieldCooldown",
+                    "<",
+                    "18"
+                  ]
                 }
               ],
               "actions": [
@@ -6176,7 +6187,6 @@
           "comment": "Shield"
         },
         {
-          "folded": true,
           "type": "BuiltinCommonInstructions::Standard",
           "conditions": [],
           "actions": [],
