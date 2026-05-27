@@ -962,7 +962,7 @@
     {
       "name": "Credits",
       "type": "number",
-      "value": 1500
+      "value": 0
     },
     {
       "name": "ReverseThrusters",
