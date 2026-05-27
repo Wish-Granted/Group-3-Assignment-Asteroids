@@ -3988,6 +3988,7 @@
           "actions": [],
           "events": [
             {
+              "folded": true,
               "type": "BuiltinCommonInstructions::Standard",
               "conditions": [
                 {
@@ -4210,6 +4211,32 @@
                   },
                   "parameters": [
                     "",
+                    "\"a\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Rotate"
+                  },
+                  "parameters": [
+                    "Ship",
+                    "-120 * (1+ThrusterLevel/5)",
+                    ""
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "KeyFromTextPressed"
+                  },
+                  "parameters": [
+                    "",
                     "\"Right\""
                   ]
                 }
@@ -4236,7 +4263,60 @@
                   },
                   "parameters": [
                     "",
+                    "\"d\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Rotate"
+                  },
+                  "parameters": [
+                    "Ship",
+                    "120 * (1+ThrusterLevel/5)",
+                    ""
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "KeyFromTextPressed"
+                  },
+                  "parameters": [
+                    "",
                     "\"Up\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "AddForceAL"
+                  },
+                  "parameters": [
+                    "Ship",
+                    "Ship.Angle()",
+                    "80*(1+ThrusterLevel/5)",
+                    ""
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "KeyFromTextPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "\"w\""
                   ]
                 }
               ],
@@ -4300,6 +4380,43 @@
                   },
                   "parameters": [
                     "ReverseThrusters",
+                    "True",
+                    ""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "KeyFromTextPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "\"s\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "AddForceAL"
+                  },
+                  "parameters": [
+                    "Ship",
+                    "Ship.Angle()",
+                    "-60*(1 + ThrusterLevel/5)",
+                    ""
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "BooleanVariable"
+                  },
+                  "parameters": [
+                    "ReverseThrusters",
                     "False",
                     ""
                   ]
@@ -4311,6 +4428,43 @@
                   "parameters": [
                     "",
                     "\"Down\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "AddForceAL"
+                  },
+                  "parameters": [
+                    "Ship",
+                    "Ship.Angle()",
+                    "-25*(1 + ThrusterLevel/5)",
+                    ""
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "BooleanVariable"
+                  },
+                  "parameters": [
+                    "ReverseThrusters",
+                    "False",
+                    ""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "KeyFromTextPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "\"s\""
                   ]
                 }
               ],
@@ -4478,7 +4632,6 @@
               ]
             },
             {
-              "folded": true,
               "type": "BuiltinCommonInstructions::Standard",
               "conditions": [
                 {
