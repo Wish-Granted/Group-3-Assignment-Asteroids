@@ -3972,7 +3972,6 @@
           "comment": "Ship Movement and Shooting"
         },
         {
-          "folded": true,
           "type": "BuiltinCommonInstructions::Standard",
           "conditions": [
             {
@@ -4196,7 +4195,7 @@
                   },
                   "parameters": [
                     "Ship",
-                    "-90 * (1+ThrusterLevel/5)",
+                    "-120 * (1+ThrusterLevel/5)",
                     ""
                   ]
                 }
@@ -4222,7 +4221,7 @@
                   },
                   "parameters": [
                     "Ship",
-                    "90 * (1+ThrusterLevel/5)",
+                    "120 * (1+ThrusterLevel/5)",
                     ""
                   ]
                 }
@@ -4552,6 +4551,7 @@
           "comment": "Taking Damage"
         },
         {
+          "folded": true,
           "type": "BuiltinCommonInstructions::Standard",
           "conditions": [],
           "actions": [],
@@ -5035,6 +5035,7 @@
           "comment": "Asteroids Collision"
         },
         {
+          "folded": true,
           "type": "BuiltinCommonInstructions::Standard",
           "conditions": [],
           "actions": [],
@@ -6187,6 +6188,7 @@
           "comment": "Shield"
         },
         {
+          "folded": true,
           "type": "BuiltinCommonInstructions::Standard",
           "conditions": [],
           "actions": [],
@@ -6442,6 +6444,7 @@
           "comment": "Ui/ Time"
         },
         {
+          "folded": true,
           "type": "BuiltinCommonInstructions::Standard",
           "conditions": [],
           "actions": [],
