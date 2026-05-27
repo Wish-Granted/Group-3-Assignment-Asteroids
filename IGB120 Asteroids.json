@@ -920,6 +920,32 @@
         "name": "assets/White 1Bit Square Fill Bar White.png",
         "smoothed": true,
         "userAdded": false
+      },
+      {
+        "file": "Arcade-Oddities.ogg",
+        "kind": "audio",
+        "metadata": "",
+        "name": "Arcade-Oddities.ogg",
+        "preloadAsMusic": false,
+        "preloadAsSound": false,
+        "preloadInCache": false,
+        "userAdded": false
+      },
+      {
+        "file": "gaseousAsteroid.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "gaseousAsteroid.png",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "file": "explosiveAsteroid.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "explosiveAsteroid.png",
+        "smoothed": true,
+        "userAdded": false
       }
     ]
   },
@@ -3039,7 +3065,7 @@
                   "sprites": [
                     {
                       "hasCustomCollisionMask": true,
-                      "image": "larg_asteroid_1_gaseous.png",
+                      "image": "gaseousAsteroid.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
@@ -3413,7 +3439,7 @@
                   "sprites": [
                     {
                       "hasCustomCollisionMask": true,
-                      "image": "larg_asteroid_1_explosive.png",
+                      "image": "explosiveAsteroid.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
@@ -3501,7 +3527,20 @@
               "value": 0
             }
           ],
-          "effects": [],
+          "effects": [
+            {
+              "effectType": "Outline",
+              "name": "Effect",
+              "doubleParameters": {
+                "padding": 0,
+                "thickness": 2
+              },
+              "stringParameters": {
+                "color": "255;0;0"
+              },
+              "booleanParameters": {}
+            }
+          ],
           "behaviors": [],
           "animations": [
             {
@@ -12039,7 +12078,7 @@
         "gridColor": 10401023,
         "gridAlpha": 0.8,
         "snap": false,
-        "zoomFactor": 0.8897031997773305,
+        "zoomFactor": 0.753754407350175,
         "windowMask": false,
         "selectedLayer": "",
         "gameEditorMode": "instances-editor"
@@ -15214,6 +15253,19 @@
                 "=",
                 "1"
               ]
+            },
+            {
+              "type": {
+                "value": "PlaySoundOnChannel"
+              },
+              "parameters": [
+                "",
+                "Arcade-Oddities.ogg",
+                "0",
+                "",
+                "80",
+                ""
+              ]
             }
           ]
         },
@@ -15384,7 +15436,7 @@
                 "value": "Wait"
               },
               "parameters": [
-                "1.25"
+                "1.35"
               ]
             },
             {
@@ -15456,6 +15508,23 @@
             }
           ],
           "actions": [
+            {
+              "type": {
+                "value": "Wait"
+              },
+              "parameters": [
+                "1.2"
+              ]
+            },
+            {
+              "type": {
+                "value": "StopSoundChannel"
+              },
+              "parameters": [
+                "",
+                "0"
+              ]
+            },
             {
               "type": {
                 "value": "PushScene"
