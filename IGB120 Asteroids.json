@@ -1102,7 +1102,7 @@
         "gridColor": 10401023,
         "gridAlpha": 0.8,
         "snap": false,
-        "zoomFactor": 1.6196327308098708,
+        "zoomFactor": 0.7307068231308416,
         "windowMask": false,
         "selectedLayer": "",
         "gameEditorMode": "instances-editor"
@@ -1366,6 +1366,22 @@
           "x": 20,
           "y": 495,
           "zOrder": 99,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "keepRatio": true,
+          "layer": "",
+          "name": "ReminderText",
+          "persistentUuid": "5e27849f-0495-4850-8bf6-5dc1d7c9fc1b",
+          "width": 0,
+          "x": 20,
+          "y": 485,
+          "zOrder": 9,
           "numberProperties": [],
           "stringProperties": [],
           "initialVariables": []
@@ -4119,6 +4135,50 @@
             "PreviousHighValueDuration": 0,
             "EasingDuration": 0.25
           }
+        },
+        {
+          "assetStoreId": "",
+          "bold": false,
+          "italic": false,
+          "name": "ReminderText",
+          "persistentUuid": "58aa3d5d-7e14-41be-ac96-3a25719cad2f",
+          "smoothed": true,
+          "type": "TextObject::Text",
+          "underlined": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "string": "Don't shoot the powerups! Fly into them to get their effect.",
+          "font": "BoldsPixels.ttf",
+          "textAlignment": "left",
+          "characterSize": 32,
+          "color": {
+            "b": 255,
+            "g": 255,
+            "r": 255
+          },
+          "content": {
+            "bold": false,
+            "isOutlineEnabled": false,
+            "isShadowEnabled": false,
+            "italic": false,
+            "outlineColor": "255;255;255",
+            "outlineThickness": 2,
+            "shadowAngle": 90,
+            "shadowBlurRadius": 2,
+            "shadowColor": "0;0;0",
+            "shadowDistance": 4,
+            "shadowOpacity": 127,
+            "smoothed": true,
+            "underlined": false,
+            "text": "Don't shoot the powerups! Fly into them to get their effect.",
+            "font": "BoldsPixels.ttf",
+            "textAlignment": "left",
+            "verticalTextAlignment": "top",
+            "characterSize": 32,
+            "lineHeight": 0,
+            "color": "255;255;255"
+          }
         }
       ],
       "objectsFolderStructure": {
@@ -4168,6 +4228,9 @@
           },
           {
             "objectName": "InstructionsText"
+          },
+          {
+            "objectName": "ReminderText"
           },
           {
             "objectName": "LargeGaseous"
@@ -6900,6 +6963,7 @@
           "comment": "Ui/ Time"
         },
         {
+          "folded": true,
           "type": "BuiltinCommonInstructions::Standard",
           "conditions": [],
           "actions": [],
@@ -7380,6 +7444,14 @@
             }
           ],
           "actions": [
+            {
+              "type": {
+                "value": "Hide"
+              },
+              "parameters": [
+                "ReminderText"
+              ]
+            },
             {
               "type": {
                 "value": "Health::Health::SetMaxHealthOp"
@@ -8362,6 +8434,41 @@
                     "=",
                     "RandomFloatInRange(10,15)"
                   ]
+                },
+                {
+                  "type": {
+                    "value": "SetNumberVariable"
+                  },
+                  "parameters": [
+                    "InstructionsTime",
+                    "=",
+                    "0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Show"
+                  },
+                  "parameters": [
+                    "ReminderText",
+                    ""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Wait"
+                  },
+                  "parameters": [
+                    "10"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Hide"
+                  },
+                  "parameters": [
+                    "ReminderText"
+                  ]
                 }
               ]
             },
@@ -8905,6 +9012,41 @@
                     "TimeToMultiplier",
                     "=",
                     "RandomFloatInRange(10,15)"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetNumberVariable"
+                  },
+                  "parameters": [
+                    "InstructionsTime",
+                    "=",
+                    "0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Show"
+                  },
+                  "parameters": [
+                    "ReminderText",
+                    ""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Wait"
+                  },
+                  "parameters": [
+                    "10"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Hide"
+                  },
+                  "parameters": [
+                    "ReminderText"
                   ]
                 }
               ]
