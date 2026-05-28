@@ -946,6 +946,22 @@
         "name": "explosiveAsteroid.png",
         "smoothed": true,
         "userAdded": false
+      },
+      {
+        "file": "goodend.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "goodend.png",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "file": "badend.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "badend.png",
+        "smoothed": true,
+        "userAdded": false
       }
     ]
   },
@@ -1102,7 +1118,7 @@
         "gridColor": 10401023,
         "gridAlpha": 0.8,
         "snap": false,
-        "zoomFactor": 0.7307068231308416,
+        "zoomFactor": 1.0523902021944542,
         "windowMask": false,
         "selectedLayer": "",
         "gameEditorMode": "instances-editor"
@@ -2834,7 +2850,7 @@
           "variables": [],
           "effects": [],
           "behaviors": [],
-          "string": "SOL 0",
+          "string": "DAY 0",
           "font": "BoldsPixels.ttf",
           "textAlignment": "left",
           "characterSize": 30,
@@ -2857,7 +2873,7 @@
             "shadowOpacity": 127,
             "smoothed": true,
             "underlined": false,
-            "text": "SOL 0",
+            "text": "DAY 0",
             "font": "BoldsPixels.ttf",
             "textAlignment": "left",
             "verticalTextAlignment": "top",
@@ -6963,7 +6979,6 @@
           "comment": "Ui/ Time"
         },
         {
-          "folded": true,
           "type": "BuiltinCommonInstructions::Standard",
           "conditions": [],
           "actions": [],
@@ -7237,7 +7252,7 @@
                     "SolText",
                     "Text",
                     "=",
-                    "\"Sol \" + Sol"
+                    "\"Day \" + Sol"
                   ]
                 },
                 {
@@ -12320,8 +12335,8 @@
           "name": "TitleText",
           "persistentUuid": "7970c182-32c2-4a54-8955-874851843166",
           "width": 0,
-          "x": 462,
-          "y": 40,
+          "x": 347,
+          "y": 50,
           "zOrder": 6,
           "numberProperties": [],
           "stringProperties": [],
@@ -12472,6 +12487,23 @@
           "x": 173,
           "y": 175,
           "zOrder": 13,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 64,
+          "height": 63,
+          "keepRatio": true,
+          "layer": "",
+          "name": "cutscenebutton",
+          "persistentUuid": "e098686e-5526-4ad8-893b-a9d65bebcfc7",
+          "width": 192,
+          "x": 510,
+          "y": 473,
+          "zOrder": 14,
           "numberProperties": [],
           "stringProperties": [],
           "initialVariables": []
@@ -12638,7 +12670,7 @@
           "string": "The Mines of Kuiper",
           "font": "BoldsPixels.ttf",
           "textAlignment": "left",
-          "characterSize": 50,
+          "characterSize": 70,
           "color": {
             "b": 255,
             "g": 255,
@@ -12662,7 +12694,7 @@
             "font": "BoldsPixels.ttf",
             "textAlignment": "left",
             "verticalTextAlignment": "top",
-            "characterSize": 50,
+            "characterSize": 70,
             "lineHeight": 0,
             "color": "255;255;255"
           }
@@ -12862,6 +12894,25 @@
             "HoveredFadeOutDuration": 0.25,
             "LabelText": "Repair Ship Now\nC500"
           }
+        },
+        {
+          "assetStoreId": "5f0df6131c9646dcbe98798196db5b6d806eb25564f86d2e119a084d1e20bf74",
+          "name": "cutscenebutton",
+          "persistentUuid": "ee183f2a-6aa4-456c-84aa-b706dec91839",
+          "type": "PanelSpriteButton::PanelSpriteButton",
+          "variant": "Small Button",
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "content": {
+            "LeftPadding": 16,
+            "RightPadding": 16,
+            "PressedLabelOffsetY": 6,
+            "BottomPadding": 24,
+            "TopPadding": 20,
+            "HoveredFadeOutDuration": 0.25,
+            "LabelText": "View Cutscene"
+          }
         }
       ],
       "objectsFolderStructure": {
@@ -12905,6 +12956,9 @@
           },
           {
             "objectName": "Ship_Condition"
+          },
+          {
+            "objectName": "cutscenebutton"
           }
         ]
       },
@@ -13416,7 +13470,7 @@
                 "SolText",
                 "Text",
                 "=",
-                "\"Sol \" + Sol"
+                "\"Day \" + Sol"
               ]
             },
             {
@@ -13966,6 +14020,31 @@
                 "repair_ship",
                 "",
                 ""
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "PanelSpriteButton::PanelSpriteButton::IsClicked"
+              },
+              "parameters": [
+                "cutscenebutton",
+                ""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "PushScene"
+              },
+              "parameters": [
+                "",
+                "\"Cutscene\""
               ]
             }
           ]
@@ -14536,7 +14615,7 @@
           "variables": [],
           "effects": [],
           "behaviors": [],
-          "string": "Sol 1",
+          "string": "Day 1",
           "font": "BoldsPixels.ttf",
           "textAlignment": "left",
           "characterSize": 100,
@@ -14559,7 +14638,7 @@
             "shadowOpacity": 127,
             "smoothed": true,
             "underlined": false,
-            "text": "Sol 1",
+            "text": "Day 1",
             "font": "BoldsPixels.ttf",
             "textAlignment": "left",
             "verticalTextAlignment": "top",
@@ -14646,7 +14725,7 @@
                 "SolText",
                 "Text",
                 "=",
-                "\"Sol \" + Sol"
+                "\"Day \" + Sol"
               ]
             },
             {
@@ -15024,7 +15103,7 @@
           "string": "Text",
           "font": "BoldsPixels.ttf",
           "textAlignment": "left",
-          "characterSize": 35,
+          "characterSize": 32,
           "color": {
             "b": 255,
             "g": 255,
@@ -15048,7 +15127,7 @@
             "font": "BoldsPixels.ttf",
             "textAlignment": "left",
             "verticalTextAlignment": "top",
-            "characterSize": 35,
+            "characterSize": 32,
             "lineHeight": 45,
             "color": "255;255;255"
           }
@@ -15374,7 +15453,7 @@
                 "cutscene_text",
                 "Text",
                 "=",
-                "\"The new 'Auto-Miner 4072'! Available now for 10000 Credits!! Call Today, offer lasts until Sol 6!\""
+                "\"The new 'Auto-Miner 4072'! Available now for 10000 Credits!! Call Today, offer lasts for 6 days!\""
               ]
             },
             {
@@ -16173,7 +16252,7 @@
         "gridColor": 10401023,
         "gridAlpha": 0.8,
         "snap": false,
-        "zoomFactor": 0.7291666666666666,
+        "zoomFactor": 0.5062828002597243,
         "windowMask": false,
         "selectedLayer": "",
         "gameEditorMode": "instances-editor"
@@ -16197,6 +16276,56 @@
           "numberProperties": [],
           "stringProperties": [],
           "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 556,
+          "keepRatio": true,
+          "layer": "",
+          "name": "image",
+          "persistentUuid": "b8d27269-0144-4fde-82ef-78c643e65f36",
+          "width": 989,
+          "x": -15,
+          "y": -8,
+          "zOrder": 2,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 64,
+          "height": 64,
+          "keepRatio": true,
+          "layer": "",
+          "name": "BlackDecoratedButton",
+          "persistentUuid": "f396c5e7-cb40-4bad-95ad-2e3be5fd8826",
+          "width": 142,
+          "x": 806,
+          "y": 467,
+          "zOrder": 3,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "keepRatio": true,
+          "layer": "",
+          "name": "Text",
+          "persistentUuid": "2b0a09fe-82a6-438a-9ec4-f5081cba6a02",
+          "width": 0,
+          "x": 38,
+          "y": 48,
+          "zOrder": 4,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
         }
       ],
       "objects": [
@@ -16212,10 +16341,10 @@
           "variables": [],
           "effects": [],
           "behaviors": [],
-          "string": "You got the good ending!",
-          "font": "",
+          "string": "Good Ending!",
+          "font": "BoldsPixels.ttf",
           "textAlignment": "center",
-          "characterSize": 100,
+          "characterSize": 80,
           "color": {
             "b": 255,
             "g": 255,
@@ -16223,11 +16352,11 @@
           },
           "content": {
             "bold": false,
-            "isOutlineEnabled": false,
+            "isOutlineEnabled": true,
             "isShadowEnabled": false,
             "italic": false,
-            "outlineColor": "255;255;255",
-            "outlineThickness": 2,
+            "outlineColor": "0;0;0",
+            "outlineThickness": 5,
             "shadowAngle": 90,
             "shadowBlurRadius": 2,
             "shadowColor": "0;0;0",
@@ -16235,13 +16364,93 @@
             "shadowOpacity": 127,
             "smoothed": true,
             "underlined": false,
-            "text": "You got the good ending!",
-            "font": "",
+            "text": "Good Ending!",
+            "font": "BoldsPixels.ttf",
             "textAlignment": "center",
             "verticalTextAlignment": "center",
-            "characterSize": 100,
+            "characterSize": 80,
             "lineHeight": 0,
             "color": "255;255;255"
+          }
+        },
+        {
+          "adaptCollisionMaskAutomatically": true,
+          "assetStoreId": "",
+          "name": "image",
+          "persistentUuid": "26acfbdc-fbee-4da3-b5af-404c2f5d5d06",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "animations": [
+            {
+              "name": "",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "goodend.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 0,
+                            "y": 0
+                          },
+                          {
+                            "x": 1920,
+                            "y": 0
+                          },
+                          {
+                            "x": 1920,
+                            "y": 1080
+                          },
+                          {
+                            "x": 0,
+                            "y": 1080
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "assetStoreId": "5f0df6131c9646dcbe98798196db5b6d806eb25564f86d2e119a084d1e20bf74",
+          "name": "BlackDecoratedButton",
+          "persistentUuid": "6a4b7c11-0f0b-41c4-925e-3efa8fe230de",
+          "type": "PanelSpriteButton::PanelSpriteButton",
+          "variant": "Button",
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "content": {
+            "LeftPadding": 16,
+            "RightPadding": 16,
+            "PressedLabelOffsetY": 6,
+            "BottomPadding": 24,
+            "TopPadding": 20,
+            "HoveredFadeOutDuration": 0.25,
+            "LabelText": "Quit"
           }
         }
       ],
@@ -16250,10 +16459,41 @@
         "children": [
           {
             "objectName": "Text"
+          },
+          {
+            "objectName": "image"
+          },
+          {
+            "objectName": "BlackDecoratedButton"
           }
         ]
       },
-      "events": [],
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "PanelSpriteButton::PanelSpriteButton::IsClicked"
+              },
+              "parameters": [
+                "BlackDecoratedButton",
+                ""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "Quit"
+              },
+              "parameters": [
+                ""
+              ]
+            }
+          ]
+        }
+      ],
       "layers": [
         {
           "ambientLightColorB": 200,
@@ -16323,12 +16563,24 @@
       ],
       "behaviorsSharedData": [
         {
+          "name": "Animation",
+          "type": "AnimatableCapability::AnimatableBehavior"
+        },
+        {
           "name": "Effect",
           "type": "EffectCapability::EffectBehavior"
         },
         {
+          "name": "Flippable",
+          "type": "FlippableCapability::FlippableBehavior"
+        },
+        {
           "name": "Opacity",
           "type": "OpacityCapability::OpacityBehavior"
+        },
+        {
+          "name": "Resizable",
+          "type": "ResizableCapability::ResizableBehavior"
         },
         {
           "name": "Scale",
@@ -16362,7 +16614,7 @@
         "gridColor": 10401023,
         "gridAlpha": 0.8,
         "snap": false,
-        "zoomFactor": 0.7291666666666666,
+        "zoomFactor": 0.6601120098331854,
         "windowMask": false,
         "selectedLayer": "",
         "gameEditorMode": "instances-editor"
@@ -16386,6 +16638,72 @@
           "numberProperties": [],
           "stringProperties": [],
           "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 549,
+          "keepRatio": true,
+          "layer": "",
+          "name": "NewSprite",
+          "persistentUuid": "c7a2ea19-3641-4146-b06b-dd918cc8b990",
+          "width": 976,
+          "x": -9,
+          "y": -5,
+          "zOrder": 2,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "keepRatio": true,
+          "layer": "",
+          "name": "Text",
+          "persistentUuid": "c386f10a-fc7a-4697-ae1a-e5730a8860ab",
+          "width": 0,
+          "x": 55,
+          "y": 469,
+          "zOrder": 3,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "keepRatio": true,
+          "layer": "",
+          "name": "NewText",
+          "persistentUuid": "dce3aed2-8dde-4fdb-814a-e2f8febf03a4",
+          "width": 0,
+          "x": 75,
+          "y": 19,
+          "zOrder": 4,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 64,
+          "height": 64,
+          "keepRatio": true,
+          "layer": "",
+          "name": "BlackDecoratedButton",
+          "persistentUuid": "01eeac02-58e6-4178-b87b-9f688d32efed",
+          "width": 132,
+          "x": 823,
+          "y": 471,
+          "zOrder": 5,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
         }
       ],
       "objects": [
@@ -16401,8 +16719,8 @@
           "variables": [],
           "effects": [],
           "behaviors": [],
-          "string": "You got the bad ending!",
-          "font": "",
+          "string": "Sold Out",
+          "font": "BoldsPixels.ttf",
           "textAlignment": "center",
           "characterSize": 100,
           "color": {
@@ -16412,11 +16730,11 @@
           },
           "content": {
             "bold": false,
-            "isOutlineEnabled": false,
+            "isOutlineEnabled": true,
             "isShadowEnabled": false,
             "italic": false,
-            "outlineColor": "255;255;255",
-            "outlineThickness": 2,
+            "outlineColor": "0;0;0",
+            "outlineThickness": 7,
             "shadowAngle": 90,
             "shadowBlurRadius": 2,
             "shadowColor": "0;0;0",
@@ -16424,13 +16742,137 @@
             "shadowOpacity": 127,
             "smoothed": true,
             "underlined": false,
-            "text": "You got the bad ending!",
-            "font": "",
+            "text": "Sold Out",
+            "font": "BoldsPixels.ttf",
             "textAlignment": "center",
             "verticalTextAlignment": "center",
             "characterSize": 100,
             "lineHeight": 0,
             "color": "255;255;255"
+          }
+        },
+        {
+          "adaptCollisionMaskAutomatically": true,
+          "assetStoreId": "",
+          "name": "NewSprite",
+          "persistentUuid": "3fcc1154-1cd4-42cb-aaad-eb1d7f2183b4",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "animations": [
+            {
+              "name": "",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "badend.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 0,
+                            "y": 0
+                          },
+                          {
+                            "x": 1920,
+                            "y": 0
+                          },
+                          {
+                            "x": 1920,
+                            "y": 1080
+                          },
+                          {
+                            "x": 0,
+                            "y": 1080
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "assetStoreId": "",
+          "bold": false,
+          "italic": false,
+          "name": "NewText",
+          "persistentUuid": "31da567b-15bd-46d5-b5fe-8e82fe23073a",
+          "smoothed": true,
+          "type": "TextObject::Text",
+          "underlined": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "string": "Bad Ending...",
+          "font": "BoldsPixels.ttf",
+          "textAlignment": "left",
+          "characterSize": 80,
+          "color": {
+            "b": 255,
+            "g": 255,
+            "r": 255
+          },
+          "content": {
+            "bold": false,
+            "isOutlineEnabled": true,
+            "isShadowEnabled": false,
+            "italic": false,
+            "outlineColor": "0;0;0",
+            "outlineThickness": 5,
+            "shadowAngle": 90,
+            "shadowBlurRadius": 2,
+            "shadowColor": "0;0;0",
+            "shadowDistance": 4,
+            "shadowOpacity": 127,
+            "smoothed": true,
+            "underlined": false,
+            "text": "Bad Ending...",
+            "font": "BoldsPixels.ttf",
+            "textAlignment": "left",
+            "verticalTextAlignment": "top",
+            "characterSize": 80,
+            "lineHeight": 0,
+            "color": "255;255;255"
+          }
+        },
+        {
+          "assetStoreId": "5f0df6131c9646dcbe98798196db5b6d806eb25564f86d2e119a084d1e20bf74",
+          "name": "BlackDecoratedButton",
+          "persistentUuid": "2dff7135-9cd9-459c-bc81-f3e9e3b7af16",
+          "type": "PanelSpriteButton::PanelSpriteButton",
+          "variant": "Button",
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "content": {
+            "LeftPadding": 16,
+            "RightPadding": 16,
+            "PressedLabelOffsetY": 6,
+            "BottomPadding": 24,
+            "TopPadding": 20,
+            "HoveredFadeOutDuration": 0.25,
+            "LabelText": "Quit"
           }
         }
       ],
@@ -16439,10 +16881,44 @@
         "children": [
           {
             "objectName": "Text"
+          },
+          {
+            "objectName": "NewSprite"
+          },
+          {
+            "objectName": "NewText"
+          },
+          {
+            "objectName": "BlackDecoratedButton"
           }
         ]
       },
-      "events": [],
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "PanelSpriteButton::PanelSpriteButton::IsClicked"
+              },
+              "parameters": [
+                "BlackDecoratedButton",
+                ""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "Quit"
+              },
+              "parameters": [
+                ""
+              ]
+            }
+          ]
+        }
+      ],
       "layers": [
         {
           "ambientLightColorB": 200,
@@ -16512,12 +16988,24 @@
       ],
       "behaviorsSharedData": [
         {
+          "name": "Animation",
+          "type": "AnimatableCapability::AnimatableBehavior"
+        },
+        {
           "name": "Effect",
           "type": "EffectCapability::EffectBehavior"
         },
         {
+          "name": "Flippable",
+          "type": "FlippableCapability::FlippableBehavior"
+        },
+        {
           "name": "Opacity",
           "type": "OpacityCapability::OpacityBehavior"
+        },
+        {
+          "name": "Resizable",
+          "type": "ResizableCapability::ResizableBehavior"
         },
         {
           "name": "Scale",
