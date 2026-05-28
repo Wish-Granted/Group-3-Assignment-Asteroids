@@ -1118,7 +1118,7 @@
         "gridColor": 10401023,
         "gridAlpha": 0.8,
         "snap": false,
-        "zoomFactor": 1.0523902021944542,
+        "zoomFactor": 0.7553464983986968,
         "windowMask": false,
         "selectedLayer": "",
         "gameEditorMode": "instances-editor"
@@ -1174,6 +1174,11 @@
           "name": "ComboTimer",
           "type": "number",
           "value": 1
+        },
+        {
+          "name": "TimeSinceShoot",
+          "type": "number",
+          "value": 0
         }
       ],
       "instances": [
@@ -1391,12 +1396,30 @@
           "customSize": false,
           "height": 0,
           "keepRatio": true,
-          "layer": "",
-          "name": "ReminderText",
+          "layer": "UI",
+          "name": "PowerupReminder",
           "persistentUuid": "5e27849f-0495-4850-8bf6-5dc1d7c9fc1b",
           "width": 0,
           "x": 20,
           "y": 485,
+          "zOrder": 9,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 0,
+          "height": 42,
+          "keepRatio": true,
+          "layer": "UI",
+          "name": "ShootingReminder",
+          "opacity": 204,
+          "persistentUuid": "78cede08-eeb5-4e8d-a318-b27091131fd7",
+          "width": 417,
+          "x": 271,
+          "y": 249,
           "zOrder": 9,
           "numberProperties": [],
           "stringProperties": [],
@@ -4156,7 +4179,7 @@
           "assetStoreId": "",
           "bold": false,
           "italic": false,
-          "name": "ReminderText",
+          "name": "PowerupReminder",
           "persistentUuid": "58aa3d5d-7e14-41be-ac96-3a25719cad2f",
           "smoothed": true,
           "type": "TextObject::Text",
@@ -4192,6 +4215,50 @@
             "textAlignment": "left",
             "verticalTextAlignment": "top",
             "characterSize": 32,
+            "lineHeight": 0,
+            "color": "255;255;255"
+          }
+        },
+        {
+          "assetStoreId": "",
+          "bold": false,
+          "italic": false,
+          "name": "ShootingReminder",
+          "persistentUuid": "e292c7b7-863b-458b-8a23-2047e834e18f",
+          "smoothed": true,
+          "type": "TextObject::Text",
+          "underlined": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "string": "Press space to shoot",
+          "font": "BoldsPixels.ttf",
+          "textAlignment": "left",
+          "characterSize": 48,
+          "color": {
+            "b": 255,
+            "g": 255,
+            "r": 255
+          },
+          "content": {
+            "bold": false,
+            "isOutlineEnabled": false,
+            "isShadowEnabled": false,
+            "italic": false,
+            "outlineColor": "255;255;255",
+            "outlineThickness": 2,
+            "shadowAngle": 90,
+            "shadowBlurRadius": 2,
+            "shadowColor": "0;0;0",
+            "shadowDistance": 4,
+            "shadowOpacity": 127,
+            "smoothed": true,
+            "underlined": false,
+            "text": "Press space to shoot",
+            "font": "BoldsPixels.ttf",
+            "textAlignment": "left",
+            "verticalTextAlignment": "top",
+            "characterSize": 48,
             "lineHeight": 0,
             "color": "255;255;255"
           }
@@ -4246,7 +4313,10 @@
             "objectName": "InstructionsText"
           },
           {
-            "objectName": "ReminderText"
+            "objectName": "PowerupReminder"
+          },
+          {
+            "objectName": "ShootingReminder"
           },
           {
             "objectName": "LargeGaseous"
@@ -4366,6 +4436,16 @@
                     "FireCooldown",
                     "=",
                     "0.75 / (1 + GunsLevel/3)"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetNumberVariable"
+                  },
+                  "parameters": [
+                    "TimeSinceShoot",
+                    "=",
+                    "0"
                   ]
                 }
               ],
@@ -6979,6 +7059,7 @@
           "comment": "Ui/ Time"
         },
         {
+          "folded": true,
           "type": "BuiltinCommonInstructions::Standard",
           "conditions": [],
           "actions": [],
@@ -7464,7 +7545,7 @@
                 "value": "Hide"
               },
               "parameters": [
-                "ReminderText"
+                "PowerupReminder"
               ]
             },
             {
@@ -7695,7 +7776,7 @@
               "parameters": [
                 "AsteroidCount",
                 "<",
-                "(Time.Hours) + pow(1.8,Sol) + 3"
+                "(Time.Hours) + 0.7*pow(2,Sol) + 2"
               ]
             }
           ],
@@ -8465,7 +8546,7 @@
                     "value": "Show"
                   },
                   "parameters": [
-                    "ReminderText",
+                    "PowerupReminder",
                     ""
                   ]
                 },
@@ -8482,7 +8563,7 @@
                     "value": "Hide"
                   },
                   "parameters": [
-                    "ReminderText"
+                    "PowerupReminder"
                   ]
                 }
               ]
@@ -9044,7 +9125,7 @@
                     "value": "Show"
                   },
                   "parameters": [
-                    "ReminderText",
+                    "PowerupReminder",
                     ""
                   ]
                 },
@@ -9061,7 +9142,7 @@
                     "value": "Hide"
                   },
                   "parameters": [
-                    "ReminderText"
+                    "PowerupReminder"
                   ]
                 }
               ]
@@ -9151,6 +9232,56 @@
               },
               "parameters": [
                 "InstructionsText"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "NumberVariable"
+              },
+              "parameters": [
+                "TimeSinceShoot",
+                ">=",
+                "8"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "Show"
+              },
+              "parameters": [
+                "ShootingReminder",
+                ""
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Else",
+          "conditions": [],
+          "actions": [
+            {
+              "type": {
+                "value": "Hide"
+              },
+              "parameters": [
+                "ShootingReminder"
+              ]
+            },
+            {
+              "type": {
+                "value": "SetNumberVariable"
+              },
+              "parameters": [
+                "TimeSinceShoot",
+                "+",
+                "TimeDelta()"
               ]
             }
           ]
@@ -15013,6 +15144,22 @@
           "numberProperties": [],
           "stringProperties": [],
           "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "keepRatio": true,
+          "layer": "",
+          "name": "SkipGuide",
+          "persistentUuid": "0b93b41e-1c6d-4ae7-b9ed-1903dc82185e",
+          "width": 0,
+          "x": 22,
+          "y": 16,
+          "zOrder": 7,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
         }
       ],
       "objects": [
@@ -15390,6 +15537,50 @@
               ]
             }
           ]
+        },
+        {
+          "assetStoreId": "",
+          "bold": false,
+          "italic": false,
+          "name": "SkipGuide",
+          "persistentUuid": "731370ba-5de3-4bba-bd00-f75effcd8a87",
+          "smoothed": true,
+          "type": "TextObject::Text",
+          "underlined": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "string": "Press Esc to skip",
+          "font": "BoldsPixels.ttf",
+          "textAlignment": "left",
+          "characterSize": 24,
+          "color": {
+            "b": 255,
+            "g": 255,
+            "r": 255
+          },
+          "content": {
+            "bold": false,
+            "isOutlineEnabled": false,
+            "isShadowEnabled": false,
+            "italic": false,
+            "outlineColor": "255;255;255",
+            "outlineThickness": 2,
+            "shadowAngle": 90,
+            "shadowBlurRadius": 2,
+            "shadowColor": "0;0;0",
+            "shadowDistance": 4,
+            "shadowOpacity": 127,
+            "smoothed": true,
+            "underlined": false,
+            "text": "Press Esc to skip",
+            "font": "BoldsPixels.ttf",
+            "textAlignment": "left",
+            "verticalTextAlignment": "top",
+            "characterSize": 24,
+            "lineHeight": 0,
+            "color": "255;255;255"
+          }
         }
       ],
       "objectsFolderStructure": {
@@ -15412,6 +15603,9 @@
           },
           {
             "objectName": "walletEmpty"
+          },
+          {
+            "objectName": "SkipGuide"
           }
         ]
       },
@@ -15737,6 +15931,40 @@
                 "1.2"
               ]
             },
+            {
+              "type": {
+                "value": "StopSoundChannel"
+              },
+              "parameters": [
+                "",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "PushScene"
+              },
+              "parameters": [
+                "",
+                "\"Day Start\""
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "KeyFromTextJustPressed"
+              },
+              "parameters": [
+                "",
+                "\"Escape\""
+              ]
+            }
+          ],
+          "actions": [
             {
               "type": {
                 "value": "StopSoundChannel"
