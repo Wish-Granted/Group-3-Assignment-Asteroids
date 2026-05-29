@@ -4435,7 +4435,7 @@
                     "Ship",
                     "FireCooldown",
                     "=",
-                    "0.75 / (1 + GunsLevel/3)"
+                    "0.75 / (1 + GunsLevel/2)"
                   ]
                 },
                 {
